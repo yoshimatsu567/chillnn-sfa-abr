@@ -1,0 +1,29 @@
+type EventMast {
+    eventID: ID!
+    clientID: ID!
+    editedUserID: ID!
+    eventDetail: String!
+    eventStatus: String!
+    eventMemo: String
+    eventTerm: String
+    eventDate: String
+    # status
+    createdAt: AWSTimestamp!
+    updatedAt: AWSTimestamp!
+    deletedAt: AWSTimestamp
+}
+
+input EventMastInput {
+    eventID: ID!
+    clientID: ID!
+    editedUserID: ID!
+    eventDetail: String!
+    eventStatus: String!
+    eventMemo: String
+    eventTerm: String
+    eventDate: String
+    # status
+    createdAt: AWSTimestamp!
+    updatedAt: AWSTimestamp!
+    deletedAt: AWSTimestamp
+}

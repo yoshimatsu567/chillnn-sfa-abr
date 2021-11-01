@@ -1,0 +1,27 @@
+type PhaseMast {
+    phaseID: ID!
+    clientID: ID!
+    editedUserID: ID!
+    phaseDetail: String!
+    phaseStatus: String
+    phaseTerm: String
+    phaseDate: String
+    # status
+    createdAt: AWSTimestamp!
+    updatedAt: AWSTimestamp!
+    deletedAt: AWSTimestamp
+}
+
+input PhaseMastInput {
+    phaseID: ID!
+    clientID: ID!
+    editedUserID: ID!
+    phaseDetail: String!
+    phaseStatus: String
+    phaseTerm: String
+    phaseDate: String
+    # status
+    createdAt: AWSTimestamp!
+    updatedAt: AWSTimestamp!
+    deletedAt: AWSTimestamp
+}

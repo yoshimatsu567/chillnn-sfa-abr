@@ -1,0 +1,25 @@
+type UserMast {
+    userID: ID!
+    name: String!
+    email: String!
+    phoneNumber: String
+    jobTitleName: String
+    userStatus: String!
+    # status
+    createdAt: AWSTimestamp!
+    updatedAt: AWSTimestamp!
+    deletedAt: AWSTimestamp
+}
+
+input UserMastInput {
+    userID: ID!
+    name: String!
+    email: String!
+    phoneNumber: String
+    jobTitleName: String
+    userStatus: String!
+    # status
+    createdAt: AWSTimestamp!
+    updatedAt: AWSTimestamp!
+    deletedAt: AWSTimestamp
+}

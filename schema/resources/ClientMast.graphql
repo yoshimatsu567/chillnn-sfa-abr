@@ -1,0 +1,43 @@
+type ClientMast {
+    clientID: ID!
+    chargeUserID: ID
+    companyName: String
+    accommodationName: String!
+    clientUserName: String
+    expectedSalesAmount: String
+    prefecture: String
+    homePagePotential: String
+    clientEmail: String!
+    clientPhoneNumber: String
+    requiredTime: String
+    phaseStatus: String
+    appointmentStatus: String
+    pastStatus: String
+    newStatus: String
+    # status
+    createdAt: AWSTimestamp!
+    updatedAt: AWSTimestamp!
+    deletedAt: AWSTimestamp
+}
+
+input ClientMastInput {
+    clientID: ID!
+    chargeUserID: ID
+    companyName: String
+    accommodationName: String!
+    clientUserName: String
+    expectedSalesAmount: String
+    prefecture: String
+    homePagePotential: String
+    clientEmail: String!
+    clientPhoneNumber: String
+    requiredTime: String
+    phaseStatus: String
+    appointmentStatus: String
+    pastStatus: String
+    newStatus: String
+    #status
+    createdAt: AWSTimestamp!
+    updatedAt: AWSTimestamp!
+    deletedAt: AWSTimestamp
+}

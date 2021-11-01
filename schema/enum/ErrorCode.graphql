@@ -1,0 +1,5 @@
+enum ErrorCode {
+    chillnnSFAError_401_notSignIn
+    chillnnSFAError_404_resourceNotFound
+    chillnnSFAError_500_systemError
+}
