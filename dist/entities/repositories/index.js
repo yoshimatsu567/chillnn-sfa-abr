@@ -1,0 +1,29 @@
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RepositoryContainer = void 0;
+__exportStar(require("./modules/userMastRepository"), exports);
+class RepositoryContainer {
+    userMastRepository;
+    clientMastRepository;
+    eventMastRepository;
+    phaseMastRepository;
+    constructor(
+    // entity
+    userMastRepository, clientMastRepository, eventMastRepository, phaseMastRepository) {
+        this.userMastRepository = userMastRepository;
+        this.clientMastRepository = clientMastRepository;
+        this.eventMastRepository = eventMastRepository;
+        this.phaseMastRepository = phaseMastRepository;
+    }
+}
+exports.RepositoryContainer = RepositoryContainer;

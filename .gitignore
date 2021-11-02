@@ -1,12 +1,5 @@
-# https://www.toptal.com/developers/gitignore/api/macos,linux
-### Linux ###
-*~
-.fuse_hidden*
-.directory
-.Trash-*
-.nfs*
-### macOS ###
-# General
+# macOS
+### https://raw.github.com/github/gitignore/07c730e1fccfe0f92b29e039ba149d20bfb332e7/Global/macOS.gitignore
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -25,22 +18,41 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Created by https://www.toptal.com/developers/gitignore/api/node
-### Node ###
+# Linux
+### https://raw.github.com/github/gitignore/07c730e1fccfe0f92b29e039ba149d20bfb332e7/Global/Linux.gitignore
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Windows
+### https://raw.github.com/github/gitignore/07c730e1fccfe0f92b29e039ba149d20bfb332e7/Global/Windows.gitignore
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# node.js
+### https://raw.github.com/github/gitignore/07c730e1fccfe0f92b29e039ba149d20bfb332e7/Node.gitignore
 logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-lerna-debug.log*
-.pnpm-debug.log*
-report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 pids
 *.pid
 *.seed
 *.pid.lock
 lib-cov
 coverage
-*.lcov
 .nyc_output
 .grunt
 bower_components
@@ -48,37 +60,12 @@ bower_components
 build/Release
 node_modules/
 jspm_packages/
-web_modules/
-*.tsbuildinfo
+typings/
 .npm
 .eslintcache
-.rpt2_cache/
-.rts2_cache_cjs/
-.rts2_cache_es/
-.rts2_cache_umd/
 .node_repl_history
 *.tgz
 .yarn-integrity
 .env
-.env.test
-.env.production
-.cache
-.parcel-cache
 .next
-out
-.nuxt
-.cache/
-.vuepress/dist
-.serverless/
-.fusebox/
-.dynamodb/
-.tern-port
-.vscode-test
-.yarn/cache
-.yarn/unplugged
-.yarn/build-state.yml
-.yarn/install-state.gz
-.pnp.*
-.webpack/
-
 yarn.lock

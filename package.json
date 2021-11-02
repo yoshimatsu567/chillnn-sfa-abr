@@ -1,10 +1,10 @@
 {
   "name": "chillnn-sfa-abr",
-  "description": "CHILLNN SFA ABR",
   "version": "0.1.0",
   "main": "dist/index.js",
+  "repository": "git@github.com:yoshimatsu567/chillnn-sfa-abr.git",
   "author": "yoshimatsu567",
-  "dependencies": {},
+  "license": "",
   "devDependencies": {
     "@graphql-codegen/add": "^2.0.2",
     "@graphql-codegen/cli": "^1.21.5",
@@ -53,7 +53,5 @@
     "dev": "jest --watch -o --coverage",
     "test": "jest",
     "tsc": "tsc"
-  },
-  "private": true,
-  "license": ""
+  }
 }
