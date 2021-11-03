@@ -95,6 +95,6 @@ export class EventModel extends BaseModel<EventMast> {
     }
     async fetchAllEvent(): Promise<EventModel[]> {
         const res = await this.repositoryContainer.eventMastRepository.fetchAllEvent();
-        return res.map((item) => this.modelFactory.EventModel(item, { isNew: false, currentUserID: this.currentUserID }));
+        return res.map((item) => this.modelFactory.EventModel(item, { isNew: false }));
     }
 }

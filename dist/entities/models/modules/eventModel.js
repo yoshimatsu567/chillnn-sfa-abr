@@ -100,7 +100,7 @@ class EventModel extends _baseModel_1.BaseModel {
     }
     async fetchAllEvent() {
         const res = await this.repositoryContainer.eventMastRepository.fetchAllEvent();
-        return res.map((item) => this.modelFactory.EventModel(item, { isNew: false, currentUserID: this.currentUserID }));
+        return res.map((item) => this.modelFactory.EventModel(item, { isNew: false }));
     }
 }
 exports.EventModel = EventModel;

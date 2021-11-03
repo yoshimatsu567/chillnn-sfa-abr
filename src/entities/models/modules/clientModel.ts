@@ -178,20 +178,18 @@ export class ClientModel extends BaseModel<ClientMast> {
     }
     async fetchAllClient(): Promise<ClientMast[]> {
         const res = await this.repositoryContainer.clientMastRepository.fetchAllClient();
-        return res.map((item) => this.modelFactory.ClientModel(item, { isNew: false, currentUserID: this.currentUserID }));
+        return res.map((item) => this.modelFactory.ClientModel(item, { isNew: false }));
     }
 
     createNewEvent(): EventModel {
-        return this.modelFactory.EventModel(EventModel.getEventBlanc(this.clientID, this.currentUserID), {
+        return this.modelFactory.EventModel(EventModel.getEventBlanc(this.clientID, this.chargeUserID), {
             isNew: true,
-            currentUserID: this.currentUserID,
         });
     }
 
     createNewPhase(): PhaseModel {
-        return this.modelFactory.PhaseModel(PhaseModel.getPhaseBlanc(this.clientID, this.currentUserID), {
+        return this.modelFactory.PhaseModel(PhaseModel.getPhaseBlanc(this.clientID, this.chargeUserID), {
             isNew: true,
-            currentUserID: this.currentUserID,
         });
     }
 }
