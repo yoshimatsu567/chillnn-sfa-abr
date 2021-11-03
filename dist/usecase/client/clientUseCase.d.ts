@@ -8,5 +8,5 @@ export declare class ClientUseCase {
     modelFactory: ModelFactory);
     fetchAllClient(): Promise<ClientMast[]>;
     register(input: ClientModel): Promise<void>;
-    createNewClient(): Promise<ClientModel>;
+    createNewClient(): ClientModel;
 }
