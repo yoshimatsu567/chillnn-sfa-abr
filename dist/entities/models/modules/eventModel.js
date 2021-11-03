@@ -6,7 +6,7 @@ const _baseModel_1 = require("./_baseModel");
 class EventModel extends _baseModel_1.BaseModel {
     static getEventBlanc(clientID, editedUserID) {
         return {
-            eventID: (0, __1.generateUUID)(),
+            eventID: __1.generateUUID(),
             clientID,
             editedUserID,
             eventDetail: '',

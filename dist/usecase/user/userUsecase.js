@@ -5,13 +5,11 @@ const entities_1 = require("../../entities");
 const ChillnnSFAError_1 = require("../../util/modules/ChillnnSFAError");
 const Comparator_1 = require("../../util/modules/Comparator");
 class UserUsecase {
-    repositoryContainer;
-    modelFactory;
-    myUserModel = null;
     constructor(repositoryContainer, //
     modelFactory) {
         this.repositoryContainer = repositoryContainer;
         this.modelFactory = modelFactory;
+        this.myUserModel = null;
     }
     async fetchMyUserModel() {
         if (this.myUserModel) {
@@ -33,7 +31,7 @@ class UserUsecase {
     }
     async fetchAllUser() {
         const users = await this.repositoryContainer.userMastRepository.fetchAllUser();
-        return users.map((user) => this.modelFactory.UserModel(user, { isNew: false })).sort((a, b) => (0, Comparator_1.compareNumDesc)(a.createdAt, b.createdAt));
+        return users.map((user) => this.modelFactory.UserModel(user, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
     }
 }
 exports.UserUsecase = UserUsecase;

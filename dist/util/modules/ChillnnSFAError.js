@@ -3,8 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChillnnSFAError = void 0;
 const type_1 = require("../../entities/type");
 class ChillnnSFAError extends Error {
-    chillnnErrorCode;
-    err;
     constructor(errCode, err) {
         super(errCode);
         this.chillnnErrorCode = errCode;

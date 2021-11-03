@@ -4,11 +4,16 @@ exports.UserMastRepositoryCacheAdaptor = void 0;
 const __1 = require("../..");
 const entities_1 = require("../../entities");
 class UserMastRepositoryCacheAdaptor {
-    repository;
-    userEachCache = {};
-    userAllCache = null;
     constructor(repository) {
         this.repository = repository;
+        this.userEachCache = {};
+        this.userAllCache = null;
+        // ===============================================================
+        //
+        // private
+        //
+        // ===============================================================
+        this.myUserID = null;
     }
     async addUserMast(input) {
         const res = await this.repository.addUserMast(input);
@@ -55,12 +60,6 @@ class UserMastRepositoryCacheAdaptor {
         this.updateCacheBulk(res);
         return res;
     }
-    // ===============================================================
-    //
-    // private
-    //
-    // ===============================================================
-    myUserID = null;
     updateCacheEach(userID, user) {
         this.userEachCache[userID] = user || 'blanc';
         if (this.userAllCache && user) {
@@ -83,7 +82,7 @@ class UserMastRepositoryCacheAdaptor {
             .map((key) => {
             return this.userAllCache[key];
         })
-            .sort((a, b) => (0, __1.compareNumDesc)(a.createdAt, b.createdAt));
+            .sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
     }
 }
 exports.UserMastRepositoryCacheAdaptor = UserMastRepositoryCacheAdaptor;

@@ -13,10 +13,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RepositoryContainer = void 0;
 __exportStar(require("./modules/userMastRepository"), exports);
 class RepositoryContainer {
-    userMastRepository;
-    clientMastRepository;
-    eventMastRepository;
-    phaseMastRepository;
     constructor(
     // entity
     userMastRepository, clientMastRepository, eventMastRepository, phaseMastRepository) {

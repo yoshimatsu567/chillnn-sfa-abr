@@ -3,13 +3,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClientMastRepositoryCacheAdaptor = void 0;
 const __1 = require("../..");
 class ClientMastRepositoryCacheAdaptor {
-    repository;
-    userCache = {};
-    clientCache = {};
-    clientEachCache = {};
-    clientAllCache = null;
     constructor(repository) {
         this.repository = repository;
+        this.userCache = {};
+        this.clientCache = {};
+        this.clientEachCache = {};
+        this.clientAllCache = null;
+        // ===============================================================
+        //
+        // private
+        //
+        // ===============================================================
+        this.targetClientID = null;
     }
     async addClient(input) {
         const res = await this.repository.addClient(input);
@@ -41,7 +46,7 @@ class ClientMastRepositoryCacheAdaptor {
             return cache;
         const res = await this.repository.fetchClientsByChargeUserID(userID);
         this.addCacheBulk(userID, res);
-        return res.sort((a, b) => (0, __1.compareNumDesc)(a.createdAt, b.createdAt));
+        return res.sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
     }
     async fetchAllClient() {
         const cache = this.fetchCacheClientAll();
@@ -51,12 +56,6 @@ class ClientMastRepositoryCacheAdaptor {
         this.updateCacheBulk(res);
         return res;
     }
-    // ===============================================================
-    //
-    // private
-    //
-    // ===============================================================
-    targetClientID = null;
     addCacheEach(clientID, client) {
         this.clientCache[clientID] = client || 'blanc';
         if (!client)
@@ -96,7 +95,7 @@ class ClientMastRepositoryCacheAdaptor {
             .map((key) => {
             return this.clientAllCache[key];
         })
-            .sort((a, b) => (0, __1.compareNumDesc)(a.createdAt, b.createdAt));
+            .sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
     }
 }
 exports.ClientMastRepositoryCacheAdaptor = ClientMastRepositoryCacheAdaptor;

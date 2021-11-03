@@ -3,13 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.EventRepositoryCacheAdaptor = void 0;
 const __1 = require("../..");
 class EventRepositoryCacheAdaptor {
-    repository;
-    clientCache = {};
-    eventCache = {};
-    eventAllCache = null;
-    eventEachCache = {};
     constructor(repository) {
         this.repository = repository;
+        this.clientCache = {};
+        this.eventCache = {};
+        this.eventAllCache = null;
+        this.eventEachCache = {};
     }
     async addEvent(input) {
         const res = await this.repository.addEvent(input);
@@ -27,7 +26,7 @@ class EventRepositoryCacheAdaptor {
             return cache;
         const res = await this.repository.fetchEventsByClientID(clientID);
         this.addCacheBulk(clientID, res);
-        return res.sort((a, b) => (0, __1.compareNumAsc)(a.createdAt, b.createdAt));
+        return res.sort((a, b) => __1.compareNumAsc(a.createdAt, b.createdAt));
     }
     async fetchEventsByEditedUserID(editedUserID) {
         const cache = this.fetchEventsByEditedUser(editedUserID);
@@ -35,7 +34,7 @@ class EventRepositoryCacheAdaptor {
             return cache;
         const res = await this.repository.fetchEventsByEditedUserID(editedUserID);
         this.addCacheBulk(editedUserID, res);
-        return res.sort((a, b) => (0, __1.compareNumAsc)(a.createdAt, b.createdAt));
+        return res.sort((a, b) => __1.compareNumAsc(a.createdAt, b.createdAt));
     }
     async fetchAllEvent() {
         const cache = this.fetchCacheEventAll();
@@ -85,7 +84,7 @@ class EventRepositoryCacheAdaptor {
             .map((key) => {
             return clientCache[key];
         })
-            .sort((a, b) => (0, __1.compareNumDesc)(a.createdAt, b.createdAt));
+            .sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
     }
     fetchEventsByEditedUser(editedUserID) {
         const clientCache = this.clientCache[editedUserID];
@@ -95,7 +94,7 @@ class EventRepositoryCacheAdaptor {
             .map((key) => {
             return clientCache[key];
         })
-            .sort((a, b) => (0, __1.compareNumDesc)(a.createdAt, b.createdAt));
+            .sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
     }
     fetchCacheEventAll() {
         if (!this.eventAllCache)
@@ -104,7 +103,7 @@ class EventRepositoryCacheAdaptor {
             .map((key) => {
             return this.eventAllCache[key];
         })
-            .sort((a, b) => (0, __1.compareNumDesc)(a.createdAt, b.createdAt));
+            .sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
     }
 }
 exports.EventRepositoryCacheAdaptor = EventRepositoryCacheAdaptor;

@@ -7,7 +7,6 @@ const phaseModel_1 = require("./modules/phaseModel");
 const userModel_1 = require("./modules/userModel");
 const _baseModel_1 = require("./modules/_baseModel");
 class ModelFactory {
-    repositoryContainer;
     constructor(repositoryContainer) {
         this.repositoryContainer = repositoryContainer;
     }

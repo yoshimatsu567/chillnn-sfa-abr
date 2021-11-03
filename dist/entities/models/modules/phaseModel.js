@@ -6,7 +6,7 @@ const _baseModel_1 = require("./_baseModel");
 class PhaseModel extends _baseModel_1.BaseModel {
     static getPhaseBlanc(clientID, editedUserID) {
         return {
-            phaseID: (0, __1.generateUUID)(),
+            phaseID: __1.generateUUID(),
             clientID,
             editedUserID,
             phaseDetail: '',

@@ -8,7 +8,7 @@ const _baseModel_1 = require("./_baseModel");
 class ClientModel extends _baseModel_1.BaseModel {
     static getBlanc() {
         return {
-            clientID: (0, IDGenerator_1.generateUUID)(),
+            clientID: IDGenerator_1.generateUUID(),
             accommodationName: '',
             clientEmail: '',
             createdAt: new Date().getTime(),

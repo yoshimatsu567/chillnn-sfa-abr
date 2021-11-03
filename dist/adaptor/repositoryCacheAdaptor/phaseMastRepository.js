@@ -3,13 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PhaseRepositoryCacheAdaptor = void 0;
 const __1 = require("../..");
 class PhaseRepositoryCacheAdaptor {
-    repository;
-    clientCache = {};
-    phaseCache = {};
-    phaseAllCache = null;
-    phaseEachCache = {};
     constructor(repository) {
         this.repository = repository;
+        this.clientCache = {};
+        this.phaseCache = {};
+        this.phaseAllCache = null;
+        this.phaseEachCache = {};
     }
     async addPhase(input) {
         const res = await this.repository.addPhase(input);
@@ -27,7 +26,7 @@ class PhaseRepositoryCacheAdaptor {
             return cache;
         const res = await this.repository.fetchPhasesByClientID(clientID);
         this.addCacheBulk(clientID, res);
-        return res.sort((a, b) => (0, __1.compareNumAsc)(a.createdAt, b.createdAt));
+        return res.sort((a, b) => __1.compareNumAsc(a.createdAt, b.createdAt));
     }
     async fetchPhasesByEditedUserID(editedUserID) {
         const cache = this.fetchPhasesByEditedUser(editedUserID);
@@ -35,7 +34,7 @@ class PhaseRepositoryCacheAdaptor {
             return cache;
         const res = await this.repository.fetchPhasesByEditedUserID(editedUserID);
         this.addCacheBulk(editedUserID, res);
-        return res.sort((a, b) => (0, __1.compareNumAsc)(a.createdAt, b.createdAt));
+        return res.sort((a, b) => __1.compareNumAsc(a.createdAt, b.createdAt));
     }
     async fetchAllPhase() {
         const cache = this.fetchCachePhaseAll();
@@ -85,7 +84,7 @@ class PhaseRepositoryCacheAdaptor {
             .map((key) => {
             return clientCache[key];
         })
-            .sort((a, b) => (0, __1.compareNumDesc)(a.createdAt, b.createdAt));
+            .sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
     }
     fetchPhasesByEditedUser(editedUserID) {
         const clientCache = this.clientCache[editedUserID];
@@ -95,7 +94,7 @@ class PhaseRepositoryCacheAdaptor {
             .map((key) => {
             return clientCache[key];
         })
-            .sort((a, b) => (0, __1.compareNumDesc)(a.createdAt, b.createdAt));
+            .sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
     }
     fetchCachePhaseAll() {
         if (!this.phaseAllCache)
@@ -104,7 +103,7 @@ class PhaseRepositoryCacheAdaptor {
             .map((key) => {
             return this.phaseAllCache[key];
         })
-            .sort((a, b) => (0, __1.compareNumDesc)(a.createdAt, b.createdAt));
+            .sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
     }
 }
 exports.PhaseRepositoryCacheAdaptor = PhaseRepositoryCacheAdaptor;
