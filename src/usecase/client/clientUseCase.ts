@@ -18,8 +18,7 @@ export class ClientUseCase {
         await this.repositoryContainer.clientMastRepository.addClient(input);
     }
 
-    async createNewClient(): Promise<ClientModel> {
-        const me = await this.repositoryContainer.userMastRepository.fetchMyUserMast();
+    createNewClient(): ClientModel {
         return this.modelFactory.ClientModel(ClientModel.getBlanc(), { isNew: true });
     }
 }
