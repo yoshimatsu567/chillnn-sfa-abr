@@ -20,7 +20,7 @@ class ClientUseCase {
     }
     async createNewClient() {
         const me = await this.repositoryContainer.userMastRepository.fetchMyUserMast();
-        return this.modelFactory.ClientModel(clientModel_1.ClientModel.getBlanc(), { isNew: true, currentUserID: me.userID });
+        return this.modelFactory.ClientModel(clientModel_1.ClientModel.getBlanc(), { isNew: true });
     }
 }
 exports.ClientUseCase = ClientUseCase;

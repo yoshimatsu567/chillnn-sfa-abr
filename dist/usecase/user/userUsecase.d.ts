@@ -6,7 +6,7 @@ export declare class UserUsecase {
     private myUserModel;
     constructor(repositoryContainer: RepositoryContainer, //
     modelFactory: ModelFactory);
-    fetchMyUserModel(): Promise<UserModel>;
+    fetchMyUserModel(): Promise<UserModel | null>;
     fetchUserModelByUserID(userID: Scalars['ID']): Promise<UserModel>;
     fetchAllUser(): Promise<UserModel[]>;
 }

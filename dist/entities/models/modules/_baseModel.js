@@ -9,7 +9,6 @@ class BaseModel {
     static baseModelOption() {
         return {
             isNew: false,
-            currentUserID: '',
         };
     }
     constructor(mast, repositoryContainer, //
@@ -24,12 +23,6 @@ class BaseModel {
     }
     set isNew(input) {
         this.option.isNew = input;
-    }
-    get currentUserID() {
-        return this.option.currentUserID;
-    }
-    set currentUserID(input) {
-        this.option.currentUserID = input;
     }
 }
 exports.BaseModel = BaseModel;

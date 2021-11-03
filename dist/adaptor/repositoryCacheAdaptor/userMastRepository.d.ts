@@ -7,7 +7,7 @@ export declare class UserMastRepositoryCacheAdaptor implements IUserMastReposito
     constructor(repository: IUserMastRepository);
     addUserMast(input: UserMast): Promise<UserMast>;
     updateUserMast(input: UserMast): Promise<UserMast>;
-    fetchMyUserMast(): Promise<UserMast>;
+    fetchMyUserMast(): Promise<UserMast | null>;
     fetchUserMastByUserID(userID: string): Promise<UserMast | null>;
     fetchAllUser(): Promise<UserMast[]>;
     private myUserID;

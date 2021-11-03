@@ -24,7 +24,7 @@ export class UserMastRepositoryCacheAdaptor implements IUserMastRepository {
         return res;
     }
 
-    async fetchMyUserMast(): Promise<UserMast> {
+    async fetchMyUserMast(): Promise<UserMast | null> {
         if (this.myUserID) return this.fetchCacheUserMast(this.myUserID) as UserMast;
         const res = await this.repository.fetchMyUserMast();
         if (!res) {
