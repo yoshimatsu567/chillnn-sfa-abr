@@ -11,7 +11,7 @@ export class UserUsecase {
         private modelFactory: ModelFactory,
     ) {}
 
-    async fetchMyUserModel(): Promise<UserModel | null> {
+    async fetchMyUserModel(): Promise<UserModel> {
         if (this.myUserModel) {
             return this.myUserModel;
         }
