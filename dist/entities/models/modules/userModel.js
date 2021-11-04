@@ -30,6 +30,24 @@ class UserModel extends _baseModel_1.BaseModel {
     set email(input) {
         this.mast.email = input;
     }
+    get phoneNumber() {
+        return this.mast.phoneNumber || '';
+    }
+    set phoneNumber(input) {
+        this.mast.phoneNumber = input;
+    }
+    get jobTitleName() {
+        return this.mast.jobTitleName || '';
+    }
+    set jobTitleName(input) {
+        this.mast.jobTitleName = input;
+    }
+    get userStatus() {
+        return this.mast.userStatus || '';
+    }
+    set userStatus(input) {
+        this.mast.userStatus = input;
+    }
     // ============================================
     // validation
     // ============================================
