@@ -3,11 +3,9 @@ import { generateUUID } from '../../..';
 import { BaseModel } from './_baseModel';
 
 export class PhaseModel extends BaseModel<PhaseMast> {
-    static getPhaseBlanc(clientID: Scalars['ID'], editedUserID: Scalars['ID']) {
+    static getPhaseBlanc() {
         return {
             phaseID: generateUUID(),
-            clientID,
-            editedUserID,
             phaseNumber: 0,
             phaseDetail: '',
             createdAt: new Date().getTime(),
@@ -33,10 +31,14 @@ export class PhaseModel extends BaseModel<PhaseMast> {
     // getter / setter
     // ============================================
     get editedUserID() {
-        return this.mast.editedUserID;
+        return this.mast.editedUserID || '';
     }
     set editedUserID(input: string) {
-        this.mast.editedUserID = input;
+        if (input) {
+            this.mast.editedUserID = input;
+        } else {
+            this.mast.editedUserID = null;
+        }
     }
     get phaseDetail() {
         return this.mast.phaseDetail;

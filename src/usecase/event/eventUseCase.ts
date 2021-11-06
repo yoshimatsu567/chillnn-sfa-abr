@@ -1,0 +1,20 @@
+import { RepositoryContainer, ModelFactory } from '../../entities';
+import { EventModel } from '../../entities/models/modules/eventModel';
+import { EventMast } from '../../entities/type';
+import { compareNumDesc } from '../../util/modules/Comparator';
+
+export class EventUseCase {
+    constructor(
+        private repositoryContainer: RepositoryContainer, //
+        private modelFactory: ModelFactory,
+    ) {}
+
+    async fetchAllEvent(): Promise<EventMast[]> {
+        const events = this.repositoryContainer.eventMastRepository.fetchAllEvent();
+        return (await events).map((event) => event).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+    }
+
+    createNewEvent(): EventModel {
+        return this.modelFactory.EventModel(EventModel.getEventBlanc(), { isNew: true });
+    }
+}

@@ -4,11 +4,9 @@ exports.EventModel = void 0;
 const __1 = require("../../..");
 const _baseModel_1 = require("./_baseModel");
 class EventModel extends _baseModel_1.BaseModel {
-    static getEventBlanc(clientID, editedUserID) {
+    static getEventBlanc() {
         return {
             eventID: __1.generateUUID(),
-            clientID,
-            editedUserID,
             eventNumber: 0,
             eventDetail: '',
             eventStatus: '',
@@ -32,10 +30,15 @@ class EventModel extends _baseModel_1.BaseModel {
     // getter / setter
     // ============================================
     get editedUserID() {
-        return this.mast.editedUserID;
+        return this.mast.editedUserID || '';
     }
     set editedUserID(input) {
-        this.mast.editedUserID = input;
+        if (input) {
+            this.mast.editedUserID = input;
+        }
+        else {
+            this.mast.editedUserID = null;
+        }
     }
     get eventDetail() {
         return this.mast.eventDetail;

@@ -65,7 +65,7 @@ export class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository {
     private addCacheEach(phaseID: Scalars['ID'], phase: PhaseMast | null) {
         this.phaseCache[phaseID] = phase || 'blanc';
         if (!phase) return;
-        const clientCache = this.clientCache[phase.clientID];
+        const clientCache = this.clientCache[phase.clientID!];
         if (clientCache) {
             clientCache[phaseID] = phase;
         }
@@ -74,7 +74,7 @@ export class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository {
     private addCacheBulk(clientID: Scalars['ID'], phases: PhaseMast[]) {
         this.clientCache[clientID] = {};
         for (const phase of phases) {
-            this.addCacheEach(phase.clientID, phase);
+            this.addCacheEach(phase.clientID!, phase);
         }
     }
 

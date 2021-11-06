@@ -3,11 +3,9 @@ import { generateUUID } from '../../..';
 import { BaseModel } from './_baseModel';
 
 export class EventModel extends BaseModel<EventMast> {
-    static getEventBlanc(clientID: Scalars['ID'], editedUserID: Scalars['ID']) {
+    static getEventBlanc() {
         return {
             eventID: generateUUID(),
-            clientID,
-            editedUserID,
             eventNumber: 0,
             eventDetail: '',
             eventStatus: '',
@@ -31,10 +29,14 @@ export class EventModel extends BaseModel<EventMast> {
     // getter / setter
     // ============================================
     get editedUserID() {
-        return this.mast.editedUserID;
+        return this.mast.editedUserID || '';
     }
     set editedUserID(input: string) {
-        this.mast.editedUserID = input;
+        if (input) {
+            this.mast.editedUserID = input;
+        } else {
+            this.mast.editedUserID = null;
+        }
     }
     get eventDetail() {
         return this.mast.eventDetail;

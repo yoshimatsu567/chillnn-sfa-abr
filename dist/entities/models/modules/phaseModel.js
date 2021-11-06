@@ -4,11 +4,9 @@ exports.PhaseModel = void 0;
 const __1 = require("../../..");
 const _baseModel_1 = require("./_baseModel");
 class PhaseModel extends _baseModel_1.BaseModel {
-    static getPhaseBlanc(clientID, editedUserID) {
+    static getPhaseBlanc() {
         return {
             phaseID: __1.generateUUID(),
-            clientID,
-            editedUserID,
             phaseNumber: 0,
             phaseDetail: '',
             createdAt: new Date().getTime(),
@@ -34,10 +32,15 @@ class PhaseModel extends _baseModel_1.BaseModel {
     // getter / setter
     // ============================================
     get editedUserID() {
-        return this.mast.editedUserID;
+        return this.mast.editedUserID || '';
     }
     set editedUserID(input) {
-        this.mast.editedUserID = input;
+        if (input) {
+            this.mast.editedUserID = input;
+        }
+        else {
+            this.mast.editedUserID = null;
+        }
     }
     get phaseDetail() {
         return this.mast.phaseDetail;

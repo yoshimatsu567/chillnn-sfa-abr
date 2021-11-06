@@ -188,13 +188,13 @@ export class ClientModel extends BaseModel<ClientMast> {
     // }
 
     createNewEvent(): EventModel {
-        return this.modelFactory.EventModel(EventModel.getEventBlanc(this.clientID, this.chargeUserID), {
+        return this.modelFactory.EventModel(EventModel.getEventBlanc(), {
             isNew: true,
         });
     }
 
     createNewPhase(): PhaseModel {
-        return this.modelFactory.PhaseModel(PhaseModel.getPhaseBlanc(this.clientID, this.chargeUserID), {
+        return this.modelFactory.PhaseModel(PhaseModel.getPhaseBlanc(), {
             isNew: true,
         });
     }

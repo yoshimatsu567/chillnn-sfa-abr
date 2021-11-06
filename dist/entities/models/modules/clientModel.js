@@ -199,12 +199,12 @@ class ClientModel extends _baseModel_1.BaseModel {
     //     return setRes;
     // }
     createNewEvent() {
-        return this.modelFactory.EventModel(eventModel_1.EventModel.getEventBlanc(this.clientID, this.chargeUserID), {
+        return this.modelFactory.EventModel(eventModel_1.EventModel.getEventBlanc(), {
             isNew: true,
         });
     }
     createNewPhase() {
-        return this.modelFactory.PhaseModel(phaseModel_1.PhaseModel.getPhaseBlanc(this.clientID, this.chargeUserID), {
+        return this.modelFactory.PhaseModel(phaseModel_1.PhaseModel.getPhaseBlanc(), {
             isNew: true,
         });
     }

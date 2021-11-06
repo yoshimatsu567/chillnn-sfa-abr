@@ -65,7 +65,7 @@ export class EventRepositoryCacheAdaptor implements IEventMastRepository {
     private addCacheEach(eventID: Scalars['ID'], event: EventMast | null) {
         this.eventCache[eventID] = event || 'blanc';
         if (!event) return;
-        const clientCache = this.clientCache[event.clientID];
+        const clientCache = this.clientCache[event.clientID!];
         if (clientCache) {
             clientCache[eventID] = event;
         }
@@ -74,7 +74,7 @@ export class EventRepositoryCacheAdaptor implements IEventMastRepository {
     private addCacheBulk(clientID: Scalars['ID'], events: EventMast[]) {
         this.clientCache[clientID] = {};
         for (const event of events) {
-            this.addCacheEach(event.clientID, event);
+            this.addCacheEach(event.clientID!, event);
         }
     }
 

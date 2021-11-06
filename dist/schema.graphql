@@ -66,9 +66,9 @@ enum ErrorCode {
 
 type EventMast {
   eventID: ID!
-  clientID: ID!
+  clientID: ID
   eventNumber: Int!
-  editedUserID: ID!
+  editedUserID: ID
   eventDetail: String!
   eventStatus: String!
   eventMemo: String
@@ -81,9 +81,9 @@ type EventMast {
 
 input EventMastInput {
   eventID: ID!
-  clientID: ID!
+  clientID: ID
   eventNumber: Int!
-  editedUserID: ID!
+  editedUserID: ID
   eventDetail: String!
   eventStatus: String!
   eventMemo: String
@@ -96,9 +96,9 @@ input EventMastInput {
 
 type PhaseMast {
   phaseID: ID!
-  clientID: ID!
+  clientID: ID
   phaseNumber: Int!
-  editedUserID: ID!
+  editedUserID: ID
   phaseDetail: String!
   phaseStatus: String
   phaseTerm: String
@@ -110,9 +110,9 @@ type PhaseMast {
 
 input PhaseMastInput {
   phaseID: ID!
-  clientID: ID!
+  clientID: ID
   phaseNumber: Int!
-  editedUserID: ID!
+  editedUserID: ID
   phaseDetail: String!
   phaseStatus: String
   phaseTerm: String

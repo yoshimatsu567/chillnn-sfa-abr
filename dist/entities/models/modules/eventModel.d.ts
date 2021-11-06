@@ -1,10 +1,8 @@
-import { EventMast, Scalars } from '../..';
+import { EventMast } from '../..';
 import { BaseModel } from './_baseModel';
 export declare class EventModel extends BaseModel<EventMast> {
-    static getEventBlanc(clientID: Scalars['ID'], editedUserID: Scalars['ID']): {
+    static getEventBlanc(): {
         eventID: string;
-        clientID: string;
-        editedUserID: string;
         eventNumber: number;
         eventDetail: string;
         eventStatus: string;
