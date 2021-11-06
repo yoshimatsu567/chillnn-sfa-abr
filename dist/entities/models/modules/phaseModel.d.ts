@@ -5,6 +5,7 @@ export declare class PhaseModel extends BaseModel<PhaseMast> {
         phaseID: string;
         clientID: string;
         editedUserID: string;
+        phaseNumber: number;
         phaseDetail: string;
         createdAt: number;
         updatedAt: number;
@@ -23,5 +24,7 @@ export declare class PhaseModel extends BaseModel<PhaseMast> {
     set phaseTerm(input: string);
     get phaseDate(): string;
     set phaseDate(input: string);
+    get phaseNumber(): number;
+    set phaseNumber(input: number);
     register(): Promise<void>;
 }

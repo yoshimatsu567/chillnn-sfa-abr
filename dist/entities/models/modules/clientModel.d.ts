@@ -17,8 +17,8 @@ export declare class ClientModel extends BaseModel<ClientMast> {
     set clientEmail(input: string);
     get clientPhoneNumber(): string;
     set clientPhoneNumber(input: string);
-    get phaseStatus(): string;
-    set phaseStatus(input: string);
+    get phaseStatus(): number;
+    set phaseStatus(input: number);
     get appointmentStatus(): string;
     set appointmentStatus(input: string);
     get pastStatus(): string;

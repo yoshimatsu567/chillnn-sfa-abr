@@ -8,6 +8,7 @@ export class EventModel extends BaseModel<EventMast> {
             eventID: generateUUID(),
             clientID,
             editedUserID,
+            eventNumber: 0,
             eventDetail: '',
             eventStatus: '',
             createdAt: new Date().getTime(),
@@ -77,6 +78,17 @@ export class EventModel extends BaseModel<EventMast> {
             this.mast.eventDate = null;
         }
     }
+    get eventNumber() {
+        return this.mast.eventNumber || 0;
+    }
+    set eventNumber(input: number) {
+        if (input) {
+            this.mast.eventNumber = input;
+        } else {
+            this.mast.eventNumber = 0;
+        }
+    }
+
     get isRegisterable() {
         return this.isNew;
     }

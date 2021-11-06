@@ -5,6 +5,7 @@ export declare class EventModel extends BaseModel<EventMast> {
         eventID: string;
         clientID: string;
         editedUserID: string;
+        eventNumber: number;
         eventDetail: string;
         eventStatus: string;
         createdAt: number;
@@ -25,6 +26,8 @@ export declare class EventModel extends BaseModel<EventMast> {
     set eventTerm(input: string);
     get eventDate(): string;
     set eventDate(input: string);
+    get eventNumber(): number;
+    set eventNumber(input: number);
     get isRegisterable(): boolean;
     register(): Promise<void>;
     fetchAllEvent(): Promise<EventModel[]>;

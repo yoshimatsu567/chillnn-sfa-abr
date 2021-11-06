@@ -81,7 +81,7 @@ class ClientModel extends _baseModel_1.BaseModel {
         }
     }
     get phaseStatus() {
-        return this.mast.phaseStatus || '';
+        return this.mast.phaseStatus || 0;
     }
     set phaseStatus(input) {
         if (input) {
@@ -193,6 +193,11 @@ class ClientModel extends _baseModel_1.BaseModel {
         const res = await this.repositoryContainer.clientMastRepository.fetchAllClient();
         return res.map((item) => this.modelFactory.ClientModel(item, { isNew: false }));
     }
+    // async fetchPhaseCount(): Promise<number[]> {
+    //     const res = await this.repositoryContainer.clientMastRepository.fetchAllPhaseStatus();
+    //     const setRes = Array.from(new Set(res));
+    //     return setRes;
+    // }
     createNewEvent() {
         return this.modelFactory.EventModel(eventModel_1.EventModel.getEventBlanc(this.clientID, this.chargeUserID), {
             isNew: true,

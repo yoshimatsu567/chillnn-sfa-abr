@@ -1,6 +1,7 @@
 type EventMast {
     eventID: ID!
     clientID: ID!
+    eventNumber: Int!
     editedUserID: ID!
     eventDetail: String!
     eventStatus: String!
@@ -16,6 +17,7 @@ type EventMast {
 input EventMastInput {
     eventID: ID!
     clientID: ID!
+    eventNumber: Int!
     editedUserID: ID!
     eventDetail: String!
     eventStatus: String!

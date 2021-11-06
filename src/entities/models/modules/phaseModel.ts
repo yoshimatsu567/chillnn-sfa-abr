@@ -8,6 +8,7 @@ export class PhaseModel extends BaseModel<PhaseMast> {
             phaseID: generateUUID(),
             clientID,
             editedUserID,
+            phaseNumber: 0,
             phaseDetail: '',
             createdAt: new Date().getTime(),
             updatedAt: new Date().getTime(),
@@ -71,6 +72,16 @@ export class PhaseModel extends BaseModel<PhaseMast> {
             this.mast.phaseDate = input;
         } else {
             this.mast.phaseDate = null;
+        }
+    }
+    get phaseNumber() {
+        return this.mast.phaseNumber || 0;
+    }
+    set phaseNumber(input: number) {
+        if (input) {
+            this.mast.phaseNumber = input;
+        } else {
+            this.mast.phaseNumber = 0;
         }
     }
 

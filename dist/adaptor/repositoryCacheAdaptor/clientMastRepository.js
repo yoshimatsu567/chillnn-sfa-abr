@@ -48,6 +48,8 @@ class ClientMastRepositoryCacheAdaptor {
         this.addCacheBulk(userID, res);
         return res.sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
     }
+    // async fetchAllPhaseStatus(): Promise<number[]> {
+    // }
     async fetchAllClient() {
         const cache = this.fetchCacheClientAll();
         if (cache)

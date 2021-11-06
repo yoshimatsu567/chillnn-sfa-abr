@@ -1,6 +1,7 @@
 type PhaseMast {
     phaseID: ID!
     clientID: ID!
+    phaseNumber: Int!
     editedUserID: ID!
     phaseDetail: String!
     phaseStatus: String
@@ -15,6 +16,7 @@ type PhaseMast {
 input PhaseMastInput {
     phaseID: ID!
     clientID: ID!
+    phaseNumber: Int!
     editedUserID: ID!
     phaseDetail: String!
     phaseStatus: String

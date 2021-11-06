@@ -54,6 +54,9 @@ export class ClientMastRepositoryCacheAdaptor implements IClientMastRepository {
         return res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
     }
 
+    // async fetchAllPhaseStatus(): Promise<number[]> {
+    // }
+
     async fetchAllClient(): Promise<ClientMast[]> {
         const cache = this.fetchCacheClientAll();
         if (cache) return cache;

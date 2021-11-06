@@ -76,9 +76,9 @@ export class ClientModel extends BaseModel<ClientMast> {
         }
     }
     get phaseStatus() {
-        return this.mast.phaseStatus || '';
+        return this.mast.phaseStatus || 0;
     }
-    set phaseStatus(input: string) {
+    set phaseStatus(input: number) {
         if (input) {
             this.mast.phaseStatus = input;
         } else {
@@ -180,6 +180,12 @@ export class ClientModel extends BaseModel<ClientMast> {
         const res = await this.repositoryContainer.clientMastRepository.fetchAllClient();
         return res.map((item) => this.modelFactory.ClientModel(item, { isNew: false }));
     }
+
+    // async fetchPhaseCount(): Promise<number[]> {
+    //     const res = await this.repositoryContainer.clientMastRepository.fetchAllPhaseStatus();
+    //     const setRes = Array.from(new Set(res));
+    //     return setRes;
+    // }
 
     createNewEvent(): EventModel {
         return this.modelFactory.EventModel(EventModel.getEventBlanc(this.clientID, this.chargeUserID), {

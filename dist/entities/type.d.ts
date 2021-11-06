@@ -39,7 +39,7 @@ export declare type ClientMast = {
     clientEmail: Scalars['String'];
     clientPhoneNumber?: Maybe<Scalars['String']>;
     requiredTime?: Maybe<Scalars['String']>;
-    phaseStatus?: Maybe<Scalars['String']>;
+    phaseStatus?: Maybe<Scalars['Int']>;
     appointmentStatus?: Maybe<Scalars['String']>;
     pastStatus?: Maybe<Scalars['String']>;
     newStatus?: Maybe<Scalars['String']>;
@@ -59,7 +59,7 @@ export declare type ClientMastInput = {
     clientEmail: Scalars['String'];
     clientPhoneNumber?: Maybe<Scalars['String']>;
     requiredTime?: Maybe<Scalars['String']>;
-    phaseStatus?: Maybe<Scalars['String']>;
+    phaseStatus?: Maybe<Scalars['Int']>;
     appointmentStatus?: Maybe<Scalars['String']>;
     pastStatus?: Maybe<Scalars['String']>;
     newStatus?: Maybe<Scalars['String']>;
@@ -75,6 +75,7 @@ export declare enum ErrorCode {
 export declare type EventMast = {
     eventID: Scalars['ID'];
     clientID: Scalars['ID'];
+    eventNumber: Scalars['Int'];
     editedUserID: Scalars['ID'];
     eventDetail: Scalars['String'];
     eventStatus: Scalars['String'];
@@ -88,6 +89,7 @@ export declare type EventMast = {
 export declare type EventMastInput = {
     eventID: Scalars['ID'];
     clientID: Scalars['ID'];
+    eventNumber: Scalars['Int'];
     editedUserID: Scalars['ID'];
     eventDetail: Scalars['String'];
     eventStatus: Scalars['String'];
@@ -101,6 +103,7 @@ export declare type EventMastInput = {
 export declare type PhaseMast = {
     phaseID: Scalars['ID'];
     clientID: Scalars['ID'];
+    phaseNumber: Scalars['Int'];
     editedUserID: Scalars['ID'];
     phaseDetail: Scalars['String'];
     phaseStatus?: Maybe<Scalars['String']>;
@@ -113,6 +116,7 @@ export declare type PhaseMast = {
 export declare type PhaseMastInput = {
     phaseID: Scalars['ID'];
     clientID: Scalars['ID'];
+    phaseNumber: Scalars['Int'];
     editedUserID: Scalars['ID'];
     phaseDetail: Scalars['String'];
     phaseStatus?: Maybe<Scalars['String']>;

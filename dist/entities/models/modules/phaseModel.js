@@ -9,6 +9,7 @@ class PhaseModel extends _baseModel_1.BaseModel {
             phaseID: __1.generateUUID(),
             clientID,
             editedUserID,
+            phaseNumber: 0,
             phaseDetail: '',
             createdAt: new Date().getTime(),
             updatedAt: new Date().getTime(),
@@ -75,6 +76,17 @@ class PhaseModel extends _baseModel_1.BaseModel {
         }
         else {
             this.mast.phaseDate = null;
+        }
+    }
+    get phaseNumber() {
+        return this.mast.phaseNumber || 0;
+    }
+    set phaseNumber(input) {
+        if (input) {
+            this.mast.phaseNumber = input;
+        }
+        else {
+            this.mast.phaseNumber = 0;
         }
     }
     async register() {
