@@ -103,7 +103,7 @@ class PhaseRepositoryCacheAdaptor {
             .map((key) => {
             return this.phaseAllCache[key];
         })
-            .sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
+            .sort((a, b) => __1.compareNumAsc(a.phaseNumber, b.phaseNumber));
     }
 }
 exports.PhaseRepositoryCacheAdaptor = PhaseRepositoryCacheAdaptor;

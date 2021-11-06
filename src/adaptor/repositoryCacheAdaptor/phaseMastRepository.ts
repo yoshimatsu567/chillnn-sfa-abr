@@ -118,6 +118,6 @@ export class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository {
             .map((key) => {
                 return this.phaseAllCache![key]! as PhaseMast;
             })
-            .sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+            .sort((a, b) => compareNumAsc(a.phaseNumber, b.phaseNumber));
     }
 }
