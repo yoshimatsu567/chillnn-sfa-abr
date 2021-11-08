@@ -176,10 +176,10 @@ export class ClientModel extends BaseModel<ClientMast> {
             }
         }
     }
-    async fetchAllClient(): Promise<ClientMast[]> {
-        const res = await this.repositoryContainer.clientMastRepository.fetchAllClient();
-        return res.map((item) => this.modelFactory.ClientModel(item, { isNew: false }));
-    }
+    // async fetchAllClient(): Promise<ClientModel[]> {
+    //     const res = await this.repositoryContainer.clientMastRepository.fetchAllClient();
+    //     return res.map((item) => this.modelFactory.ClientModel(item, { isNew: false }));
+    // }
 
     // async fetchPhaseCount(): Promise<number[]> {
     //     const res = await this.repositoryContainer.clientMastRepository.fetchAllPhaseStatus();

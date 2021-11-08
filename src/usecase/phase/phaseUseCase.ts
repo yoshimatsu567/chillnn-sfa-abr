@@ -9,9 +9,9 @@ export class PhaseUseCase {
         private modelFactory: ModelFactory,
     ) {}
 
-    async fetchAllPhase(): Promise<PhaseMast[]> {
+    async fetchAllPhase(): Promise<PhaseModel[]> {
         const phases = this.repositoryContainer.phaseMastRepository.fetchAllPhase();
-        return (await phases).map((phase) => phase).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+        return (await phases).map((phase) => this.modelFactory.PhaseModel(phase, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
     }
 
     createNewPhase(): PhaseModel {

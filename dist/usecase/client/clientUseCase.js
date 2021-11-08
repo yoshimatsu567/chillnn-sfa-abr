@@ -11,7 +11,7 @@ class ClientUseCase {
     }
     async fetchAllClient() {
         const clients = this.repositoryContainer.clientMastRepository.fetchAllClient();
-        return (await clients).map((client) => client).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
+        return (await clients).map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
     }
     async register(input) {
         await this.repositoryContainer.clientMastRepository.addClient(input);

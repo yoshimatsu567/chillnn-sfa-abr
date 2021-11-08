@@ -1,4 +1,5 @@
 import { ClientMast, compareNumDesc, Scalars } from '../..';
+import { ClientModel } from '../../entities/models/modules/clientModel';
 import { IClientMastRepository } from '../../entities/repositories/modules/clientMastRepository';
 
 type UserCache = {

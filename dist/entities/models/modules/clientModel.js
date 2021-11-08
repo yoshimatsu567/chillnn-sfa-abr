@@ -189,10 +189,10 @@ class ClientModel extends _baseModel_1.BaseModel {
             }
         }
     }
-    async fetchAllClient() {
-        const res = await this.repositoryContainer.clientMastRepository.fetchAllClient();
-        return res.map((item) => this.modelFactory.ClientModel(item, { isNew: false }));
-    }
+    // async fetchAllClient(): Promise<ClientModel[]> {
+    //     const res = await this.repositoryContainer.clientMastRepository.fetchAllClient();
+    //     return res.map((item) => this.modelFactory.ClientModel(item, { isNew: false }));
+    // }
     // async fetchPhaseCount(): Promise<number[]> {
     //     const res = await this.repositoryContainer.clientMastRepository.fetchAllPhaseStatus();
     //     const setRes = Array.from(new Set(res));

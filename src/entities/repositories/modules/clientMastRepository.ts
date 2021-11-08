@@ -1,3 +1,4 @@
+import { ClientModel } from '../../models/modules/clientModel';
 import { ClientMast, Scalars } from '../../type';
 
 export interface IClientMastRepository {

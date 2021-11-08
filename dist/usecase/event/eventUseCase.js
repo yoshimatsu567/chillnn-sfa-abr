@@ -11,7 +11,7 @@ class EventUseCase {
     }
     async fetchAllEvent() {
         const events = this.repositoryContainer.eventMastRepository.fetchAllEvent();
-        return (await events).map((event) => event).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
+        return (await events).map((event) => this.modelFactory.EventModel(event, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
     }
     createNewEvent() {
         return this.modelFactory.EventModel(eventModel_1.EventModel.getEventBlanc(), { isNew: true });

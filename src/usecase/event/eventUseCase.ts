@@ -9,9 +9,9 @@ export class EventUseCase {
         private modelFactory: ModelFactory,
     ) {}
 
-    async fetchAllEvent(): Promise<EventMast[]> {
+    async fetchAllEvent(): Promise<EventModel[]> {
         const events = this.repositoryContainer.eventMastRepository.fetchAllEvent();
-        return (await events).map((event) => event).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+        return (await events).map((event) => this.modelFactory.EventModel(event, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
     }
 
     createNewEvent(): EventModel {

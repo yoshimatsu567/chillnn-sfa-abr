@@ -9,9 +9,9 @@ export class ClientUseCase {
         private modelFactory: ModelFactory,
     ) {}
 
-    async fetchAllClient(): Promise<ClientMast[]> {
+    async fetchAllClient(): Promise<ClientModel[]> {
         const clients = this.repositoryContainer.clientMastRepository.fetchAllClient();
-        return (await clients).map((client) => client).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+        return (await clients).map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
     }
 
     async register(input: ClientModel) {
