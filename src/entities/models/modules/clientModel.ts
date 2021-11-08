@@ -160,18 +160,21 @@ export class ClientModel extends BaseModel<ClientMast> {
     // ============================================
     // validation
     // ============================================
-    // get isRegisterable() {
-    //     return this.isNew;
-    // }
+    get isRegisterable() {
+        return true;
+    }
     async register() {
-        const now = new Date().getTime();
-        if (this.isNew) {
-            this.mast.createdAt = now;
-            this.mast.updatedAt = now;
-            await this.repositoryContainer.clientMastRepository.addClient(this.mast);
-        } else {
-            this.mast.updatedAt = now;
-            await this.repositoryContainer.clientMastRepository.addClient(this.mast);
+        if (this.isRegisterable) {
+            const now = new Date().getTime();
+            if (this.isNew) {
+                this.mast.createdAt = now;
+                this.mast.updatedAt = now;
+                await this.repositoryContainer.clientMastRepository.addClient(this.mast);
+            } else {
+                this.mast.updatedAt = now;
+                await this.repositoryContainer.clientMastRepository.addClient(this.mast);
+            }
+            this.isNew = false;
         }
     }
     // async fetchAllClient(): Promise<ClientModel[]> {

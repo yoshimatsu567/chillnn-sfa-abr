@@ -35,6 +35,7 @@ export declare class ClientModel extends BaseModel<ClientMast> {
     set clientUserName(input: string);
     get requiredTime(): string;
     set requiredTime(input: string);
+    get isRegisterable(): boolean;
     register(): Promise<void>;
     createNewEvent(): EventModel;
     createNewPhase(): PhaseModel;
