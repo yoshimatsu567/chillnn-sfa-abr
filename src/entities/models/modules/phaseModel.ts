@@ -18,9 +18,7 @@ export class PhaseModel extends BaseModel<PhaseMast> {
     get phaseID() {
         return this.mast.phaseID;
     }
-    get clientID() {
-        return this.mast.clientID;
-    }
+
     get createdAt() {
         return this.mast.createdAt;
     }
@@ -30,6 +28,16 @@ export class PhaseModel extends BaseModel<PhaseMast> {
     // ============================================
     // getter / setter
     // ============================================
+    get clientID() {
+        return this.mast.clientID || '';
+    }
+    set clientID(input: string) {
+        if (input) {
+            this.mast.clientID = input;
+        } else {
+            this.mast.clientID = null;
+        }
+    }
     get editedUserID() {
         return this.mast.editedUserID || '';
     }

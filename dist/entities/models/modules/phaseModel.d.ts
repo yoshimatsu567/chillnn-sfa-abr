@@ -9,9 +9,10 @@ export declare class PhaseModel extends BaseModel<PhaseMast> {
         updatedAt: number;
     };
     get phaseID(): string;
-    get clientID(): import("../..").Maybe<string> | undefined;
     get createdAt(): number;
     get updatedAt(): number;
+    get clientID(): string;
+    set clientID(input: string);
     get editedUserID(): string;
     set editedUserID(input: string);
     get phaseDetail(): string;
