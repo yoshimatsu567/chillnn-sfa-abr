@@ -185,7 +185,7 @@ class ClientModel extends _baseModel_1.BaseModel {
             }
             else {
                 this.mast.updatedAt = now;
-                await this.repositoryContainer.clientMastRepository.addClient(this.mast);
+                await this.repositoryContainer.clientMastRepository.updateClient(this.mast);
             }
             this.isNew = false;
         }

@@ -172,7 +172,7 @@ export class ClientModel extends BaseModel<ClientMast> {
                 await this.repositoryContainer.clientMastRepository.addClient(this.mast);
             } else {
                 this.mast.updatedAt = now;
-                await this.repositoryContainer.clientMastRepository.addClient(this.mast);
+                await this.repositoryContainer.clientMastRepository.updateClient(this.mast);
             }
             this.isNew = false;
         }
