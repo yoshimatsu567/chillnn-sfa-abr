@@ -1,2 +1,2 @@
-export * from './user/userUsecase';
+export * from './user/userUseCase';
 export * from './client/clientUseCase';

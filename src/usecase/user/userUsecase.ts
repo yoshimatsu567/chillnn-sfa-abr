@@ -3,7 +3,7 @@ import { UserModel } from '../../entities/models/modules/userModel';
 import { ChillnnSFAError } from '../../util/modules/ChillnnSFAError';
 import { compareNumDesc } from '../../util/modules/Comparator';
 
-export class UserUsecase {
+export class UserUseCase {
     private myUserModel: UserModel | null = null;
 
     constructor(
