@@ -1,11 +1,10 @@
 import { PhaseMast, PHASE_STATUS, Scalars } from '../..';
 import { BaseModel } from './_baseModel';
 export declare class PhaseModel extends BaseModel<PhaseMast> {
-    static getPhaseTitleBlanc(clientID: Scalars['ID'], phaseStatus: PHASE_STATUS): {
+    static getPhaseTitleBlanc(phaseStatus: PHASE_STATUS): {
         phaseID: string;
         phaseNumber: number;
         phaseDetail: string;
-        clientID: string;
         phaseStatus: PHASE_STATUS;
         createdAt: number;
         updatedAt: number;

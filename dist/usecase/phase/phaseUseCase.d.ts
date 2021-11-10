@@ -7,6 +7,6 @@ export declare class PhaseUseCase {
     constructor(repositoryContainer: RepositoryContainer, //
     modelFactory: ModelFactory);
     fetchAllPhase(): Promise<PhaseModel[]>;
-    createNewPhaseTitle(clientID: Scalars['ID'], phaseStatus: PHASE_STATUS): Promise<PhaseModel>;
+    createNewPhaseTitle(phaseStatus: PHASE_STATUS): Promise<PhaseModel>;
     createNewPhaseData(clientID: Scalars['ID'], phaseStatus: PHASE_STATUS): Promise<PhaseModel>;
 }

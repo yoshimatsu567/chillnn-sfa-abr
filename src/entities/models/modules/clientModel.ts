@@ -190,6 +190,6 @@ export class ClientModel extends BaseModel<ClientMast> {
     }
 
     async createNewPhaseTitle() {
-        return this.modelFactory.PhaseModel(PhaseModel.getPhaseTitleBlanc(this.clientID, 'TITLE' as PHASE_STATUS), { isNew: true });
+        return this.modelFactory.PhaseModel(PhaseModel.getPhaseTitleBlanc('TITLE' as PHASE_STATUS), { isNew: true });
     }
 }

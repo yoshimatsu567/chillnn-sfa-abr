@@ -15,8 +15,8 @@ export class PhaseUseCase {
         return (await phases).map((phase) => this.modelFactory.PhaseModel(phase, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
     }
 
-    async createNewPhaseTitle(clientID: Scalars['ID'], phaseStatus: PHASE_STATUS): Promise<PhaseModel> {
-        return this.modelFactory.PhaseModel(PhaseModel.getPhaseTitleBlanc(clientID, phaseStatus), { isNew: true });
+    async createNewPhaseTitle(phaseStatus: PHASE_STATUS): Promise<PhaseModel> {
+        return this.modelFactory.PhaseModel(PhaseModel.getPhaseTitleBlanc(phaseStatus), { isNew: true });
     }
 
     async createNewPhaseData(clientID: Scalars['ID'], phaseStatus: PHASE_STATUS): Promise<PhaseModel> {

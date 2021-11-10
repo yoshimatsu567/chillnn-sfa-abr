@@ -4,12 +4,11 @@ exports.PhaseModel = void 0;
 const __1 = require("../../..");
 const _baseModel_1 = require("./_baseModel");
 class PhaseModel extends _baseModel_1.BaseModel {
-    static getPhaseTitleBlanc(clientID, phaseStatus) {
+    static getPhaseTitleBlanc(phaseStatus) {
         return {
             phaseID: __1.generateUUID(),
             phaseNumber: 0,
             phaseDetail: '',
-            clientID,
             phaseStatus,
             createdAt: new Date().getTime(),
             updatedAt: new Date().getTime(),

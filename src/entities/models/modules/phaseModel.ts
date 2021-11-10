@@ -3,12 +3,11 @@ import { generateUUID } from '../../..';
 import { BaseModel } from './_baseModel';
 
 export class PhaseModel extends BaseModel<PhaseMast> {
-    static getPhaseTitleBlanc(clientID: Scalars['ID'], phaseStatus: PHASE_STATUS) {
+    static getPhaseTitleBlanc(phaseStatus: PHASE_STATUS) {
         return {
             phaseID: generateUUID(),
             phaseNumber: 0,
             phaseDetail: '',
-            clientID,
             phaseStatus,
             createdAt: new Date().getTime(),
             updatedAt: new Date().getTime(),

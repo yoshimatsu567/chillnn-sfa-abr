@@ -199,7 +199,7 @@ class ClientModel extends _baseModel_1.BaseModel {
         return this.modelFactory.PhaseModel(phaseModel_1.PhaseModel.getPhaseDataBlanc(this.clientID, 'DATA'), { isNew: true });
     }
     async createNewPhaseTitle() {
-        return this.modelFactory.PhaseModel(phaseModel_1.PhaseModel.getPhaseTitleBlanc(this.clientID, 'TITLE'), { isNew: true });
+        return this.modelFactory.PhaseModel(phaseModel_1.PhaseModel.getPhaseTitleBlanc('TITLE'), { isNew: true });
     }
 }
 exports.ClientModel = ClientModel;

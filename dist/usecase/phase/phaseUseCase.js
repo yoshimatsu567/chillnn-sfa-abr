@@ -14,8 +14,8 @@ class PhaseUseCase {
         const phases = this.repositoryContainer.phaseMastRepository.fetchAllPhase();
         return (await phases).map((phase) => this.modelFactory.PhaseModel(phase, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
     }
-    async createNewPhaseTitle(clientID, phaseStatus) {
-        return this.modelFactory.PhaseModel(phaseModel_1.PhaseModel.getPhaseTitleBlanc(clientID, phaseStatus), { isNew: true });
+    async createNewPhaseTitle(phaseStatus) {
+        return this.modelFactory.PhaseModel(phaseModel_1.PhaseModel.getPhaseTitleBlanc(phaseStatus), { isNew: true });
     }
     async createNewPhaseData(clientID, phaseStatus) {
         return this.modelFactory.PhaseModel(phaseModel_1.PhaseModel.getPhaseDataBlanc(clientID, phaseStatus), { isNew: true });
