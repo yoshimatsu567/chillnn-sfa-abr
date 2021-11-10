@@ -18,50 +18,20 @@ scalar AWSURL
 
 type ClientMast {
   clientID: ID!
-
-  """営業側の担当者名"""
   chargeUserID: ID
-
-  """会社名"""
   companyName: String
-
-  """施設名"""
   accommodationName: String!
-
-  """顧客の担当者名"""
   clientUserName: String
-
-  """予想流通額"""
   expectedSalesAmount: String
-
-  """施設所在地"""
   prefecture: String
-
-  """HPのポテンシャル"""
   homePagePotential: String
-
-  """メールアドレス"""
   clientEmail: String!
-
-  """電話番号"""
   clientPhoneNumber: String
-
-  """所要時間"""
   requiredTime: String
-
-  """Phaseの状態、だけど検討の余地あり"""
   phaseStatus: Int
-
-  """Appointmentの状態、だけど検討の余地あり"""
   appointmentStatus: String
-
-  """過去ステータス"""
   pastStatus: String
-
-  """新規ステータス"""
   newStatus: String
-
-  """status"""
   createdAt: AWSTimestamp!
   updatedAt: AWSTimestamp!
   deletedAt: AWSTimestamp

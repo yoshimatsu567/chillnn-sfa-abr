@@ -29,35 +29,20 @@ export declare type Scalars = {
 };
 export declare type ClientMast = {
     clientID: Scalars['ID'];
-    /** 営業側の担当者名 */
     chargeUserID?: Maybe<Scalars['ID']>;
-    /** 会社名 */
     companyName?: Maybe<Scalars['String']>;
-    /** 施設名 */
     accommodationName: Scalars['String'];
-    /** 顧客の担当者名 */
     clientUserName?: Maybe<Scalars['String']>;
-    /** 予想流通額 */
     expectedSalesAmount?: Maybe<Scalars['String']>;
-    /** 施設所在地 */
     prefecture?: Maybe<Scalars['String']>;
-    /** HPのポテンシャル */
     homePagePotential?: Maybe<Scalars['String']>;
-    /** メールアドレス */
     clientEmail: Scalars['String'];
-    /** 電話番号 */
     clientPhoneNumber?: Maybe<Scalars['String']>;
-    /** 所要時間 */
     requiredTime?: Maybe<Scalars['String']>;
-    /** Phaseの状態、だけど検討の余地あり */
     phaseStatus?: Maybe<Scalars['Int']>;
-    /** Appointmentの状態、だけど検討の余地あり */
     appointmentStatus?: Maybe<Scalars['String']>;
-    /** 過去ステータス */
     pastStatus?: Maybe<Scalars['String']>;
-    /** 新規ステータス */
     newStatus?: Maybe<Scalars['String']>;
-    /** status */
     createdAt: Scalars['AWSTimestamp'];
     updatedAt: Scalars['AWSTimestamp'];
     deletedAt?: Maybe<Scalars['AWSTimestamp']>;
