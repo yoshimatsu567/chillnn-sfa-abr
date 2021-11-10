@@ -50,7 +50,7 @@ input ClientMastInput {
     appointmentStatus: String
     pastStatus: String
     newStatus: String
-    "status"
+    # status
     createdAt: AWSTimestamp!
     updatedAt: AWSTimestamp!
     deletedAt: AWSTimestamp

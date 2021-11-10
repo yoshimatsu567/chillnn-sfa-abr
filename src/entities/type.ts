@@ -82,7 +82,6 @@ export type ClientMastInput = {
   appointmentStatus?: Maybe<Scalars['String']>;
   pastStatus?: Maybe<Scalars['String']>;
   newStatus?: Maybe<Scalars['String']>;
-  /** status */
   createdAt: Scalars['AWSTimestamp'];
   updatedAt: Scalars['AWSTimestamp'];
   deletedAt?: Maybe<Scalars['AWSTimestamp']>;
@@ -98,19 +97,12 @@ export type EventMast = {
   eventID: Scalars['ID'];
   clientID?: Maybe<Scalars['ID']>;
   eventNumber: Scalars['Int'];
-  /** このEventの編集者 */
   editedUserID?: Maybe<Scalars['ID']>;
-  /** Eventの名前 */
   eventDetail: Scalars['String'];
-  /** Eventのステータス、コンタクトとアクションのメモを想定、1st,2nd,3rd... */
   eventStatus: Scalars['String'];
-  /** Eventのメモ内容 */
   eventMemo?: Maybe<Scalars['String']>;
-  /** Eventの所属する期間、いる？ */
   eventTerm?: Maybe<Scalars['String']>;
-  /** Eventの実施日 */
   eventDate?: Maybe<Scalars['String']>;
-  /** status */
   createdAt: Scalars['AWSTimestamp'];
   updatedAt: Scalars['AWSTimestamp'];
   deletedAt?: Maybe<Scalars['AWSTimestamp']>;
@@ -126,14 +118,12 @@ export type EventMastInput = {
   eventMemo?: Maybe<Scalars['String']>;
   eventTerm?: Maybe<Scalars['String']>;
   eventDate?: Maybe<Scalars['String']>;
-  /** status */
   createdAt: Scalars['AWSTimestamp'];
   updatedAt: Scalars['AWSTimestamp'];
   deletedAt?: Maybe<Scalars['AWSTimestamp']>;
 };
 
 export enum PHASE_STATUS {
-  /** Phaseを見分ける用の Enum ,ステータス */
   TITLE = 'TITLE',
   DATA = 'DATA',
   DEAD = 'DEAD'
@@ -141,21 +131,13 @@ export enum PHASE_STATUS {
 
 export type PhaseMast = {
   phaseID: Scalars['ID'];
-  /** Phaseを所有するClientのID */
   clientID?: Maybe<Scalars['ID']>;
-  /** Phase的に何番目のPhaseなのか */
   phaseNumber: Scalars['Int'];
-  /** そのPhaseを編集した人のID */
   editedUserID?: Maybe<Scalars['ID']>;
-  /** Phaseの名前、詳細 */
   phaseDetail: Scalars['String'];
-  /** Phaseを見分ける用の Enum ,ステータス */
   phaseStatus: PHASE_STATUS;
-  /** そのPhaseが所属する期間を入れる想定 */
   phaseTerm?: Maybe<Scalars['String']>;
-  /** そのPhaseに移った日、想定 */
   phaseDate?: Maybe<Scalars['String']>;
-  /** status */
   createdAt: Scalars['AWSTimestamp'];
   updatedAt: Scalars['AWSTimestamp'];
   deletedAt?: Maybe<Scalars['AWSTimestamp']>;
@@ -170,7 +152,6 @@ export type PhaseMastInput = {
   phaseStatus: PHASE_STATUS;
   phaseTerm?: Maybe<Scalars['String']>;
   phaseDate?: Maybe<Scalars['String']>;
-  /** status */
   createdAt: Scalars['AWSTimestamp'];
   updatedAt: Scalars['AWSTimestamp'];
   deletedAt?: Maybe<Scalars['AWSTimestamp']>;
@@ -183,7 +164,6 @@ export type UserMast = {
   phoneNumber?: Maybe<Scalars['String']>;
   jobTitleName?: Maybe<Scalars['String']>;
   userStatus: Scalars['String'];
-  /** status */
   createdAt: Scalars['AWSTimestamp'];
   updatedAt: Scalars['AWSTimestamp'];
   deletedAt?: Maybe<Scalars['AWSTimestamp']>;
@@ -196,7 +176,6 @@ export type UserMastInput = {
   phoneNumber?: Maybe<Scalars['String']>;
   jobTitleName?: Maybe<Scalars['String']>;
   userStatus: Scalars['String'];
-  /** status */
   createdAt: Scalars['AWSTimestamp'];
   updatedAt: Scalars['AWSTimestamp'];
   deletedAt?: Maybe<Scalars['AWSTimestamp']>;

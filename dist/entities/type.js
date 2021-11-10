@@ -9,7 +9,6 @@ var ErrorCode;
 })(ErrorCode = exports.ErrorCode || (exports.ErrorCode = {}));
 var PHASE_STATUS;
 (function (PHASE_STATUS) {
-    /** Phaseを見分ける用の Enum ,ステータス */
     PHASE_STATUS["TITLE"] = "TITLE";
     PHASE_STATUS["DATA"] = "DATA";
     PHASE_STATUS["DEAD"] = "DEAD";

@@ -1,20 +1,20 @@
 type PhaseMast {
     phaseID: ID!
-    "Phaseを所有するClientのID"
+    # Phaseを所有するClientのID
     clientID: ID
-    "Phase的に何番目のPhaseなのか"
+    # Phase的に何番目のPhaseなのか
     phaseNumber: Int!
-    "そのPhaseを編集した人のID"
+    # そのPhaseを編集した人のID
     editedUserID: ID
-    "Phaseの名前、詳細"
+    # Phaseの名前、詳細
     phaseDetail: String!
-    "Phaseを見分ける用の Enum ,ステータス"
+    # Phaseを見分ける用の Enum ,ステータス
     phaseStatus: PHASE_STATUS!
-    "そのPhaseが所属する期間を入れる想定"
+    # そのPhaseが所属する期間を入れる想定
     phaseTerm: String
-    "そのPhaseに移った日、想定"
+    # そのPhaseに移った日、想定
     phaseDate: String
-    "status"
+    # status
     createdAt: AWSTimestamp!
     updatedAt: AWSTimestamp!
     deletedAt: AWSTimestamp
@@ -29,16 +29,14 @@ input PhaseMastInput {
     phaseStatus: PHASE_STATUS!
     phaseTerm: String
     phaseDate: String
-    "status"
+    # status
     createdAt: AWSTimestamp!
     updatedAt: AWSTimestamp!
     deletedAt: AWSTimestamp
 }
 
 enum PHASE_STATUS {
-    """
-    Phaseを見分ける用の Enum ,ステータス
-    """
+    # Phaseを見分ける用の Enum,ステータス
     TITLE
     DATA
     DEAD
