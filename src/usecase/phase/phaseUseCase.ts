@@ -15,11 +15,11 @@ export class PhaseUseCase {
         return (await phases).map((phase) => this.modelFactory.PhaseModel(phase, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
     }
 
-    async createNewPhaseTitle(phaseStatus: PHASE_STATUS): Promise<PhaseModel> {
-        return this.modelFactory.PhaseModel(PhaseModel.getPhaseTitleBlanc(phaseStatus), { isNew: true });
+    async createNewPhaseTitle(): Promise<PhaseModel> {
+        return this.modelFactory.PhaseModel(PhaseModel.getPhaseTitleBlanc(), { isNew: true });
     }
 
-    async createNewPhaseData(clientID: Scalars['ID'], phaseStatus: PHASE_STATUS): Promise<PhaseModel> {
-        return this.modelFactory.PhaseModel(PhaseModel.getPhaseDataBlanc(clientID, phaseStatus), { isNew: true });
+    async createNewPhaseData(clientID: Scalars['ID']): Promise<PhaseModel> {
+        return this.modelFactory.PhaseModel(PhaseModel.getPhaseDataBlanc(clientID), { isNew: true });
     }
 }

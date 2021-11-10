@@ -196,10 +196,10 @@ class ClientModel extends _baseModel_1.BaseModel {
         });
     }
     async createNewPhaseData() {
-        return this.modelFactory.PhaseModel(phaseModel_1.PhaseModel.getPhaseDataBlanc(this.clientID, 'DATA'), { isNew: true });
+        return this.modelFactory.PhaseModel(phaseModel_1.PhaseModel.getPhaseDataBlanc(this.clientID), { isNew: true });
     }
     async createNewPhaseTitle() {
-        return this.modelFactory.PhaseModel(phaseModel_1.PhaseModel.getPhaseTitleBlanc('TITLE'), { isNew: true });
+        return this.modelFactory.PhaseModel(phaseModel_1.PhaseModel.getPhaseTitleBlanc(), { isNew: true });
     }
 }
 exports.ClientModel = ClientModel;

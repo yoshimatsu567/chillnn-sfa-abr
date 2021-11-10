@@ -3,24 +3,24 @@ import { generateUUID } from '../../..';
 import { BaseModel } from './_baseModel';
 
 export class PhaseModel extends BaseModel<PhaseMast> {
-    static getPhaseTitleBlanc(phaseStatus: PHASE_STATUS) {
+    static getPhaseTitleBlanc() {
         return {
             phaseID: generateUUID(),
             phaseNumber: 0,
             phaseDetail: '',
-            phaseStatus,
+            phaseStatus: 'TITLE' as PHASE_STATUS,
             createdAt: new Date().getTime(),
             updatedAt: new Date().getTime(),
         };
     }
 
-    static getPhaseDataBlanc(clientID: Scalars['ID'], phaseStatus: PHASE_STATUS) {
+    static getPhaseDataBlanc(clientID: Scalars['ID']) {
         return {
             phaseID: generateUUID(),
             phaseNumber: 0,
             phaseDetail: '',
             clientID,
-            phaseStatus,
+            phaseStatus: 'DATA' as PHASE_STATUS,
             createdAt: new Date().getTime(),
             updatedAt: new Date().getTime(),
         };

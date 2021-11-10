@@ -186,10 +186,10 @@ export class ClientModel extends BaseModel<ClientMast> {
     }
 
     async createNewPhaseData() {
-        return this.modelFactory.PhaseModel(PhaseModel.getPhaseDataBlanc(this.clientID, 'DATA' as PHASE_STATUS), { isNew: true });
+        return this.modelFactory.PhaseModel(PhaseModel.getPhaseDataBlanc(this.clientID), { isNew: true });
     }
 
     async createNewPhaseTitle() {
-        return this.modelFactory.PhaseModel(PhaseModel.getPhaseTitleBlanc('TITLE' as PHASE_STATUS), { isNew: true });
+        return this.modelFactory.PhaseModel(PhaseModel.getPhaseTitleBlanc(), { isNew: true });
     }
 }
