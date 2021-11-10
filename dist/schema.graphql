@@ -94,6 +94,12 @@ input EventMastInput {
   deletedAt: AWSTimestamp
 }
 
+input FetchClientsByPhaseInput {
+  phaseNumber: Int!
+  phaseDetail: String!
+  phaseStatus: String!
+}
+
 enum PHASE_STATUS {
   TITLE
   DATA

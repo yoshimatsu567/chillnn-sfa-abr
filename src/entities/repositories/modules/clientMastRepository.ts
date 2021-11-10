@@ -1,5 +1,5 @@
 import { ClientModel } from '../../models/modules/clientModel';
-import { ClientMast, Scalars } from '../../type';
+import { ClientMast, FetchClientsByPhaseInput, Scalars } from '../../type';
 
 export interface IClientMastRepository {
     addClient(input: ClientMast): Promise<ClientMast>;
@@ -10,5 +10,5 @@ export interface IClientMastRepository {
     // fetchClientsByPhaseStatus(phaseStatus: string): Promise<ClientMast[]>;
     // fetchClientsByPhaseNumber(phaseNumber: number): Promise<ClientMast[]>;
     // fetchClientsByPhaseDetail(phaseDetail: string): Promise<ClientMast[]>;
-    fetchClientsByContentSearch(searchContent: string | number): Promise<ClientMast[]>;
+    fetchClientsByContentSearch(query: FetchClientsByPhaseInput): Promise<ClientMast[]>;
 }

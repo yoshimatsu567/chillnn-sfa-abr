@@ -1,0 +1,5 @@
+input FetchClientsByPhaseInput {
+    phaseNumber: Int!
+    phaseDetail: String!
+    phaseStatus: String!
+}

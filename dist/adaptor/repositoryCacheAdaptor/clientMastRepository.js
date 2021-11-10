@@ -61,7 +61,7 @@ class ClientMastRepositoryCacheAdaptor {
         if (cache)
             return cache;
         const res = await this.repository.fetchClientsByContentSearch(phaseContent);
-        this.addCacheBulk(phaseContent, res);
+        this.addCacheClientsByPhaseContentBulk(phaseContent, res);
         res.sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
         return res.sort((a, b) => __1.compareNumDesc(a.phaseStatus, b.phaseStatus));
     }
@@ -81,6 +81,12 @@ class ClientMastRepositoryCacheAdaptor {
         for (const client of clients) {
             this.addCacheEach(client.clientID, client);
         }
+    }
+    addCacheClientsByPhaseContentBulk(phaseContent, clients) {
+        // this.clientsCacheByPhase[phaseContent] = clients;
+        // for (const client of clients) {
+        //     this.addCacheEach(client.clientID, client);
+        // }
     }
     updateCacheEach(clientID, client) {
         this.clientEachCache[clientID] = client || 'blanc';

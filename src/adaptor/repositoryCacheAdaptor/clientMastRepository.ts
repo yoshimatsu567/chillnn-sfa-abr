@@ -1,4 +1,4 @@
-import { ClientMast, compareNumDesc, Scalars } from '../..';
+import { ClientMast, compareNumDesc, FetchClientsByPhaseInput, Scalars } from '../..';
 import { ClientModel } from '../../entities/models/modules/clientModel';
 import { IClientMastRepository } from '../../entities/repositories/modules/clientMastRepository';
 
@@ -63,11 +63,11 @@ export class ClientMastRepositoryCacheAdaptor implements IClientMastRepository {
         return res;
     }
 
-    async fetchClientsByContentSearch(phaseContent: string | number): Promise<ClientMast[]> {
+    async fetchClientsByContentSearch(phaseContent: FetchClientsByPhaseInput): Promise<ClientMast[]> {
         const cache = this.fetchCacheClientAll();
         if (cache) return cache;
         const res = await this.repository.fetchClientsByContentSearch(phaseContent);
-        this.addCacheBulk(phaseContent, res);
+        this.addCacheClientsByPhaseContentBulk(phaseContent, res);
         res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
         return res.sort((a, b) => compareNumDesc(a.phaseStatus!, b.phaseStatus!));
     }
@@ -88,12 +88,20 @@ export class ClientMastRepositoryCacheAdaptor implements IClientMastRepository {
             }
         }
     }
-    private addCacheBulk(userID: Scalars['ID'] | number, clients: ClientMast[]) {
+    private addCacheBulk(userID: Scalars['ID'], clients: ClientMast[]) {
         this.userCache[userID] = {};
         for (const client of clients) {
             this.addCacheEach(client.clientID, client);
         }
     }
+
+    private addCacheClientsByPhaseContentBulk(phaseContent: FetchClientsByPhaseInput, clients: ClientMast[]) {
+        // this.clientsCacheByPhase[phaseContent] = clients;
+        // for (const client of clients) {
+        //     this.addCacheEach(client.clientID, client);
+        // }
+    }
+
     private updateCacheEach(clientID: string, client: ClientMast | null) {
         this.clientEachCache[clientID] = client || 'blanc';
         if (this.clientAllCache && client) {

@@ -100,6 +100,11 @@ export declare type EventMastInput = {
     updatedAt: Scalars['AWSTimestamp'];
     deletedAt?: Maybe<Scalars['AWSTimestamp']>;
 };
+export declare type FetchClientsByPhaseInput = {
+    phaseNumber: Scalars['Int'];
+    phaseDetail: Scalars['String'];
+    phaseStatus: Scalars['String'];
+};
 export declare enum PHASE_STATUS {
     TITLE = "TITLE",
     DATA = "DATA",
