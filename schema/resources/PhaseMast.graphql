@@ -1,3 +1,10 @@
+enum PHASE_STATUS {
+    # Phaseを見分ける用の Enum,ステータス
+    TITLE
+    DATA
+    DEAD
+}
+
 type PhaseMast {
     phaseID: ID!
     # Phaseを所有するClientのID
@@ -33,11 +40,4 @@ input PhaseMastInput {
     createdAt: AWSTimestamp!
     updatedAt: AWSTimestamp!
     deletedAt: AWSTimestamp
-}
-
-enum PHASE_STATUS {
-    # Phaseを見分ける用の Enum,ステータス
-    TITLE
-    DATA
-    DEAD
 }
