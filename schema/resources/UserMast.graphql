@@ -5,7 +5,7 @@ type UserMast {
     phoneNumber: String
     jobTitleName: String
     userStatus: String!
-    # status
+    "status"
     createdAt: AWSTimestamp!
     updatedAt: AWSTimestamp!
     deletedAt: AWSTimestamp
@@ -18,7 +18,7 @@ input UserMastInput {
     phoneNumber: String
     jobTitleName: String
     userStatus: String!
-    # status
+    "status"
     createdAt: AWSTimestamp!
     updatedAt: AWSTimestamp!
     deletedAt: AWSTimestamp

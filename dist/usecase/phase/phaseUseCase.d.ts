@@ -6,5 +6,4 @@ export declare class PhaseUseCase {
     constructor(repositoryContainer: RepositoryContainer, //
     modelFactory: ModelFactory);
     fetchAllPhase(): Promise<PhaseModel[]>;
-    createNewPhase(): PhaseModel;
 }

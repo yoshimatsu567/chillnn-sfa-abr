@@ -1,4 +1,6 @@
+import { Scalars } from '../..';
 import { UserMast } from '../../type';
+import { PhaseModel } from './phaseModel';
 import { BaseModel } from './_baseModel';
 
 export class UserModel extends BaseModel<UserMast> {

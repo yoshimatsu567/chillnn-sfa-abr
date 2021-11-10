@@ -55,15 +55,21 @@ export class ClientMastRepositoryCacheAdaptor implements IClientMastRepository {
         return res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
     }
 
-    // async fetchAllPhaseStatus(): Promise<number[]> {
-    // }
-
     async fetchAllClient(): Promise<ClientMast[]> {
         const cache = this.fetchCacheClientAll();
         if (cache) return cache;
         const res = await this.repository.fetchAllClient();
         this.updateCacheBulk(res);
         return res;
+    }
+
+    async fetchClientsByContentSearch(phaseContent: string | number): Promise<ClientMast[]> {
+        const cache = this.fetchCacheClientAll();
+        if (cache) return cache;
+        const res = await this.repository.fetchClientsByContentSearch(phaseContent);
+        this.addCacheBulk(phaseContent, res);
+        res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+        return res.sort((a, b) => compareNumDesc(a.phaseStatus!, b.phaseStatus!));
     }
 
     // ===============================================================
@@ -82,7 +88,7 @@ export class ClientMastRepositoryCacheAdaptor implements IClientMastRepository {
             }
         }
     }
-    private addCacheBulk(userID: Scalars['ID'], clients: ClientMast[]) {
+    private addCacheBulk(userID: Scalars['ID'] | number, clients: ClientMast[]) {
         this.userCache[userID] = {};
         for (const client of clients) {
             this.addCacheEach(client.clientID, client);

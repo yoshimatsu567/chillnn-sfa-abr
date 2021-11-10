@@ -4,11 +4,24 @@ exports.PhaseModel = void 0;
 const __1 = require("../../..");
 const _baseModel_1 = require("./_baseModel");
 class PhaseModel extends _baseModel_1.BaseModel {
-    static getPhaseBlanc() {
+    static getPhaseTitleBlanc(clientID, phaseStatus) {
         return {
             phaseID: __1.generateUUID(),
             phaseNumber: 0,
             phaseDetail: '',
+            clientID,
+            phaseStatus,
+            createdAt: new Date().getTime(),
+            updatedAt: new Date().getTime(),
+        };
+    }
+    static getPhaseDataBlanc(clientID, phaseStatus) {
+        return {
+            phaseID: __1.generateUUID(),
+            phaseNumber: 0,
+            phaseDetail: '',
+            clientID,
+            phaseStatus,
             createdAt: new Date().getTime(),
             updatedAt: new Date().getTime(),
         };
@@ -57,15 +70,10 @@ class PhaseModel extends _baseModel_1.BaseModel {
         this.mast.phaseDetail = input;
     }
     get phaseStatus() {
-        return this.mast.phaseStatus || '';
+        return this.mast.phaseStatus;
     }
     set phaseStatus(input) {
-        if (input) {
-            this.mast.phaseStatus = input;
-        }
-        else {
-            this.mast.phaseStatus = null;
-        }
+        this.mast.phaseStatus = input;
     }
     get phaseTerm() {
         return this.mast.phaseTerm || '';

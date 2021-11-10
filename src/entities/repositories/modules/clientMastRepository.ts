@@ -7,5 +7,8 @@ export interface IClientMastRepository {
     fetchClientByClientID(clientID: Scalars['ID']): Promise<ClientMast | null>;
     fetchClientsByChargeUserID(chargeUserID: Scalars['ID']): Promise<ClientMast[]>;
     fetchAllClient(): Promise<ClientMast[]>;
-    // fetchAllPhaseStatus(): Promise<number[]>;
+    // fetchClientsByPhaseStatus(phaseStatus: string): Promise<ClientMast[]>;
+    // fetchClientsByPhaseNumber(phaseNumber: number): Promise<ClientMast[]>;
+    // fetchClientsByPhaseDetail(phaseDetail: string): Promise<ClientMast[]>;
+    fetchClientsByContentSearch(searchContent: string | number): Promise<ClientMast[]>;
 }

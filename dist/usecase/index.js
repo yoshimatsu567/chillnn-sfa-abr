@@ -12,3 +12,6 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./user/userUseCase"), exports);
 __exportStar(require("./client/clientUseCase"), exports);
+// export * from './event/eventUseCase';
+// export * from './phase/phaseUseCase';
+__exportStar(require("./search/searchUseCase"), exports);

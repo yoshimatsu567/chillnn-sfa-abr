@@ -2,13 +2,19 @@ type EventMast {
     eventID: ID!
     clientID: ID
     eventNumber: Int!
+    "このEventの編集者"
     editedUserID: ID
+    "Eventの名前"
     eventDetail: String!
+    "Eventのステータス、コンタクトとアクションのメモを想定、1st,2nd,3rd..."
     eventStatus: String!
+    "Eventのメモ内容"
     eventMemo: String
+    "Eventの所属する期間、いる？"
     eventTerm: String
+    "Eventの実施日"
     eventDate: String
-    # status
+    "status"
     createdAt: AWSTimestamp!
     updatedAt: AWSTimestamp!
     deletedAt: AWSTimestamp
@@ -24,7 +30,7 @@ input EventMastInput {
     eventMemo: String
     eventTerm: String
     eventDate: String
-    # status
+    "status"
     createdAt: AWSTimestamp!
     updatedAt: AWSTimestamp!
     deletedAt: AWSTimestamp

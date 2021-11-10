@@ -190,24 +190,16 @@ class ClientModel extends _baseModel_1.BaseModel {
             this.isNew = false;
         }
     }
-    // async fetchAllClient(): Promise<ClientModel[]> {
-    //     const res = await this.repositoryContainer.clientMastRepository.fetchAllClient();
-    //     return res.map((item) => this.modelFactory.ClientModel(item, { isNew: false }));
-    // }
-    // async fetchPhaseCount(): Promise<number[]> {
-    //     const res = await this.repositoryContainer.clientMastRepository.fetchAllPhaseStatus();
-    //     const setRes = Array.from(new Set(res));
-    //     return setRes;
-    // }
     createNewEvent() {
         return this.modelFactory.EventModel(eventModel_1.EventModel.getEventBlanc(), {
             isNew: true,
         });
     }
-    createNewPhase() {
-        return this.modelFactory.PhaseModel(phaseModel_1.PhaseModel.getPhaseBlanc(), {
-            isNew: true,
-        });
+    async createNewPhaseData() {
+        return this.modelFactory.PhaseModel(phaseModel_1.PhaseModel.getPhaseDataBlanc(this.clientID, 'DATA'), { isNew: true });
+    }
+    async createNewPhaseTitle() {
+        return this.modelFactory.PhaseModel(phaseModel_1.PhaseModel.getPhaseTitleBlanc(this.clientID, 'TITLE'), { isNew: true });
     }
 }
 exports.ClientModel = ClientModel;

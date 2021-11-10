@@ -38,5 +38,6 @@ export declare class ClientModel extends BaseModel<ClientMast> {
     get isRegisterable(): boolean;
     register(): Promise<void>;
     createNewEvent(): EventModel;
-    createNewPhase(): PhaseModel;
+    createNewPhaseData(): Promise<PhaseModel>;
+    createNewPhaseTitle(): Promise<PhaseModel>;
 }

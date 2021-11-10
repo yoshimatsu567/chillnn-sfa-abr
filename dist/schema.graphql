@@ -18,20 +18,50 @@ scalar AWSURL
 
 type ClientMast {
   clientID: ID!
+
+  """営業側の担当者名"""
   chargeUserID: ID
+
+  """会社名"""
   companyName: String
+
+  """施設名"""
   accommodationName: String!
+
+  """顧客の担当者名"""
   clientUserName: String
+
+  """予想流通額"""
   expectedSalesAmount: String
+
+  """施設所在地"""
   prefecture: String
+
+  """HPのポテンシャル"""
   homePagePotential: String
+
+  """メールアドレス"""
   clientEmail: String!
+
+  """電話番号"""
   clientPhoneNumber: String
+
+  """所要時間"""
   requiredTime: String
+
+  """Phaseの状態、だけど検討の余地あり"""
   phaseStatus: Int
+
+  """Appointmentの状態、だけど検討の余地あり"""
   appointmentStatus: String
+
+  """過去ステータス"""
   pastStatus: String
+
+  """新規ステータス"""
   newStatus: String
+
+  """status"""
   createdAt: AWSTimestamp!
   updatedAt: AWSTimestamp!
   deletedAt: AWSTimestamp
@@ -53,6 +83,8 @@ input ClientMastInput {
   appointmentStatus: String
   pastStatus: String
   newStatus: String
+
+  """status"""
   createdAt: AWSTimestamp!
   updatedAt: AWSTimestamp!
   deletedAt: AWSTimestamp
@@ -68,12 +100,26 @@ type EventMast {
   eventID: ID!
   clientID: ID
   eventNumber: Int!
+
+  """このEventの編集者"""
   editedUserID: ID
+
+  """Eventの名前"""
   eventDetail: String!
+
+  """Eventのステータス、コンタクトとアクションのメモを想定、1st,2nd,3rd..."""
   eventStatus: String!
+
+  """Eventのメモ内容"""
   eventMemo: String
+
+  """Eventの所属する期間、いる？"""
   eventTerm: String
+
+  """Eventの実施日"""
   eventDate: String
+
+  """status"""
   createdAt: AWSTimestamp!
   updatedAt: AWSTimestamp!
   deletedAt: AWSTimestamp
@@ -89,20 +135,45 @@ input EventMastInput {
   eventMemo: String
   eventTerm: String
   eventDate: String
+
+  """status"""
   createdAt: AWSTimestamp!
   updatedAt: AWSTimestamp!
   deletedAt: AWSTimestamp
 }
 
+enum PHASE_STATUS {
+  """Phaseを見分ける用の Enum ,ステータス"""
+  TITLE
+  DATA
+  DEAD
+}
+
 type PhaseMast {
   phaseID: ID!
+
+  """Phaseを所有するClientのID"""
   clientID: ID
+
+  """Phase的に何番目のPhaseなのか"""
   phaseNumber: Int!
+
+  """そのPhaseを編集した人のID"""
   editedUserID: ID
+
+  """Phaseの名前、詳細"""
   phaseDetail: String!
-  phaseStatus: String
+
+  """Phaseを見分ける用の Enum ,ステータス"""
+  phaseStatus: PHASE_STATUS!
+
+  """そのPhaseが所属する期間を入れる想定"""
   phaseTerm: String
+
+  """そのPhaseに移った日、想定"""
   phaseDate: String
+
+  """status"""
   createdAt: AWSTimestamp!
   updatedAt: AWSTimestamp!
   deletedAt: AWSTimestamp
@@ -114,9 +185,11 @@ input PhaseMastInput {
   phaseNumber: Int!
   editedUserID: ID
   phaseDetail: String!
-  phaseStatus: String
+  phaseStatus: PHASE_STATUS!
   phaseTerm: String
   phaseDate: String
+
+  """status"""
   createdAt: AWSTimestamp!
   updatedAt: AWSTimestamp!
   deletedAt: AWSTimestamp
@@ -129,6 +202,8 @@ type UserMast {
   phoneNumber: String
   jobTitleName: String
   userStatus: String!
+
+  """status"""
   createdAt: AWSTimestamp!
   updatedAt: AWSTimestamp!
   deletedAt: AWSTimestamp
@@ -141,6 +216,8 @@ input UserMastInput {
   phoneNumber: String
   jobTitleName: String
   userStatus: String!
+
+  """status"""
   createdAt: AWSTimestamp!
   updatedAt: AWSTimestamp!
   deletedAt: AWSTimestamp

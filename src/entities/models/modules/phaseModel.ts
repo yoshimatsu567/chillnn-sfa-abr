@@ -1,13 +1,27 @@
-import { PhaseMast, Scalars } from '../..';
+import { PhaseMast, PHASE_STATUS, Scalars } from '../..';
 import { generateUUID } from '../../..';
 import { BaseModel } from './_baseModel';
 
 export class PhaseModel extends BaseModel<PhaseMast> {
-    static getPhaseBlanc() {
+    static getPhaseTitleBlanc(clientID: Scalars['ID'], phaseStatus: PHASE_STATUS) {
         return {
             phaseID: generateUUID(),
             phaseNumber: 0,
             phaseDetail: '',
+            clientID,
+            phaseStatus,
+            createdAt: new Date().getTime(),
+            updatedAt: new Date().getTime(),
+        };
+    }
+
+    static getPhaseDataBlanc(clientID: Scalars['ID'], phaseStatus: PHASE_STATUS) {
+        return {
+            phaseID: generateUUID(),
+            phaseNumber: 0,
+            phaseDetail: '',
+            clientID,
+            phaseStatus,
             createdAt: new Date().getTime(),
             updatedAt: new Date().getTime(),
         };
@@ -55,14 +69,10 @@ export class PhaseModel extends BaseModel<PhaseMast> {
         this.mast.phaseDetail = input;
     }
     get phaseStatus() {
-        return this.mast.phaseStatus || '';
+        return this.mast.phaseStatus;
     }
-    set phaseStatus(input: string) {
-        if (input) {
-            this.mast.phaseStatus = input;
-        } else {
-            this.mast.phaseStatus = null;
-        }
+    set phaseStatus(input: PHASE_STATUS) {
+        this.mast.phaseStatus = input;
     }
     get phaseTerm() {
         return this.mast.phaseTerm || '';

@@ -1,3 +1,4 @@
+import { PHASE_STATUS } from '../..';
 import { generateUUID } from '../../../util/modules/IDGenerator';
 import { ClientMast } from '../../type';
 import { EventModel } from './eventModel';
@@ -177,16 +178,6 @@ export class ClientModel extends BaseModel<ClientMast> {
             this.isNew = false;
         }
     }
-    // async fetchAllClient(): Promise<ClientModel[]> {
-    //     const res = await this.repositoryContainer.clientMastRepository.fetchAllClient();
-    //     return res.map((item) => this.modelFactory.ClientModel(item, { isNew: false }));
-    // }
-
-    // async fetchPhaseCount(): Promise<number[]> {
-    //     const res = await this.repositoryContainer.clientMastRepository.fetchAllPhaseStatus();
-    //     const setRes = Array.from(new Set(res));
-    //     return setRes;
-    // }
 
     createNewEvent(): EventModel {
         return this.modelFactory.EventModel(EventModel.getEventBlanc(), {
@@ -194,9 +185,11 @@ export class ClientModel extends BaseModel<ClientMast> {
         });
     }
 
-    createNewPhase(): PhaseModel {
-        return this.modelFactory.PhaseModel(PhaseModel.getPhaseBlanc(), {
-            isNew: true,
-        });
+    async createNewPhaseData() {
+        return this.modelFactory.PhaseModel(PhaseModel.getPhaseDataBlanc(this.clientID, 'DATA' as PHASE_STATUS), { isNew: true });
+    }
+
+    async createNewPhaseTitle() {
+        return this.modelFactory.PhaseModel(PhaseModel.getPhaseTitleBlanc(this.clientID, 'TITLE' as PHASE_STATUS), { isNew: true });
     }
 }
