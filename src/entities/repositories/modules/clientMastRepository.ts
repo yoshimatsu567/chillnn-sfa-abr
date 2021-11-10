@@ -10,5 +10,5 @@ export interface IClientMastRepository {
     // fetchClientsByPhaseStatus(phaseStatus: string): Promise<ClientMast[]>;
     // fetchClientsByPhaseNumber(phaseNumber: number): Promise<ClientMast[]>;
     // fetchClientsByPhaseDetail(phaseDetail: string): Promise<ClientMast[]>;
-    fetchClientsByContentSearch(query: FetchClientsByPhaseInput): Promise<ClientMast[]>;
+    fetchClientsByContentSearch(phaseContent: FetchClientsByPhaseInput): Promise<ClientMast[]>;
 }
