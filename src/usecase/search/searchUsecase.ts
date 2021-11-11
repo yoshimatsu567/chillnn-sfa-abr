@@ -1,4 +1,4 @@
-import { compareNumAsc, compareNumDesc, compareStrDesc, FetchClientsByPhaseInput, ModelFactory, RepositoryContainer } from '../..';
+import { compareNumAsc, compareNumDesc, compareStrDesc, FetchClientsByPhaseInput, ModelFactory, RepositoryContainer, Scalars } from '../..';
 import { ClientModel } from '../../entities/models/modules/clientModel';
 import { UserModel } from '../../entities/models/modules/userModel';
 
@@ -8,7 +8,7 @@ export class SearchUsecase {
         private modelFactory: ModelFactory,
     ) {}
 
-    async fetchClientsModelByContentSearch(phaseContent: FetchClientsByPhaseInput): Promise<ClientModel[]> {
+    async fetchClientsModelByContentSearch(phaseContent: Scalars['ID'] | Scalars['String']): Promise<ClientModel[]> {
         const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByContentSearch(phaseContent);
         return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumAsc(a.createdAt, b.createdAt));
         // if (typeof phaseContent === 'string') {
