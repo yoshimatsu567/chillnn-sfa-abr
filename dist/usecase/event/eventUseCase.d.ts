@@ -1,6 +1,6 @@
 import { RepositoryContainer, ModelFactory } from '../../entities';
 import { EventModel } from '../../entities/models/modules/eventModel';
-export declare class EventUseCase {
+export declare class EventUsecase {
     private repositoryContainer;
     private modelFactory;
     constructor(repositoryContainer: RepositoryContainer, //

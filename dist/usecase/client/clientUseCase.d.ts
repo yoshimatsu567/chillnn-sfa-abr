@@ -1,6 +1,6 @@
 import { RepositoryContainer, ModelFactory } from '../../entities';
 import { ClientModel } from '../../entities/models/modules/clientModel';
-export declare class ClientUseCase {
+export declare class ClientUsecase {
     private repositoryContainer;
     private modelFactory;
     constructor(repositoryContainer: RepositoryContainer, //

@@ -2,7 +2,7 @@ import { RepositoryContainer, ModelFactory } from '../../entities';
 import { ClientModel } from '../../entities/models/modules/clientModel';
 import { compareNumDesc } from '../../util/modules/Comparator';
 
-export class ClientUseCase {
+export class ClientUsecase {
     constructor(
         private repositoryContainer: RepositoryContainer, //
         private modelFactory: ModelFactory,

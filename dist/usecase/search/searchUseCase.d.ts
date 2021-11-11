@@ -1,6 +1,6 @@
 import { FetchClientsByPhaseInput, ModelFactory, RepositoryContainer } from '../..';
 import { ClientModel } from '../../entities/models/modules/clientModel';
-export declare class SearchUseCase {
+export declare class SearchUsecase {
     private repositoryContainer;
     private modelFactory;
     constructor(repositoryContainer: RepositoryContainer, //

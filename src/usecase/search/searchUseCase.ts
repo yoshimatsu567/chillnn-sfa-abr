@@ -2,7 +2,7 @@ import { compareNumAsc, compareNumDesc, compareStrDesc, FetchClientsByPhaseInput
 import { ClientModel } from '../../entities/models/modules/clientModel';
 import { UserModel } from '../../entities/models/modules/userModel';
 
-export class SearchUseCase {
+export class SearchUsecase {
     constructor(
         private repositoryContainer: RepositoryContainer, //
         private modelFactory: ModelFactory,

@@ -1,7 +1,7 @@
 import { RepositoryContainer, ModelFactory } from '../../entities';
 import { PhaseModel } from '../../entities/models/modules/phaseModel';
 import { Scalars } from '../../entities/type';
-export declare class PhaseUseCase {
+export declare class PhaseUsecase {
     private repositoryContainer;
     private modelFactory;
     constructor(repositoryContainer: RepositoryContainer, //

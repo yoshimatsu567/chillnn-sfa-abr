@@ -4,7 +4,7 @@ import { Scalars } from '../../entities/type';
 import { compareNumDesc } from '../../util/modules/Comparator';
 
 // 必要なのか検討段階
-export class PhaseUseCase {
+export class PhaseUsecase {
     constructor(
         private repositoryContainer: RepositoryContainer, //
         private modelFactory: ModelFactory,

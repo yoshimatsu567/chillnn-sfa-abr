@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserUseCase = void 0;
+exports.UserUsecase = void 0;
 const entities_1 = require("../../entities");
 const ChillnnSFAError_1 = require("../../util/modules/ChillnnSFAError");
 const Comparator_1 = require("../../util/modules/Comparator");
-class UserUseCase {
+class UserUsecase {
     constructor(repositoryContainer, //
     modelFactory) {
         this.repositoryContainer = repositoryContainer;
@@ -42,4 +42,4 @@ class UserUseCase {
         return users.map((user) => this.modelFactory.UserModel(user, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
     }
 }
-exports.UserUseCase = UserUseCase;
+exports.UserUsecase = UserUsecase;

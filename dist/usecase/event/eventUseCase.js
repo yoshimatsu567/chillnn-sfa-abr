@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EventUseCase = void 0;
+exports.EventUsecase = void 0;
 const eventModel_1 = require("../../entities/models/modules/eventModel");
 const Comparator_1 = require("../../util/modules/Comparator");
 // 必要なのか検討段階
-class EventUseCase {
+class EventUsecase {
     constructor(repositoryContainer, //
     modelFactory) {
         this.repositoryContainer = repositoryContainer;
@@ -18,4 +18,4 @@ class EventUseCase {
         return this.modelFactory.EventModel(eventModel_1.EventModel.getEventBlanc(), { isNew: true });
     }
 }
-exports.EventUseCase = EventUseCase;
+exports.EventUsecase = EventUsecase;

@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SearchUseCase = void 0;
+exports.SearchUsecase = void 0;
 const __1 = require("../..");
-class SearchUseCase {
+class SearchUsecase {
     constructor(repositoryContainer, //
     modelFactory) {
         this.repositoryContainer = repositoryContainer;
@@ -18,4 +18,4 @@ class SearchUseCase {
         // }
     }
 }
-exports.SearchUseCase = SearchUseCase;
+exports.SearchUsecase = SearchUsecase;

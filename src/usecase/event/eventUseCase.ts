@@ -4,7 +4,7 @@ import { EventMast } from '../../entities/type';
 import { compareNumDesc } from '../../util/modules/Comparator';
 
 // 必要なのか検討段階
-export class EventUseCase {
+export class EventUsecase {
     constructor(
         private repositoryContainer: RepositoryContainer, //
         private modelFactory: ModelFactory,

@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ClientUseCase = void 0;
+exports.ClientUsecase = void 0;
 const clientModel_1 = require("../../entities/models/modules/clientModel");
 const Comparator_1 = require("../../util/modules/Comparator");
-class ClientUseCase {
+class ClientUsecase {
     constructor(repositoryContainer, //
     modelFactory) {
         this.repositoryContainer = repositoryContainer;
@@ -20,4 +20,4 @@ class ClientUseCase {
         return this.modelFactory.ClientModel(clientModel_1.ClientModel.getBlanc(), { isNew: true });
     }
 }
-exports.ClientUseCase = ClientUseCase;
+exports.ClientUsecase = ClientUsecase;

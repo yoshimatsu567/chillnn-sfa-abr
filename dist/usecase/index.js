@@ -10,8 +10,8 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./user/userUseCase"), exports);
-__exportStar(require("./client/clientUseCase"), exports);
-__exportStar(require("./event/eventUseCase"), exports);
-__exportStar(require("./phase/phaseUseCase"), exports);
-__exportStar(require("./search/searchUseCase"), exports);
+__exportStar(require("./user/userUsecase"), exports);
+__exportStar(require("./client/clientUsecase"), exports);
+__exportStar(require("./event/eventUsecase"), exports);
+__exportStar(require("./phase/phaseUsecase"), exports);
+__exportStar(require("./search/searchUsecase"), exports);

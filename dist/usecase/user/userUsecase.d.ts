@@ -1,6 +1,6 @@
 import { RepositoryContainer, ModelFactory, Scalars } from '../../entities';
 import { UserModel } from '../../entities/models/modules/userModel';
-export declare class UserUseCase {
+export declare class UserUsecase {
     private repositoryContainer;
     private modelFactory;
     private myUserModel;
