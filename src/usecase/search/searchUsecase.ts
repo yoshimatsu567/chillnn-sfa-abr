@@ -8,7 +8,7 @@ export class SearchUsecase {
         private modelFactory: ModelFactory,
     ) {}
 
-    async fetchClientsModelByContentSearch(phaseContent: Scalars['ID'] | Scalars['String']): Promise<ClientModel[]> {
+    async fetchClientsModelByContentSearch(phaseContent: FetchClientsByPhaseInput): Promise<ClientModel[]> {
         const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByContentSearch(phaseContent);
         return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumAsc(a.createdAt, b.createdAt));
         // if (typeof phaseContent === 'string') {

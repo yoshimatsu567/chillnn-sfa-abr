@@ -63,7 +63,7 @@ export class ClientMastRepositoryCacheAdaptor implements IClientMastRepository {
         return res;
     }
 
-    async fetchClientsByContentSearch(phaseContent: Scalars['ID'] | Scalars['String']): Promise<ClientMast[]> {
+    async fetchClientsByContentSearch(phaseContent: FetchClientsByPhaseInput): Promise<ClientMast[]> {
         const cache = this.fetchCacheClientAll();
         if (cache) return cache;
         const res = await this.repository.fetchClientsByContentSearch(phaseContent);
@@ -95,7 +95,7 @@ export class ClientMastRepositoryCacheAdaptor implements IClientMastRepository {
         }
     }
 
-    private addCacheClientsByPhaseContentBulk(phaseContent: Scalars['ID'] | Scalars['String'], clients: ClientMast[]) {
+    private addCacheClientsByPhaseContentBulk(phaseContent: FetchClientsByPhaseInput, clients: ClientMast[]) {
         // this.clientsCacheByPhase[phaseContent] = clients;
         // for (const client of clients) {
         //     this.addCacheEach(client.clientID, client);
