@@ -12,6 +12,7 @@ export declare class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository
     fetchPhasesByClientID(clientID: Scalars['ID']): Promise<PhaseMast[]>;
     fetchPhasesByEditedUserID(editedUserID: Scalars['ID']): Promise<PhaseMast[]>;
     fetchAllPhase(): Promise<PhaseMast[]>;
+    fetchAllPhaseTitle(): Promise<PhaseMast[]>;
     private addCacheEach;
     private addCacheBulk;
     private updateCacheEach;

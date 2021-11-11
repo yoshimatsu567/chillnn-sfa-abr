@@ -44,6 +44,14 @@ class PhaseRepositoryCacheAdaptor {
         this.updateCacheBulk(res);
         return res;
     }
+    async fetchAllPhaseTitle() {
+        const cache = this.fetchAllPhaseTitle();
+        if (cache)
+            return cache;
+        const res = await this.repository.fetchAllPhaseTitle();
+        this.updateCacheBulk(res);
+        return res;
+    }
     // ===============================================================
     //
     // private

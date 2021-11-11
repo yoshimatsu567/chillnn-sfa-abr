@@ -15,6 +15,11 @@ export class PhaseUsecase {
         return (await phases).map((phase) => this.modelFactory.PhaseModel(phase, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
     }
 
+    async fetchAllPhaseTitle(): Promise<PhaseModel[]> {
+        const phases = this.repositoryContainer.phaseMastRepository.fetchAllPhaseTitle();
+        return (await phases).map((phase) => this.modelFactory.PhaseModel(phase, { isNew: false }));
+    }
+
     async createNewPhaseTitle(): Promise<PhaseModel> {
         return this.modelFactory.PhaseModel(PhaseModel.getPhaseTitleBlanc(), { isNew: true });
     }
