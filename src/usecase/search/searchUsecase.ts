@@ -10,7 +10,7 @@ export class SearchUsecase {
 
     async fetchClientsModelByContentSearch(phaseContent: FetchClientsByPhaseInput): Promise<ClientModel[]> {
         const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByContentSearch(phaseContent);
-        return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumAsc(a.phaseStatus, b.phaseStatus));
+        return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumAsc(a.createdAt, b.createdAt));
         // if (typeof phaseContent === 'string') {
         //     return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumAsc(a.phaseStatus, b.phaseStatus));
         // } else {
