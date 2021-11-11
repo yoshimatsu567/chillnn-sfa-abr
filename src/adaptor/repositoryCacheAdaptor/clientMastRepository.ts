@@ -64,10 +64,37 @@ export class ClientMastRepositoryCacheAdaptor implements IClientMastRepository {
     }
 
     async fetchClientsByContentSearch(phaseContent: FetchClientsByPhaseInput): Promise<ClientMast[]> {
-        const cache = this.fetchCacheClientAll();
+        const cache = this.fetchClientsByContentSearch(phaseContent);
         if (cache) return cache;
         const res = await this.repository.fetchClientsByContentSearch(phaseContent);
         this.addCacheClientsByPhaseContentBulk(phaseContent, res);
+        res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+        return res.sort((a, b) => compareNumDesc(a.phaseStatus!, b.phaseStatus!));
+    }
+
+    async fetchClientsByPhaseStatus(phaseStatus: string): Promise<ClientMast[]> {
+        const cache = this.fetchClientsByPhaseStatus(phaseStatus);
+        if (cache) return cache;
+        const res = await this.repository.fetchClientsByPhaseStatus(phaseStatus);
+        // this.addCacheClientsByPhaseContentBulk(phaseStatus, res);
+        res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+        return res.sort((a, b) => compareNumDesc(a.phaseStatus!, b.phaseStatus!));
+    }
+
+    async fetchClientsByPhaseNumber(phaseNumber: number): Promise<ClientMast[]> {
+        const cache = this.fetchClientsByPhaseNumber(phaseNumber);
+        if (cache) return cache;
+        const res = await this.repository.fetchClientsByPhaseNumber(phaseNumber);
+        // this.addCacheClientsByPhaseContentBulk(phaseNumber, res);
+        res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+        return res.sort((a, b) => compareNumDesc(a.phaseStatus!, b.phaseStatus!));
+    }
+
+    async fetchClientsByPhaseDetail(phaseDetail: string): Promise<ClientMast[]> {
+        const cache = this.fetchClientsByPhaseDetail(phaseDetail);
+        if (cache) return cache;
+        const res = await this.repository.fetchClientsByPhaseDetail(phaseDetail);
+        // this.addCacheClientsByPhaseContentBulk(phaseDetail, res);
         res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
         return res.sort((a, b) => compareNumDesc(a.phaseStatus!, b.phaseStatus!));
     }

@@ -87,7 +87,7 @@ export class UserMastRepositoryCacheAdaptor implements IUserMastRepository {
     }
 
     async fetchUsersMastByPhaseNumber(phaseNumber: number): Promise<UserMast[]> {
-        const cache = this.fetchCacheUserAll();
+        const cache = this.fetchUsersMastByPhaseNumber(phaseNumber);
         if (cache) return cache;
         const res = await this.repository.fetchUsersMastByPhaseNumber(phaseNumber);
         this.addCachePhaseBulk(phaseNumber, res);
@@ -95,7 +95,7 @@ export class UserMastRepositoryCacheAdaptor implements IUserMastRepository {
     }
 
     async fetchUsersMastByPhaseDetail(phaseDetail: string): Promise<UserMast[]> {
-        const cache = this.fetchCacheUserAll();
+        const cache = this.fetchUsersMastByPhaseDetail(phaseDetail);
         if (cache) return cache;
         const res = await this.repository.fetchUsersMastByPhaseDetail(phaseDetail);
         this.addCachePhaseBulk(phaseDetail, res);

@@ -57,11 +57,38 @@ class ClientMastRepositoryCacheAdaptor {
         return res;
     }
     async fetchClientsByContentSearch(phaseContent) {
-        const cache = this.fetchCacheClientAll();
+        const cache = this.fetchClientsByContentSearch(phaseContent);
         if (cache)
             return cache;
         const res = await this.repository.fetchClientsByContentSearch(phaseContent);
         this.addCacheClientsByPhaseContentBulk(phaseContent, res);
+        res.sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
+        return res.sort((a, b) => __1.compareNumDesc(a.phaseStatus, b.phaseStatus));
+    }
+    async fetchClientsByPhaseStatus(phaseStatus) {
+        const cache = this.fetchClientsByPhaseStatus(phaseStatus);
+        if (cache)
+            return cache;
+        const res = await this.repository.fetchClientsByPhaseStatus(phaseStatus);
+        // this.addCacheClientsByPhaseContentBulk(phaseStatus, res);
+        res.sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
+        return res.sort((a, b) => __1.compareNumDesc(a.phaseStatus, b.phaseStatus));
+    }
+    async fetchClientsByPhaseNumber(phaseNumber) {
+        const cache = this.fetchClientsByPhaseNumber(phaseNumber);
+        if (cache)
+            return cache;
+        const res = await this.repository.fetchClientsByPhaseNumber(phaseNumber);
+        // this.addCacheClientsByPhaseContentBulk(phaseNumber, res);
+        res.sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
+        return res.sort((a, b) => __1.compareNumDesc(a.phaseStatus, b.phaseStatus));
+    }
+    async fetchClientsByPhaseDetail(phaseDetail) {
+        const cache = this.fetchClientsByPhaseDetail(phaseDetail);
+        if (cache)
+            return cache;
+        const res = await this.repository.fetchClientsByPhaseDetail(phaseDetail);
+        // this.addCacheClientsByPhaseContentBulk(phaseDetail, res);
         res.sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
         return res.sort((a, b) => __1.compareNumDesc(a.phaseStatus, b.phaseStatus));
     }

@@ -65,7 +65,7 @@ class UserMastRepositoryCacheAdaptor {
         return res;
     }
     async fetchUsersMastByPhaseNumber(phaseNumber) {
-        const cache = this.fetchCacheUserAll();
+        const cache = this.fetchUsersMastByPhaseNumber(phaseNumber);
         if (cache)
             return cache;
         const res = await this.repository.fetchUsersMastByPhaseNumber(phaseNumber);
@@ -73,7 +73,7 @@ class UserMastRepositoryCacheAdaptor {
         return res.sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
     }
     async fetchUsersMastByPhaseDetail(phaseDetail) {
-        const cache = this.fetchCacheUserAll();
+        const cache = this.fetchUsersMastByPhaseDetail(phaseDetail);
         if (cache)
             return cache;
         const res = await this.repository.fetchUsersMastByPhaseDetail(phaseDetail);

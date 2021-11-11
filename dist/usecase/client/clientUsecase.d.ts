@@ -8,4 +8,7 @@ export declare class ClientUsecase {
     fetchAllClient(): Promise<ClientModel[]>;
     register(input: ClientModel): Promise<void>;
     createNewClient(): ClientModel;
+    fetchClientsByPhaseStatus(phaseStatus: string): Promise<ClientModel[]>;
+    fetchClientsByPhaseNumber(phaseNumber: number): Promise<ClientModel[]>;
+    fetchClientsByPhaseDetail(phaseDetail: string): Promise<ClientModel[]>;
 }

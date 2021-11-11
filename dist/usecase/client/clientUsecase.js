@@ -19,5 +19,17 @@ class ClientUsecase {
     createNewClient() {
         return this.modelFactory.ClientModel(clientModel_1.ClientModel.getBlanc(), { isNew: true });
     }
+    async fetchClientsByPhaseStatus(phaseStatus) {
+        const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseStatus(phaseStatus);
+        return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
+    }
+    async fetchClientsByPhaseNumber(phaseNumber) {
+        const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseNumber(phaseNumber);
+        return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
+    }
+    async fetchClientsByPhaseDetail(phaseDetail) {
+        const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseDetail(phaseDetail);
+        return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
+    }
 }
 exports.ClientUsecase = ClientUsecase;

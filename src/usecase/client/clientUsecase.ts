@@ -20,4 +20,19 @@ export class ClientUsecase {
     createNewClient(): ClientModel {
         return this.modelFactory.ClientModel(ClientModel.getBlanc(), { isNew: true });
     }
+
+    async fetchClientsByPhaseStatus(phaseStatus: string): Promise<ClientModel[]> {
+        const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseStatus(phaseStatus);
+        return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+    }
+
+    async fetchClientsByPhaseNumber(phaseNumber: number): Promise<ClientModel[]> {
+        const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseNumber(phaseNumber);
+        return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+    }
+
+    async fetchClientsByPhaseDetail(phaseDetail: string): Promise<ClientModel[]> {
+        const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseDetail(phaseDetail);
+        return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+    }
 }
