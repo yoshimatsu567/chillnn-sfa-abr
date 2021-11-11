@@ -1,6 +1,6 @@
 import { RepositoryContainer, ModelFactory } from '../../entities';
 import { PhaseModel } from '../../entities/models/modules/phaseModel';
-import { PhaseMast, PHASE_STATUS, Scalars } from '../../entities/type';
+import { Scalars } from '../../entities/type';
 import { compareNumDesc } from '../../util/modules/Comparator';
 
 // 必要なのか検討段階

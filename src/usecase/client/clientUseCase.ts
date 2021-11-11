@@ -1,6 +1,5 @@
 import { RepositoryContainer, ModelFactory } from '../../entities';
 import { ClientModel } from '../../entities/models/modules/clientModel';
-import { ClientMast } from '../../entities/type';
 import { compareNumDesc } from '../../util/modules/Comparator';
 
 export class ClientUseCase {
