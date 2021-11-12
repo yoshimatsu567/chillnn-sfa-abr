@@ -9,6 +9,4 @@ export declare class UserUsecase {
     fetchMyUserModel(): Promise<UserModel>;
     fetchUserModelByUserID(userID: Scalars['ID']): Promise<UserModel>;
     fetchAllUser(): Promise<UserModel[]>;
-    fetchUsersMastByPhaseNumber(phaseNumber: number): Promise<UserModel[]>;
-    fetchUsersMastByPhaseDetail(phaseDetail: string): Promise<UserModel[]>;
 }

@@ -36,13 +36,13 @@ export class UserUsecase {
         return users.map((user) => this.modelFactory.UserModel(user, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
     }
 
-    async fetchUsersMastByPhaseNumber(phaseNumber: number): Promise<UserModel[]> {
-        const users = await this.repositoryContainer.userMastRepository.fetchUsersMastByPhaseNumber(phaseNumber);
-        return users.map((user) => this.modelFactory.UserModel(user, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
-    }
+    // async fetchUsersMastByPhaseNumber(phaseNumber: number): Promise<UserModel[]> {
+    //     const users = await this.repositoryContainer.userMastRepository.fetchUsersMastByPhaseNumber(phaseNumber);
+    //     return users.map((user) => this.modelFactory.UserModel(user, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+    // }
 
-    async fetchUsersMastByPhaseDetail(phaseDetail: string): Promise<UserModel[]> {
-        const users = await this.repositoryContainer.userMastRepository.fetchUsersMastByPhaseDetail(phaseDetail);
-        return users.map((user) => this.modelFactory.UserModel(user, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
-    }
+    // async fetchUsersMastByPhaseDetail(phaseDetail: string): Promise<UserModel[]> {
+    //     const users = await this.repositoryContainer.userMastRepository.fetchUsersMastByPhaseDetail(phaseDetail);
+    //     return users.map((user) => this.modelFactory.UserModel(user, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+    // }
 }

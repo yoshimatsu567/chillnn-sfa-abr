@@ -12,6 +12,20 @@ class UserMastRepositoryCacheAdaptor {
         this.userEachCache = {};
         this.userAllCache = null;
         this.phaseCache = {};
+        // async fetchUsersMastByPhaseNumber(phaseNumber: number): Promise<UserMast[]> {
+        //     const cache = this.fetchUsersMastByPhaseNumber();
+        //     if (cache) return cache;
+        //     const res = await this.repository.fetchUsersMastByPhaseNumber(phaseNumber);
+        //     this.addCachePhaseBulk(phaseNumber, res);
+        //     return res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+        // }
+        // async fetchUsersMastByPhaseDetail(phaseDetail: string): Promise<UserMast[]> {
+        //     const cache = this.fetchUsersMastByPhaseDetail();
+        //     if (cache) return cache;
+        //     const res = await this.repository.fetchUsersMastByPhaseDetail(phaseDetail);
+        //     this.addCachePhaseBulk(phaseDetail, res);
+        //     return res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+        // }
         // ===============================================================
         //
         // private
@@ -63,22 +77,6 @@ class UserMastRepositoryCacheAdaptor {
         const res = await this.repository.fetchAllUser();
         this.updateCacheBulk(res);
         return res;
-    }
-    async fetchUsersMastByPhaseNumber(phaseNumber) {
-        const cache = this.fetchUsersMastByPhaseNumber(phaseNumber);
-        if (cache)
-            return cache;
-        const res = await this.repository.fetchUsersMastByPhaseNumber(phaseNumber);
-        this.addCachePhaseBulk(phaseNumber, res);
-        return res.sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
-    }
-    async fetchUsersMastByPhaseDetail(phaseDetail) {
-        const cache = this.fetchUsersMastByPhaseDetail(phaseDetail);
-        if (cache)
-            return cache;
-        const res = await this.repository.fetchUsersMastByPhaseDetail(phaseDetail);
-        this.addCachePhaseBulk(phaseDetail, res);
-        return res.sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
     }
     addCacheEach(phaseData, user) {
         this.userCache[phaseData] = user || 'blanc';

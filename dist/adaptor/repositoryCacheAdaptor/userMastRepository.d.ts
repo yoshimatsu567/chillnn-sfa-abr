@@ -12,8 +12,6 @@ export declare class UserMastRepositoryCacheAdaptor implements IUserMastReposito
     fetchMyUserMast(): Promise<UserMast | null>;
     fetchUserMastByUserID(userID: string): Promise<UserMast | null>;
     fetchAllUser(): Promise<UserMast[]>;
-    fetchUsersMastByPhaseNumber(phaseNumber: number): Promise<UserMast[]>;
-    fetchUsersMastByPhaseDetail(phaseDetail: string): Promise<UserMast[]>;
     private myUserID;
     private addCacheEach;
     private addCachePhaseBulk;

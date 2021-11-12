@@ -33,13 +33,5 @@ class UserUsecase {
         const users = await this.repositoryContainer.userMastRepository.fetchAllUser();
         return users.map((user) => this.modelFactory.UserModel(user, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
     }
-    async fetchUsersMastByPhaseNumber(phaseNumber) {
-        const users = await this.repositoryContainer.userMastRepository.fetchUsersMastByPhaseNumber(phaseNumber);
-        return users.map((user) => this.modelFactory.UserModel(user, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
-    }
-    async fetchUsersMastByPhaseDetail(phaseDetail) {
-        const users = await this.repositoryContainer.userMastRepository.fetchUsersMastByPhaseDetail(phaseDetail);
-        return users.map((user) => this.modelFactory.UserModel(user, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
-    }
 }
 exports.UserUsecase = UserUsecase;
