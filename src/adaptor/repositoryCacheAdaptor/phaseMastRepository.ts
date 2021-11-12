@@ -53,7 +53,7 @@ export class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository {
         const cache = this.fetchCachePhaseAll();
         if (cache) return cache;
         const res = await this.repository.fetchAllPhase();
-        this.updateCacheBulk(res);
+        this.updateAllPhaseCacheBulk(res);
         return res;
     }
 
@@ -61,7 +61,7 @@ export class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository {
         const cache = this.fetchAllPhaseTitle();
         if (cache) return cache;
         const res = await this.repository.fetchAllPhaseTitle();
-        this.updateCacheBulk(res);
+        this.updateAllPhaseTitleCacheBulk(res);
         return res;
     }
 
@@ -93,7 +93,14 @@ export class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository {
         }
     }
 
-    private updateCacheBulk(phases: PhaseMast[]) {
+    private updateAllPhaseCacheBulk(phases: PhaseMast[]) {
+        this.phaseAllCache = {};
+        for (const phase of phases) {
+            this.updateCacheEach(phase.phaseID, phase);
+        }
+    }
+
+    private updateAllPhaseTitleCacheBulk(phases: PhaseMast[]) {
         this.phaseAllCache = {};
         for (const phase of phases) {
             this.updateCacheEach(phase.phaseID, phase);

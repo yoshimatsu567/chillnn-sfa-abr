@@ -16,7 +16,8 @@ export declare class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository
     private addCacheEach;
     private addCacheBulk;
     private updateCacheEach;
-    private updateCacheBulk;
+    private updateAllPhaseCacheBulk;
+    private updateAllPhaseTitleCacheBulk;
     private fetchPhasesByClient;
     private fetchPhasesByEditedUser;
     private fetchCachePhaseAll;

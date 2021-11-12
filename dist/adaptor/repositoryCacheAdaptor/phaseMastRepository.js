@@ -41,7 +41,7 @@ class PhaseRepositoryCacheAdaptor {
         if (cache)
             return cache;
         const res = await this.repository.fetchAllPhase();
-        this.updateCacheBulk(res);
+        this.updateAllPhaseCacheBulk(res);
         return res;
     }
     async fetchAllPhaseTitle() {
@@ -49,7 +49,7 @@ class PhaseRepositoryCacheAdaptor {
         if (cache)
             return cache;
         const res = await this.repository.fetchAllPhaseTitle();
-        this.updateCacheBulk(res);
+        this.updateAllPhaseTitleCacheBulk(res);
         return res;
     }
     // ===============================================================
@@ -78,7 +78,13 @@ class PhaseRepositoryCacheAdaptor {
             this.phaseAllCache[phaseID] = phase;
         }
     }
-    updateCacheBulk(phases) {
+    updateAllPhaseCacheBulk(phases) {
+        this.phaseAllCache = {};
+        for (const phase of phases) {
+            this.updateCacheEach(phase.phaseID, phase);
+        }
+    }
+    updateAllPhaseTitleCacheBulk(phases) {
         this.phaseAllCache = {};
         for (const phase of phases) {
             this.updateCacheEach(phase.phaseID, phase);
