@@ -20,11 +20,11 @@ class PhaseRepositoryCacheAdaptor {
         this.addCacheEach(res.phaseID, res);
         return res;
     }
-    async fetchPhasesByClientID(clientID) {
+    async fetchPhaseDataByClientID(clientID) {
         const cache = this.fetchPhasesByClient(clientID);
         if (cache)
             return cache;
-        const res = await this.repository.fetchPhasesByClientID(clientID);
+        const res = await this.repository.fetchPhaseDataByClientID(clientID);
         this.addCacheBulk(clientID, res);
         return res.sort((a, b) => __1.compareNumAsc(a.createdAt, b.createdAt));
     }

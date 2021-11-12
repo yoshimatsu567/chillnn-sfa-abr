@@ -1,3 +1,4 @@
+import { threadId } from 'worker_threads';
 import { RepositoryContainer, ModelFactory } from '../../entities';
 import { PhaseModel } from '../../entities/models/modules/phaseModel';
 import { Scalars } from '../../entities/type';
@@ -17,6 +18,11 @@ export class PhaseUsecase {
 
     async fetchAllPhaseTitle(): Promise<PhaseModel[]> {
         const phases = this.repositoryContainer.phaseMastRepository.fetchAllPhaseTitle();
+        return (await phases).map((phase) => this.modelFactory.PhaseModel(phase, { isNew: false }));
+    }
+
+    async fetchPhaseDataByClientID(clientID: string): Promise<PhaseModel[]> {
+        const phases = this.repositoryContainer.phaseMastRepository.fetchPhaseDataByClientID(clientID);
         return (await phases).map((phase) => this.modelFactory.PhaseModel(phase, { isNew: false }));
     }
 

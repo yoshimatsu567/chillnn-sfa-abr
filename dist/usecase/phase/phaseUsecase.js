@@ -18,6 +18,10 @@ class PhaseUsecase {
         const phases = this.repositoryContainer.phaseMastRepository.fetchAllPhaseTitle();
         return (await phases).map((phase) => this.modelFactory.PhaseModel(phase, { isNew: false }));
     }
+    async fetchPhaseDataByClientID(clientID) {
+        const phases = this.repositoryContainer.phaseMastRepository.fetchPhaseDataByClientID(clientID);
+        return (await phases).map((phase) => this.modelFactory.PhaseModel(phase, { isNew: false }));
+    }
     async createNewPhaseTitle() {
         return this.modelFactory.PhaseModel(phaseModel_1.PhaseModel.getPhaseTitleBlanc(), { isNew: true });
     }
