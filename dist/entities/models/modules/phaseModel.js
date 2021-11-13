@@ -20,6 +20,7 @@ class PhaseModel extends _baseModel_1.BaseModel {
             phaseNumber: 0,
             phaseDetail: '',
             clientID,
+            phaseDate: '',
             phaseStatus: 'DATA',
             createdAt: new Date().getTime(),
             updatedAt: new Date().getTime(),

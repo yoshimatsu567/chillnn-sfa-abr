@@ -14,6 +14,7 @@ export declare class PhaseModel extends BaseModel<PhaseMast> {
         phaseNumber: number;
         phaseDetail: string;
         clientID: string;
+        phaseDate: string;
         phaseStatus: PHASE_STATUS;
         createdAt: number;
         updatedAt: number;

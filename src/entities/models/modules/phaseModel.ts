@@ -20,6 +20,7 @@ export class PhaseModel extends BaseModel<PhaseMast> {
             phaseNumber: 0,
             phaseDetail: '',
             clientID,
+            phaseDate: '',
             phaseStatus: 'DATA' as PHASE_STATUS,
             createdAt: new Date().getTime(),
             updatedAt: new Date().getTime(),
