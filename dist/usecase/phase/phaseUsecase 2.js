@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PhaseUsecase = void 0;
 const phaseModel_1 = require("../../entities/models/modules/phaseModel");
 const Comparator_1 = require("../../util/modules/Comparator");
+// 必要なのか検討段階
 class PhaseUsecase {
     constructor(repositoryContainer, //
     modelFactory) {
@@ -11,7 +12,7 @@ class PhaseUsecase {
     }
     async fetchAllPhase() {
         const phases = this.repositoryContainer.phaseMastRepository.fetchAllPhase();
-        return (await phases).map((phase) => this.modelFactory.PhaseModel(phase, { isNew: false })).sort((a, b) => Comparator_1.compareNumAsc(a.phaseNumber, b.phaseNumber));
+        return (await phases).map((phase) => this.modelFactory.PhaseModel(phase, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
     }
     async fetchAllPhaseTitle() {
         const phases = this.repositoryContainer.phaseMastRepository.fetchAllPhaseTitle();
