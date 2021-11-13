@@ -41,10 +41,10 @@ export class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository {
         return res.sort((a, b) => compareNumAsc(a.createdAt, b.createdAt));
     }
 
-    async fetchPhasesByEditedUserID(editedUserID: Scalars['ID']): Promise<PhaseMast[]> {
-        const cache = this.fetchPhasesByEditedUser(editedUserID);
+    async fetchPhaseDataByEditedUserID(editedUserID: Scalars['ID']): Promise<PhaseMast[]> {
+        const cache = this.fetchPhaseDataByEditedUserID(editedUserID);
         if (cache) return cache;
-        const res = await this.repository.fetchPhasesByEditedUserID(editedUserID);
+        const res = await this.repository.fetchPhaseDataByEditedUserID(editedUserID);
         this.addCacheBulk(editedUserID, res);
         return res.sort((a, b) => compareNumAsc(a.createdAt, b.createdAt));
     }

@@ -28,11 +28,11 @@ class PhaseRepositoryCacheAdaptor {
         this.addCacheBulk(clientID, res);
         return res.sort((a, b) => __1.compareNumAsc(a.createdAt, b.createdAt));
     }
-    async fetchPhasesByEditedUserID(editedUserID) {
-        const cache = this.fetchPhasesByEditedUser(editedUserID);
+    async fetchPhaseDataByEditedUserID(editedUserID) {
+        const cache = this.fetchPhaseDataByEditedUserID(editedUserID);
         if (cache)
             return cache;
-        const res = await this.repository.fetchPhasesByEditedUserID(editedUserID);
+        const res = await this.repository.fetchPhaseDataByEditedUserID(editedUserID);
         this.addCacheBulk(editedUserID, res);
         return res.sort((a, b) => __1.compareNumAsc(a.createdAt, b.createdAt));
     }
