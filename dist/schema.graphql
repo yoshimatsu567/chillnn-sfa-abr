@@ -28,7 +28,8 @@ type ClientMast {
   clientEmail: String!
   clientPhoneNumber: String
   requiredTime: String
-  phaseStatus: Int
+  phaseNumberStatus: Int
+  phaseDetailStatus: String
   appointmentStatus: String
   pastStatus: String
   newStatus: String
@@ -49,7 +50,8 @@ input ClientMastInput {
   clientEmail: String!
   clientPhoneNumber: String
   requiredTime: String
-  phaseStatus: Int
+  phaseNumberStatus: Int
+  phaseDetailStatus: String
   appointmentStatus: String
   pastStatus: String
   newStatus: String

@@ -56,41 +56,39 @@ class ClientMastRepositoryCacheAdaptor {
         this.updateCacheBulk(res);
         return res;
     }
-    async fetchClientsByContentSearch(phaseContent) {
-        const cache = this.fetchClientsByContentSearch(phaseContent);
+    // async fetchClientsByContentSearch(phaseContent: FetchClientsByPhaseInput): Promise<ClientMast[]> {
+    //     const cache = this.fetchClientsByContentSearch(phaseContent);
+    //     if (cache) return cache;
+    //     const res = await this.repository.fetchClientsByContentSearch(phaseContent);
+    //     this.addCacheClientsByPhaseContentBulk(phaseContent, res);
+    //     res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+    //     return res.sort((a, b) => compareNumDesc(a.phaseNumberStatus!, b.phaseNumberStatus!));
+    // }
+    // async fetchClientsByPhaseStatus(phaseStatus: string): Promise<ClientMast[]> {
+    //     const cache = this.fetchClientsByPhaseStatus(phaseStatus);
+    //     if (cache) return cache;
+    //     const res = await this.repository.fetchClientsByPhaseStatus(phaseStatus);
+    //     // this.addCacheClientsByPhaseContentBulk(phaseStatus, res);
+    //     res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+    //     return res.sort((a, b) => compareNumDesc(a.phaseStatus!, b.phaseStatus!));
+    // }
+    async fetchClientsByPhaseNumberStatus(phaseNumber) {
+        const cache = this.fetchClientsByPhaseNumberStatus(phaseNumber);
         if (cache)
             return cache;
-        const res = await this.repository.fetchClientsByContentSearch(phaseContent);
-        this.addCacheClientsByPhaseContentBulk(phaseContent, res);
-        res.sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
-        return res.sort((a, b) => __1.compareNumDesc(a.phaseStatus, b.phaseStatus));
-    }
-    async fetchClientsByPhaseStatus(phaseStatus) {
-        const cache = this.fetchClientsByPhaseStatus(phaseStatus);
-        if (cache)
-            return cache;
-        const res = await this.repository.fetchClientsByPhaseStatus(phaseStatus);
-        // this.addCacheClientsByPhaseContentBulk(phaseStatus, res);
-        res.sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
-        return res.sort((a, b) => __1.compareNumDesc(a.phaseStatus, b.phaseStatus));
-    }
-    async fetchClientsByPhaseNumber(phaseNumber) {
-        const cache = this.fetchClientsByPhaseNumber(phaseNumber);
-        if (cache)
-            return cache;
-        const res = await this.repository.fetchClientsByPhaseNumber(phaseNumber);
+        const res = await this.repository.fetchClientsByPhaseNumberStatus(phaseNumber);
         // this.addCacheClientsByPhaseContentBulk(phaseNumber, res);
         res.sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
-        return res.sort((a, b) => __1.compareNumDesc(a.phaseStatus, b.phaseStatus));
+        return res.sort((a, b) => __1.compareNumDesc(a.phaseNumberStatus, b.phaseNumberStatus));
     }
-    async fetchClientsByPhaseDetail(phaseDetail) {
-        const cache = this.fetchClientsByPhaseDetail(phaseDetail);
+    async fetchClientsByPhaseDetailStatus(phaseDetailStatus) {
+        const cache = this.fetchClientsByPhaseDetailStatus(phaseDetailStatus);
         if (cache)
             return cache;
-        const res = await this.repository.fetchClientsByPhaseDetail(phaseDetail);
+        const res = await this.repository.fetchClientsByPhaseDetailStatus(phaseDetailStatus);
         // this.addCacheClientsByPhaseContentBulk(phaseDetail, res);
         res.sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
-        return res.sort((a, b) => __1.compareNumDesc(a.phaseStatus, b.phaseStatus));
+        return res.sort((a, b) => __1.compareStrAsc(a.phaseDetailStatus, b.phaseDetailStatus));
     }
     addCacheEach(clientID, client) {
         this.clientCache[clientID] = client || 'blanc';

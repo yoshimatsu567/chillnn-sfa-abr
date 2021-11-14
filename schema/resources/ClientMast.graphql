@@ -21,7 +21,8 @@ type ClientMast {
     # 所要時間
     requiredTime: String
     # Phaseの状態、だけど検討の余地あり
-    phaseStatus: Int
+    phaseNumberStatus: Int
+    phaseDetailStatus: String
     # Appointmentの状態、だけど検討の余地あり
     appointmentStatus: String
     # 過去ステータス
@@ -46,7 +47,8 @@ input ClientMastInput {
     clientEmail: String!
     clientPhoneNumber: String
     requiredTime: String
-    phaseStatus: Int
+    phaseNumberStatus: Int
+    phaseDetailStatus: String
     appointmentStatus: String
     pastStatus: String
     newStatus: String

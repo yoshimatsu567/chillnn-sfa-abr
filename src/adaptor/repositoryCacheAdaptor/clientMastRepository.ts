@@ -1,4 +1,4 @@
-import { ClientMast, compareNumDesc, FetchClientsByPhaseInput, Scalars } from '../..';
+import { ClientMast, compareNumDesc, compareStrAsc, FetchClientsByPhaseInput, Scalars } from '../..';
 import { ClientModel } from '../../entities/models/modules/clientModel';
 import { IClientMastRepository } from '../../entities/repositories/modules/clientMastRepository';
 
@@ -63,40 +63,40 @@ export class ClientMastRepositoryCacheAdaptor implements IClientMastRepository {
         return res;
     }
 
-    async fetchClientsByContentSearch(phaseContent: FetchClientsByPhaseInput): Promise<ClientMast[]> {
-        const cache = this.fetchClientsByContentSearch(phaseContent);
-        if (cache) return cache;
-        const res = await this.repository.fetchClientsByContentSearch(phaseContent);
-        this.addCacheClientsByPhaseContentBulk(phaseContent, res);
-        res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
-        return res.sort((a, b) => compareNumDesc(a.phaseStatus!, b.phaseStatus!));
-    }
+    // async fetchClientsByContentSearch(phaseContent: FetchClientsByPhaseInput): Promise<ClientMast[]> {
+    //     const cache = this.fetchClientsByContentSearch(phaseContent);
+    //     if (cache) return cache;
+    //     const res = await this.repository.fetchClientsByContentSearch(phaseContent);
+    //     this.addCacheClientsByPhaseContentBulk(phaseContent, res);
+    //     res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+    //     return res.sort((a, b) => compareNumDesc(a.phaseNumberStatus!, b.phaseNumberStatus!));
+    // }
 
-    async fetchClientsByPhaseStatus(phaseStatus: string): Promise<ClientMast[]> {
-        const cache = this.fetchClientsByPhaseStatus(phaseStatus);
-        if (cache) return cache;
-        const res = await this.repository.fetchClientsByPhaseStatus(phaseStatus);
-        // this.addCacheClientsByPhaseContentBulk(phaseStatus, res);
-        res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
-        return res.sort((a, b) => compareNumDesc(a.phaseStatus!, b.phaseStatus!));
-    }
+    // async fetchClientsByPhaseStatus(phaseStatus: string): Promise<ClientMast[]> {
+    //     const cache = this.fetchClientsByPhaseStatus(phaseStatus);
+    //     if (cache) return cache;
+    //     const res = await this.repository.fetchClientsByPhaseStatus(phaseStatus);
+    //     // this.addCacheClientsByPhaseContentBulk(phaseStatus, res);
+    //     res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+    //     return res.sort((a, b) => compareNumDesc(a.phaseStatus!, b.phaseStatus!));
+    // }
 
-    async fetchClientsByPhaseNumber(phaseNumber: number): Promise<ClientMast[]> {
-        const cache = this.fetchClientsByPhaseNumber(phaseNumber);
+    async fetchClientsByPhaseNumberStatus(phaseNumber: number): Promise<ClientMast[]> {
+        const cache = this.fetchClientsByPhaseNumberStatus(phaseNumber);
         if (cache) return cache;
-        const res = await this.repository.fetchClientsByPhaseNumber(phaseNumber);
+        const res = await this.repository.fetchClientsByPhaseNumberStatus(phaseNumber);
         // this.addCacheClientsByPhaseContentBulk(phaseNumber, res);
         res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
-        return res.sort((a, b) => compareNumDesc(a.phaseStatus!, b.phaseStatus!));
+        return res.sort((a, b) => compareNumDesc(a.phaseNumberStatus!, b.phaseNumberStatus!));
     }
 
-    async fetchClientsByPhaseDetail(phaseDetail: string): Promise<ClientMast[]> {
-        const cache = this.fetchClientsByPhaseDetail(phaseDetail);
+    async fetchClientsByPhaseDetailStatus(phaseDetailStatus: string): Promise<ClientMast[]> {
+        const cache = this.fetchClientsByPhaseDetailStatus(phaseDetailStatus);
         if (cache) return cache;
-        const res = await this.repository.fetchClientsByPhaseDetail(phaseDetail);
+        const res = await this.repository.fetchClientsByPhaseDetailStatus(phaseDetailStatus);
         // this.addCacheClientsByPhaseContentBulk(phaseDetail, res);
         res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
-        return res.sort((a, b) => compareNumDesc(a.phaseStatus!, b.phaseStatus!));
+        return res.sort((a, b) => compareStrAsc(a.phaseDetailStatus!, b.phaseDetailStatus!));
     }
 
     // ===============================================================

@@ -8,13 +8,13 @@ export class SearchUsecase {
         private modelFactory: ModelFactory,
     ) {}
 
-    async fetchClientsModelByContentSearch(phaseContent: FetchClientsByPhaseInput): Promise<ClientModel[]> {
-        const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByContentSearch(phaseContent);
-        return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumAsc(a.createdAt, b.createdAt));
-        // if (typeof phaseContent === 'string') {
-        //     return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumAsc(a.phaseStatus, b.phaseStatus));
-        // } else {
-        //     return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumAsc(a.phaseStatus, b.phaseStatus));
-        // }
-    }
+    // async fetchClientsModelByContentSearch(phaseContent: FetchClientsByPhaseInput): Promise<ClientModel[]> {
+    //     const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByContentSearch(phaseContent);
+    //     return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumAsc(a.createdAt, b.createdAt));
+    //     // if (typeof phaseContent === 'string') {
+    //     //     return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumAsc(a.phaseStatus, b.phaseStatus));
+    //     // } else {
+    //     //     return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumAsc(a.phaseStatus, b.phaseStatus));
+    //     // }
+    // }
 }

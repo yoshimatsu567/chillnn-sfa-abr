@@ -1,9 +1,7 @@
-import { FetchClientsByPhaseInput, ModelFactory, RepositoryContainer } from '../..';
-import { ClientModel } from '../../entities/models/modules/clientModel';
+import { ModelFactory, RepositoryContainer } from '../..';
 export declare class SearchUsecase {
     private repositoryContainer;
     private modelFactory;
     constructor(repositoryContainer: RepositoryContainer, //
     modelFactory: ModelFactory);
-    fetchClientsModelByContentSearch(phaseContent: FetchClientsByPhaseInput): Promise<ClientModel[]>;
 }

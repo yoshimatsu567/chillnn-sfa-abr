@@ -80,15 +80,26 @@ class ClientModel extends _baseModel_1.BaseModel {
             this.mast.clientPhoneNumber = null;
         }
     }
-    get phaseStatus() {
-        return this.mast.phaseStatus || 0;
+    get phaseNumberStatus() {
+        return this.mast.phaseNumberStatus || 0;
     }
-    set phaseStatus(input) {
+    set phaseNumberStatus(input) {
         if (input) {
-            this.mast.phaseStatus = input;
+            this.mast.phaseNumberStatus = input;
         }
         else {
-            this.mast.phaseStatus = null;
+            this.mast.phaseNumberStatus = null;
+        }
+    }
+    get phaseDetailStatus() {
+        return this.mast.phaseDetailStatus || '';
+    }
+    set phaseDetailStatus(input) {
+        if (input) {
+            this.mast.phaseDetailStatus = input;
+        }
+        else {
+            this.mast.phaseDetailStatus = null;
         }
     }
     get appointmentStatus() {

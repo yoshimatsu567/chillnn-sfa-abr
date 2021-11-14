@@ -42,7 +42,8 @@ export type ClientMast = {
   clientEmail: Scalars['String'];
   clientPhoneNumber?: Maybe<Scalars['String']>;
   requiredTime?: Maybe<Scalars['String']>;
-  phaseStatus?: Maybe<Scalars['Int']>;
+  phaseNumberStatus?: Maybe<Scalars['Int']>;
+  phaseDetailStatus?: Maybe<Scalars['String']>;
   appointmentStatus?: Maybe<Scalars['String']>;
   pastStatus?: Maybe<Scalars['String']>;
   newStatus?: Maybe<Scalars['String']>;
@@ -63,7 +64,8 @@ export type ClientMastInput = {
   clientEmail: Scalars['String'];
   clientPhoneNumber?: Maybe<Scalars['String']>;
   requiredTime?: Maybe<Scalars['String']>;
-  phaseStatus?: Maybe<Scalars['Int']>;
+  phaseNumberStatus?: Maybe<Scalars['Int']>;
+  phaseDetailStatus?: Maybe<Scalars['String']>;
   appointmentStatus?: Maybe<Scalars['String']>;
   pastStatus?: Maybe<Scalars['String']>;
   newStatus?: Maybe<Scalars['String']>;

@@ -21,18 +21,18 @@ export class ClientUsecase {
         return this.modelFactory.ClientModel(ClientModel.getBlanc(), { isNew: true });
     }
 
-    async fetchClientsByPhaseStatus(phaseStatus: string): Promise<ClientModel[]> {
-        const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseStatus(phaseStatus);
-        return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
-    }
+    // async fetchClientsByPhaseStatus(phaseStatus: string): Promise<ClientModel[]> {
+    //     const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseStatus(phaseStatus);
+    //     return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+    // }
 
     async fetchClientsByPhaseNumber(phaseNumber: number): Promise<ClientModel[]> {
-        const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseNumber(phaseNumber);
+        const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseNumberStatus(phaseNumber);
         return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
     }
 
     async fetchClientsByPhaseDetail(phaseDetail: string): Promise<ClientModel[]> {
-        const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseDetail(phaseDetail);
+        const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseDetailStatus(phaseDetail);
         return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
     }
 }

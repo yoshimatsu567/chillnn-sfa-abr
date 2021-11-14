@@ -76,14 +76,24 @@ export class ClientModel extends BaseModel<ClientMast> {
             this.mast.clientPhoneNumber = null;
         }
     }
-    get phaseStatus() {
-        return this.mast.phaseStatus || 0;
+    get phaseNumberStatus() {
+        return this.mast.phaseNumberStatus || 0;
     }
-    set phaseStatus(input: number) {
+    set phaseNumberStatus(input: number) {
         if (input) {
-            this.mast.phaseStatus = input;
+            this.mast.phaseNumberStatus = input;
         } else {
-            this.mast.phaseStatus = null;
+            this.mast.phaseNumberStatus = null;
+        }
+    }
+    get phaseDetailStatus() {
+        return this.mast.phaseDetailStatus || '';
+    }
+    set phaseDetailStatus(input: string) {
+        if (input) {
+            this.mast.phaseDetailStatus = input;
+        } else {
+            this.mast.phaseDetailStatus = null;
         }
     }
     get appointmentStatus() {
