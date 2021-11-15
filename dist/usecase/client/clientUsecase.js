@@ -23,6 +23,9 @@ class ClientUsecase {
     //     const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseStatus(phaseStatus);
     //     return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
     // }
+    async fetchClientByClientID(clientID) {
+        return this.repositoryContainer.clientMastRepository.fetchClientByClientID(clientID);
+    }
     async fetchClientsByPhaseNumber(phaseNumber) {
         const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseNumberStatus(phaseNumber);
         return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
