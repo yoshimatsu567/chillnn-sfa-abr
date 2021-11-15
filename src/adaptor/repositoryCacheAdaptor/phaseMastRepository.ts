@@ -57,14 +57,6 @@ export class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository {
         return res;
     }
 
-    async fetchAllPhaseTitle(): Promise<PhaseMast[]> {
-        const cache = this.fetchAllPhaseTitle();
-        if (cache) return cache;
-        const res = await this.repository.fetchAllPhaseTitle();
-        this.updateAllPhaseTitleCacheBulk(res);
-        return res;
-    }
-
     // ===============================================================
     //
     // private

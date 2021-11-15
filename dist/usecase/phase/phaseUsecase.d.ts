@@ -7,7 +7,6 @@ export declare class PhaseUsecase {
     constructor(repositoryContainer: RepositoryContainer, //
     modelFactory: ModelFactory);
     fetchAllPhase(): Promise<PhaseModel[]>;
-    fetchAllPhaseTitle(): Promise<PhaseModel[]>;
     fetchPhaseDataByClientID(clientID: string): Promise<PhaseModel[]>;
     createNewPhaseTitle(): Promise<PhaseModel>;
     createNewPhaseData(clientID: Scalars['ID']): Promise<PhaseModel>;
