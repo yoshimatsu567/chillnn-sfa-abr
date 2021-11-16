@@ -28,6 +28,13 @@ class PhaseRepositoryCacheAdaptor {
         this.addCacheBulk(clientID, res);
         return res.sort((a, b) => __1.compareNumAsc(a.createdAt, b.createdAt));
     }
+    async fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseStatus) {
+        const cache = this.fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseStatus);
+        if (cache)
+            return cache;
+        const res = await this.repository.fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseStatus);
+        return res;
+    }
     async fetchPhaseDataByEditedUserID(editedUserID) {
         const cache = this.fetchPhaseDataByEditedUserID(editedUserID);
         if (cache)
@@ -64,6 +71,9 @@ class PhaseRepositoryCacheAdaptor {
             this.addCacheEach(phase.clientID, phase);
         }
     }
+    // private fetchPhaseUserMast(clientID: Scalars['ID'], phaseStatus: Scalars['String']) {
+    //         return this.phaseCache[(clientID, phaseStatus)];
+    // }
     updateCacheEach(phaseID, phase) {
         this.phaseEachCache[phaseID] = phase || 'blanc';
         if (this.phaseAllCache && phase) {

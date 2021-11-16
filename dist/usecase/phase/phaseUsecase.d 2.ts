@@ -8,7 +8,6 @@ export declare class PhaseUsecase {
     modelFactory: ModelFactory);
     fetchAllPhase(): Promise<PhaseModel[]>;
     fetchPhaseDataByClientID(clientID: string): Promise<PhaseModel[]>;
-    fetchPhaseDataByClientIDAndPhaseDetail(clientID: string, phaseDetail: string): Promise<PhaseModel | null>;
     createNewPhaseTitle(): Promise<PhaseModel>;
     createNewPhaseData(clientID: Scalars['ID']): Promise<PhaseModel>;
 }
