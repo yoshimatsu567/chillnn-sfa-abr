@@ -21,13 +21,13 @@ export class ClientUsecase {
                 return this.modelFactory.ClientModel(ClientModel.getBlanc(), { isNew: true });
         }
 
-        // async fetchClientsByPhaseStatus(phaseStatus: string): Promise<ClientModel[]> {
-        //     const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseStatus(phaseStatus);
-        //     return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
-        // }
-
-        async fetchClientByClientID(clientID: string): Promise<ClientMast | null> {
-                return this.repositoryContainer.clientMastRepository.fetchClientByClientID(clientID);
+        async fetchClientByClientID(clientID: string): Promise<ClientModel | null> {
+                const client = await this.repositoryContainer.clientMastRepository.fetchClientByClientID(clientID);
+                if (typeof client !== null && client) {
+                        return this.modelFactory.ClientModel(client, { isNew: false });
+                } else {
+                        return null;
+                }
         }
 
         async fetchClientsByPhaseNumber(phaseNumber: number): Promise<ClientModel[]> {

@@ -1,4 +1,4 @@
-import { RepositoryContainer, ModelFactory, ClientMast } from '../../entities';
+import { RepositoryContainer, ModelFactory } from '../../entities';
 import { ClientModel } from '../../entities/models/modules/clientModel';
 export declare class ClientUsecase {
     private repositoryContainer;
@@ -8,7 +8,7 @@ export declare class ClientUsecase {
     fetchAllClient(): Promise<ClientModel[]>;
     register(input: ClientModel): Promise<void>;
     createNewClient(): ClientModel;
-    fetchClientByClientID(clientID: string): Promise<ClientMast | null>;
+    fetchClientByClientID(clientID: string): Promise<ClientModel | null>;
     fetchClientsByPhaseNumber(phaseNumber: number): Promise<ClientModel[]>;
     fetchClientsByPhaseDetail(phaseDetail: string): Promise<ClientModel[]>;
 }
