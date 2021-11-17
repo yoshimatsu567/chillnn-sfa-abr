@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.EventUsecase = void 0;
 const eventModel_1 = require("../../entities/models/modules/eventModel");
 const Comparator_1 = require("../../util/modules/Comparator");
-// 必要なのか検討段階
 class EventUsecase {
     constructor(repositoryContainer, //
     modelFactory) {
