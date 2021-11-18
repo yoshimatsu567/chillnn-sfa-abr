@@ -1,4 +1,4 @@
-import { RepositoryContainer, ModelFactory, Scalars } from '../../entities';
+import { RepositoryContainer, ModelFactory, Scalars, UserMast } from '../../entities';
 import { UserModel } from '../../entities/models/modules/userModel';
 export declare class UserUsecase {
     private repositoryContainer;
@@ -8,5 +8,6 @@ export declare class UserUsecase {
     modelFactory: ModelFactory);
     fetchMyUserModel(): Promise<UserModel>;
     fetchUserModelByUserID(userID: Scalars['ID']): Promise<UserModel>;
+    deleteUser(userID: string): Promise<UserMast>;
     fetchAllUser(): Promise<UserModel[]>;
 }

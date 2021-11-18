@@ -31,6 +31,10 @@ export class UserUsecase {
                 return this.modelFactory.UserModel(user, { isNew: false });
         }
 
+        async deleteUser(userID: string) {
+                return await this.repositoryContainer.userMastRepository.deleteUserMast(userID);
+        }
+
         async fetchAllUser(): Promise<UserModel[]> {
                 const users = await this.repositoryContainer.userMastRepository.fetchAllUser();
                 return users.map((user) => this.modelFactory.UserModel(user, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));

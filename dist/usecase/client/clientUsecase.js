@@ -19,6 +19,9 @@ class ClientUsecase {
     createNewClient() {
         return this.modelFactory.ClientModel(clientModel_1.ClientModel.getBlanc(), { isNew: true });
     }
+    async deleteClient(clientID) {
+        return await this.repositoryContainer.clientMastRepository.deleteClient(clientID);
+    }
     async fetchClientByClientID(clientID) {
         const client = await this.repositoryContainer.clientMastRepository.fetchClientByClientID(clientID);
         if (typeof client !== null && client) {

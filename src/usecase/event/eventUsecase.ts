@@ -26,4 +26,8 @@ export class EventUsecase {
         createNewEvent(): EventModel {
                 return this.modelFactory.EventModel(EventModel.getEventBlanc(), { isNew: true });
         }
+
+        async deleteEvent(eventID: string) {
+                return await this.repositoryContainer.eventMastRepository.deleteEvent(eventID);
+        }
 }

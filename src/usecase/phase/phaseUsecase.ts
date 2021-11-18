@@ -45,4 +45,8 @@ export class PhaseUsecase {
         async createNewPhaseData(clientID: Scalars['ID']): Promise<PhaseModel> {
                 return this.modelFactory.PhaseModel(PhaseModel.getPhaseDataBlanc(clientID), { isNew: true });
         }
+
+        async deletePhase(phaseID: string) {
+                return await this.repositoryContainer.phaseMastRepository.deletePhase(phaseID);
+        }
 }

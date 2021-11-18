@@ -25,5 +25,8 @@ class EventUsecase {
     createNewEvent() {
         return this.modelFactory.EventModel(eventModel_1.EventModel.getEventBlanc(), { isNew: true });
     }
+    async deleteEvent(eventID) {
+        return await this.repositoryContainer.eventMastRepository.deleteEvent(eventID);
+    }
 }
 exports.EventUsecase = EventUsecase;

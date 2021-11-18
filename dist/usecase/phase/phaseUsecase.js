@@ -41,5 +41,8 @@ class PhaseUsecase {
     async createNewPhaseData(clientID) {
         return this.modelFactory.PhaseModel(phaseModel_1.PhaseModel.getPhaseDataBlanc(clientID), { isNew: true });
     }
+    async deletePhase(phaseID) {
+        return await this.repositoryContainer.phaseMastRepository.deletePhase(phaseID);
+    }
 }
 exports.PhaseUsecase = PhaseUsecase;
