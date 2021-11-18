@@ -20,6 +20,12 @@ class EventRepositoryCacheAdaptor {
         this.addCacheEach(res.eventID, res);
         return res;
     }
+    async deleteEvent(eventID) {
+        const res = await this.repository.deleteEvent(eventID);
+        res.deletedAt = new Date().getTime();
+        this.addCacheEach(eventID, res);
+        return res;
+    }
     async fetchEventsByClientID(clientID) {
         const cache = this.fetchEventsByClient(clientID);
         if (cache)

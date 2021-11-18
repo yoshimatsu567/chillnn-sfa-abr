@@ -33,6 +33,13 @@ export class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository {
                 return res;
         }
 
+        async deletePhase(phaseID: string): Promise<PhaseMast> {
+                const res = await this.repository.deletePhase(phaseID);
+                res.deletedAt = new Date().getTime();
+                this.addCacheEach(phaseID, res);
+                return res;
+        }
+
         async fetchPhaseDataByClientID(clientID: Scalars['ID']): Promise<PhaseMast[]> {
                 const cache = this.fetchPhasesByClient(clientID);
                 if (cache) return cache;

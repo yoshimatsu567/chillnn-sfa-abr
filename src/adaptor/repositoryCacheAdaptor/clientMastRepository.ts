@@ -35,6 +35,13 @@ export class ClientMastRepositoryCacheAdaptor implements IClientMastRepository {
                 return res;
         }
 
+        async deleteClient(clientID: string): Promise<ClientMast> {
+                const res = await this.repository.deleteClient(clientID);
+                res.deletedAt = new Date().getTime();
+                this.addCacheEach(clientID, res);
+                return res;
+        }
+
         async fetchClientByClientID(clientID: string): Promise<ClientMast | null> {
                 const cache = this.fetchCacheClientMast(clientID);
                 if (cache && cache === 'blanc') {

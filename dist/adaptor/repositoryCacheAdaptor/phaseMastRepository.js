@@ -20,6 +20,12 @@ class PhaseRepositoryCacheAdaptor {
         this.addCacheEach(res.phaseID, res);
         return res;
     }
+    async deletePhase(phaseID) {
+        const res = await this.repository.deletePhase(phaseID);
+        res.deletedAt = new Date().getTime();
+        this.addCacheEach(phaseID, res);
+        return res;
+    }
     async fetchPhaseDataByClientID(clientID) {
         const cache = this.fetchPhasesByClient(clientID);
         if (cache)
