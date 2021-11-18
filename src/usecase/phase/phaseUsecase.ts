@@ -15,6 +15,15 @@ export class PhaseUsecase {
                 return (await phases).map((phase) => this.modelFactory.PhaseModel(phase, { isNew: false })).sort((a, b) => compareNumAsc(a.phaseNumber, b.phaseNumber));
         }
 
+        async fetchPhaseByPhaseID(phaseID: string): Promise<PhaseModel | null> {
+                const phase = await this.repositoryContainer.phaseMastRepository.fetchPhaseByPhaseID(phaseID);
+                if (typeof phase !== null && phase) {
+                        return this.modelFactory.PhaseModel(phase, { isNew: false });
+                } else {
+                        return null;
+                }
+        }
+
         async fetchPhaseDataByClientID(clientID: string): Promise<PhaseModel[]> {
                 const phases = this.repositoryContainer.phaseMastRepository.fetchPhaseDataByClientID(clientID);
                 return (await phases).map((phase) => this.modelFactory.PhaseModel(phase, { isNew: false }));

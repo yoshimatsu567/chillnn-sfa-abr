@@ -6,5 +6,6 @@ export declare class EventUsecase {
     constructor(repositoryContainer: RepositoryContainer, //
     modelFactory: ModelFactory);
     fetchAllEvent(): Promise<EventModel[]>;
+    fetchEventByEventID(eventID: string): Promise<EventModel | null>;
     createNewEvent(): EventModel;
 }

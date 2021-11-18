@@ -13,6 +13,15 @@ class EventUsecase {
         const events = this.repositoryContainer.eventMastRepository.fetchAllEvent();
         return (await events).map((event) => this.modelFactory.EventModel(event, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
     }
+    async fetchEventByEventID(eventID) {
+        const event = await this.repositoryContainer.eventMastRepository.fetchEventByEventID(eventID);
+        if (typeof event !== null && event) {
+            return this.modelFactory.EventModel(event, { isNew: false });
+        }
+        else {
+            return null;
+        }
+    }
     createNewEvent() {
         return this.modelFactory.EventModel(eventModel_1.EventModel.getEventBlanc(), { isNew: true });
     }

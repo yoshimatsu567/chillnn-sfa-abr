@@ -40,6 +40,18 @@ export class EventRepositoryCacheAdaptor implements IEventMastRepository {
                 return res;
         }
 
+        async fetchEventByEventID(eventID: string): Promise<EventMast | null> {
+                const cache = this.fetchEvent(eventID);
+                if (cache && cache === 'blanc') {
+                        return null;
+                } else if (cache) {
+                        return cache;
+                }
+                const res = await this.repository.fetchEventByEventID(eventID);
+                this.addCacheEach(eventID, res);
+                return res;
+        }
+
         async fetchEventsByClientID(clientID: Scalars['ID']): Promise<EventMast[]> {
                 const cache = this.fetchEventsByClient(clientID);
                 if (cache) return cache;
@@ -97,6 +109,10 @@ export class EventRepositoryCacheAdaptor implements IEventMastRepository {
                 for (const event of events) {
                         this.updateCacheEach(event.eventID, event);
                 }
+        }
+
+        private fetchEvent(eventID: Scalars['ID']) {
+                return this.eventCache[eventID];
         }
 
         private fetchEventsByClient(clientID: Scalars['ID']) {

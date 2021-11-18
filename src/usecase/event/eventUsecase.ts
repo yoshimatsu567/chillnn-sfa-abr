@@ -14,6 +14,15 @@ export class EventUsecase {
                 return (await events).map((event) => this.modelFactory.EventModel(event, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
         }
 
+        async fetchEventByEventID(eventID: string): Promise<EventModel | null> {
+                const event = await this.repositoryContainer.eventMastRepository.fetchEventByEventID(eventID);
+                if (typeof event !== null && event) {
+                        return this.modelFactory.EventModel(event, { isNew: false });
+                } else {
+                        return null;
+                }
+        }
+
         createNewEvent(): EventModel {
                 return this.modelFactory.EventModel(EventModel.getEventBlanc(), { isNew: true });
         }

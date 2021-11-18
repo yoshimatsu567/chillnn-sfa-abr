@@ -26,6 +26,18 @@ class EventRepositoryCacheAdaptor {
         this.addCacheEach(eventID, res);
         return res;
     }
+    async fetchEventByEventID(eventID) {
+        const cache = this.fetchEvent(eventID);
+        if (cache && cache === 'blanc') {
+            return null;
+        }
+        else if (cache) {
+            return cache;
+        }
+        const res = await this.repository.fetchEventByEventID(eventID);
+        this.addCacheEach(eventID, res);
+        return res;
+    }
     async fetchEventsByClientID(clientID) {
         const cache = this.fetchEventsByClient(clientID);
         if (cache)
@@ -81,6 +93,9 @@ class EventRepositoryCacheAdaptor {
         for (const event of events) {
             this.updateCacheEach(event.eventID, event);
         }
+    }
+    fetchEvent(eventID) {
+        return this.eventCache[eventID];
     }
     fetchEventsByClient(clientID) {
         const clientCache = this.clientCache[clientID];

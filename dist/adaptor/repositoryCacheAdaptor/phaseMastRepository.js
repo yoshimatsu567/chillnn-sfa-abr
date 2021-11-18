@@ -26,6 +26,18 @@ class PhaseRepositoryCacheAdaptor {
         this.addCacheEach(phaseID, res);
         return res;
     }
+    async fetchPhaseByPhaseID(phaseID) {
+        const cache = this.fetchPhase(phaseID);
+        if (cache && cache === 'blanc') {
+            return null;
+        }
+        else if (cache) {
+            return cache;
+        }
+        const res = await this.repository.fetchPhaseByPhaseID(phaseID);
+        this.addCacheEach(phaseID, res);
+        return res;
+    }
     async fetchPhaseDataByClientID(clientID) {
         const cache = this.fetchPhasesByClient(clientID);
         if (cache)
@@ -85,6 +97,9 @@ class PhaseRepositoryCacheAdaptor {
         if (this.phaseAllCache && phase) {
             this.phaseAllCache[phaseID] = phase;
         }
+    }
+    fetchPhase(phaseID) {
+        return this.phaseCache[phaseID];
     }
     updateAllPhaseCacheBulk(phases) {
         this.phaseAllCache = {};

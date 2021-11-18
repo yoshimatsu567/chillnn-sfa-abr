@@ -13,6 +13,15 @@ class PhaseUsecase {
         const phases = this.repositoryContainer.phaseMastRepository.fetchAllPhase();
         return (await phases).map((phase) => this.modelFactory.PhaseModel(phase, { isNew: false })).sort((a, b) => Comparator_1.compareNumAsc(a.phaseNumber, b.phaseNumber));
     }
+    async fetchPhaseByPhaseID(phaseID) {
+        const phase = await this.repositoryContainer.phaseMastRepository.fetchPhaseByPhaseID(phaseID);
+        if (typeof phase !== null && phase) {
+            return this.modelFactory.PhaseModel(phase, { isNew: false });
+        }
+        else {
+            return null;
+        }
+    }
     async fetchPhaseDataByClientID(clientID) {
         const phases = this.repositoryContainer.phaseMastRepository.fetchPhaseDataByClientID(clientID);
         return (await phases).map((phase) => this.modelFactory.PhaseModel(phase, { isNew: false }));

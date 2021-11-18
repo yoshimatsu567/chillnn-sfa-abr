@@ -40,6 +40,18 @@ export class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository {
                 return res;
         }
 
+        async fetchPhaseByPhaseID(phaseID: string): Promise<PhaseMast | null> {
+                const cache = this.fetchPhase(phaseID);
+                if (cache && cache === 'blanc') {
+                        return null;
+                } else if (cache) {
+                        return cache;
+                }
+                const res = await this.repository.fetchPhaseByPhaseID(phaseID);
+                this.addCacheEach(phaseID, res);
+                return res;
+        }
+
         async fetchPhaseDataByClientID(clientID: Scalars['ID']): Promise<PhaseMast[]> {
                 const cache = this.fetchPhasesByClient(clientID);
                 if (cache) return cache;
@@ -101,6 +113,10 @@ export class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository {
                 if (this.phaseAllCache && phase) {
                         this.phaseAllCache[phaseID] = phase;
                 }
+        }
+
+        private fetchPhase(phaseID: Scalars['ID']) {
+                return this.phaseCache[phaseID];
         }
 
         private updateAllPhaseCacheBulk(phases: PhaseMast[]) {

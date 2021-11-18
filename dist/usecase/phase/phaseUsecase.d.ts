@@ -7,6 +7,7 @@ export declare class PhaseUsecase {
     constructor(repositoryContainer: RepositoryContainer, //
     modelFactory: ModelFactory);
     fetchAllPhase(): Promise<PhaseModel[]>;
+    fetchPhaseByPhaseID(phaseID: string): Promise<PhaseModel | null>;
     fetchPhaseDataByClientID(clientID: string): Promise<PhaseModel[]>;
     fetchPhaseDataByClientIDAndPhaseDetail(clientID: string, phaseDetail: string): Promise<PhaseModel | null>;
     createNewPhaseTitle(): Promise<PhaseModel>;
