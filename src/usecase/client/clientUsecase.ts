@@ -39,8 +39,12 @@ export class ClientUsecase {
                 return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
         }
 
-        async fetchClientsByPhaseDetailStatus(phaseDetail: string): Promise<ClientModel[]> {
+        async fetchClientsByPhaseDetailStatus(phaseDetail: string): Promise<ClientModel[] | null> {
                 const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseDetailStatus(phaseDetail);
-                return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+                if (clients) {
+                        return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+                } else {
+                        return null;
+                }
         }
 }

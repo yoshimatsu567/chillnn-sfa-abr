@@ -37,7 +37,12 @@ class ClientUsecase {
     }
     async fetchClientsByPhaseDetailStatus(phaseDetail) {
         const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseDetailStatus(phaseDetail);
-        return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
+        if (clients) {
+            return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
+        }
+        else {
+            return null;
+        }
     }
 }
 exports.ClientUsecase = ClientUsecase;

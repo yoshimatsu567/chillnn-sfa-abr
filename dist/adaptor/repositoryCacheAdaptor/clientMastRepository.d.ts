@@ -14,7 +14,7 @@ export declare class ClientMastRepositoryCacheAdaptor implements IClientMastRepo
     fetchClientsByChargeUserID(userID: string): Promise<ClientMast[]>;
     fetchAllClient(): Promise<ClientMast[]>;
     fetchClientsByPhaseNumberStatus(phaseNumber: number): Promise<ClientMast[]>;
-    fetchClientsByPhaseDetailStatus(phaseDetailStatus: string): Promise<ClientMast[]>;
+    fetchClientsByPhaseDetailStatus(phaseDetailStatus: string): Promise<ClientMast[] | null>;
     private targetClientID;
     private addCacheEach;
     private addCacheBulk;
