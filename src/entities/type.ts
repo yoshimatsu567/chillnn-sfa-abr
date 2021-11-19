@@ -74,6 +74,12 @@ export type ClientMastInput = {
   deletedAt?: Maybe<Scalars['AWSTimestamp']>;
 };
 
+export enum EVENT_STATUS {
+  CONTACT = 'CONTACT',
+  REACTION = 'REACTION',
+  DEAD = 'DEAD'
+}
+
 export enum ErrorCode {
   chillnnSFAError_401_notSignIn = 'chillnnSFAError_401_notSignIn',
   chillnnSFAError_404_resourceNotFound = 'chillnnSFAError_404_resourceNotFound',
@@ -83,10 +89,11 @@ export enum ErrorCode {
 export type EventMast = {
   eventID: Scalars['ID'];
   clientID?: Maybe<Scalars['ID']>;
-  eventNumber: Scalars['Int'];
   editedUserID?: Maybe<Scalars['ID']>;
   eventDetail: Scalars['String'];
-  eventStatus: Scalars['String'];
+  eventNumberStatus: Scalars['Int'];
+  eventStatus: EVENT_STATUS;
+  eventCountNumber: Scalars['Int'];
   eventMemo?: Maybe<Scalars['String']>;
   eventTerm?: Maybe<Scalars['String']>;
   eventDate?: Maybe<Scalars['String']>;
@@ -98,10 +105,11 @@ export type EventMast = {
 export type EventMastInput = {
   eventID: Scalars['ID'];
   clientID?: Maybe<Scalars['ID']>;
-  eventNumber: Scalars['Int'];
   editedUserID?: Maybe<Scalars['ID']>;
   eventDetail: Scalars['String'];
-  eventStatus: Scalars['String'];
+  eventNumberStatus: Scalars['Int'];
+  eventStatus: EVENT_STATUS;
+  eventCountNumber: Scalars['Int'];
   eventMemo?: Maybe<Scalars['String']>;
   eventTerm?: Maybe<Scalars['String']>;
   eventDate?: Maybe<Scalars['String']>;

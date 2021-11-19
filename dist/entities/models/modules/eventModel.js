@@ -7,9 +7,10 @@ class EventModel extends _baseModel_1.BaseModel {
     static getEventBlanc() {
         return {
             eventID: __1.generateUUID(),
-            eventNumber: 0,
+            eventNumberStatus: 0,
             eventDetail: '',
-            eventStatus: '',
+            eventStatus: 'CONTACT',
+            eventCountNumber: 0,
             createdAt: new Date().getTime(),
             updatedAt: new Date().getTime(),
         };
@@ -47,10 +48,22 @@ class EventModel extends _baseModel_1.BaseModel {
         this.mast.eventDetail = input;
     }
     get eventStatus() {
-        return this.mast.eventStatus || '';
+        return this.mast.eventStatus;
     }
-    set phaseStatus(input) {
+    set eventStatus(input) {
         this.mast.eventStatus = input;
+    }
+    get eventNumberStatus() {
+        return this.mast.eventNumberStatus;
+    }
+    set eventNumberStatus(input) {
+        this.mast.eventNumberStatus = input;
+    }
+    get eventCountNumber() {
+        return this.mast.eventCountNumber;
+    }
+    set eventCountNumber(input) {
+        this.mast.eventCountNumber = input;
     }
     get eventMemo() {
         return this.mast.eventMemo || '';
@@ -83,17 +96,6 @@ class EventModel extends _baseModel_1.BaseModel {
         }
         else {
             this.mast.eventDate = null;
-        }
-    }
-    get eventNumber() {
-        return this.mast.eventNumber || 0;
-    }
-    set eventNumber(input) {
-        if (input) {
-            this.mast.eventNumber = input;
-        }
-        else {
-            this.mast.eventNumber = 0;
         }
     }
     get isRegisterable() {

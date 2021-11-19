@@ -1,11 +1,12 @@
-import { EventMast } from '../..';
+import { EventMast, EVENT_STATUS } from '../..';
 import { BaseModel } from './_baseModel';
 export declare class EventModel extends BaseModel<EventMast> {
     static getEventBlanc(): {
         eventID: string;
-        eventNumber: number;
+        eventNumberStatus: number;
         eventDetail: string;
-        eventStatus: string;
+        eventStatus: EVENT_STATUS;
+        eventCountNumber: number;
         createdAt: number;
         updatedAt: number;
     };
@@ -16,16 +17,18 @@ export declare class EventModel extends BaseModel<EventMast> {
     set editedUserID(input: string);
     get eventDetail(): string;
     set eventDetail(input: string);
-    get eventStatus(): string;
-    set phaseStatus(input: string);
+    get eventStatus(): EVENT_STATUS;
+    set eventStatus(input: EVENT_STATUS);
+    get eventNumberStatus(): number;
+    set eventNumberStatus(input: number);
+    get eventCountNumber(): number;
+    set eventCountNumber(input: number);
     get eventMemo(): string;
     set eventMemo(input: string);
     get eventTerm(): string;
     set eventTerm(input: string);
     get eventDate(): string;
     set eventDate(input: string);
-    get eventNumber(): number;
-    set eventNumber(input: number);
     get isRegisterable(): boolean;
     register(): Promise<void>;
     fetchAllEvent(): Promise<EventModel[]>;

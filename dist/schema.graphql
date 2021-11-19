@@ -60,6 +60,12 @@ input ClientMastInput {
   deletedAt: AWSTimestamp
 }
 
+enum EVENT_STATUS {
+  CONTACT
+  REACTION
+  DEAD
+}
+
 enum ErrorCode {
   chillnnSFAError_401_notSignIn
   chillnnSFAError_404_resourceNotFound
@@ -69,10 +75,11 @@ enum ErrorCode {
 type EventMast {
   eventID: ID!
   clientID: ID
-  eventNumber: Int!
   editedUserID: ID
   eventDetail: String!
-  eventStatus: String!
+  eventNumberStatus: Int!
+  eventStatus: EVENT_STATUS!
+  eventCountNumber: Int!
   eventMemo: String
   eventTerm: String
   eventDate: String
@@ -84,10 +91,11 @@ type EventMast {
 input EventMastInput {
   eventID: ID!
   clientID: ID
-  eventNumber: Int!
   editedUserID: ID
   eventDetail: String!
-  eventStatus: String!
+  eventNumberStatus: Int!
+  eventStatus: EVENT_STATUS!
+  eventCountNumber: Int!
   eventMemo: String
   eventTerm: String
   eventDate: String
