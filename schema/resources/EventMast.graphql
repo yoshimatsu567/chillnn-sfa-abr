@@ -6,7 +6,7 @@ enum EVENT_STATUS {
 
 type EventMast {
         eventID: ID!
-        clientID: ID
+        clientID: ID!
         # このEventの編集者
         editedUserID: ID
         # Eventの名前
@@ -29,7 +29,7 @@ type EventMast {
 
 input EventMastInput {
         eventID: ID!
-        clientID: ID
+        clientID: ID!
         editedUserID: ID
         eventDetail: String!
         eventNumberStatus: Int!

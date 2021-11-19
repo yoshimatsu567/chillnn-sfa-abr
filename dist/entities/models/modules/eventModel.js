@@ -7,6 +7,7 @@ class EventModel extends _baseModel_1.BaseModel {
     static getEventBlanc() {
         return {
             eventID: __1.generateUUID(),
+            clientID: '',
             eventNumberStatus: 0,
             eventDetail: '',
             eventStatus: 'CONTACT',
@@ -40,6 +41,12 @@ class EventModel extends _baseModel_1.BaseModel {
         else {
             this.mast.editedUserID = null;
         }
+    }
+    get clientID() {
+        return this.mast.clientID;
+    }
+    set clientID(input) {
+        this.mast.clientID = input;
     }
     get eventDetail() {
         return this.mast.eventDetail;

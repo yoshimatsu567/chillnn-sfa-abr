@@ -88,7 +88,7 @@ export enum ErrorCode {
 
 export type EventMast = {
   eventID: Scalars['ID'];
-  clientID?: Maybe<Scalars['ID']>;
+  clientID: Scalars['ID'];
   editedUserID?: Maybe<Scalars['ID']>;
   eventDetail: Scalars['String'];
   eventNumberStatus: Scalars['Int'];
@@ -104,7 +104,7 @@ export type EventMast = {
 
 export type EventMastInput = {
   eventID: Scalars['ID'];
-  clientID?: Maybe<Scalars['ID']>;
+  clientID: Scalars['ID'];
   editedUserID?: Maybe<Scalars['ID']>;
   eventDetail: Scalars['String'];
   eventNumberStatus: Scalars['Int'];

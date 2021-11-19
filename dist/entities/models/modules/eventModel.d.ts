@@ -3,6 +3,7 @@ import { BaseModel } from './_baseModel';
 export declare class EventModel extends BaseModel<EventMast> {
     static getEventBlanc(): {
         eventID: string;
+        clientID: string;
         eventNumberStatus: number;
         eventDetail: string;
         eventStatus: EVENT_STATUS;
@@ -15,6 +16,8 @@ export declare class EventModel extends BaseModel<EventMast> {
     get updatedAt(): number;
     get editedUserID(): string;
     set editedUserID(input: string);
+    get clientID(): string;
+    set clientID(input: string);
     get eventDetail(): string;
     set eventDetail(input: string);
     get eventStatus(): EVENT_STATUS;

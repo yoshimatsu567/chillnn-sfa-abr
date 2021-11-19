@@ -74,7 +74,7 @@ enum ErrorCode {
 
 type EventMast {
   eventID: ID!
-  clientID: ID
+  clientID: ID!
   editedUserID: ID
   eventDetail: String!
   eventNumberStatus: Int!
@@ -90,7 +90,7 @@ type EventMast {
 
 input EventMastInput {
   eventID: ID!
-  clientID: ID
+  clientID: ID!
   editedUserID: ID
   eventDetail: String!
   eventNumberStatus: Int!

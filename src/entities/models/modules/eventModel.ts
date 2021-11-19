@@ -6,6 +6,7 @@ export class EventModel extends BaseModel<EventMast> {
         static getEventBlanc() {
                 return {
                         eventID: generateUUID(),
+                        clientID: '',
                         eventNumberStatus: 0,
                         eventDetail: '',
                         eventStatus: 'CONTACT' as EVENT_STATUS,
@@ -38,6 +39,12 @@ export class EventModel extends BaseModel<EventMast> {
                 } else {
                         this.mast.editedUserID = null;
                 }
+        }
+        get clientID() {
+                return this.mast.clientID;
+        }
+        set clientID(input: string) {
+                this.mast.clientID = input;
         }
         get eventDetail() {
                 return this.mast.eventDetail;
