@@ -31,11 +31,11 @@ class ClientUsecase {
             return null;
         }
     }
-    async fetchClientsByPhaseNumber(phaseNumber) {
+    async fetchClientsByPhaseNumberStatus(phaseNumber) {
         const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseNumberStatus(phaseNumber);
         return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
     }
-    async fetchClientsByPhaseDetail(phaseDetail) {
+    async fetchClientsByPhaseDetailStatus(phaseDetail) {
         const clients = await this.repositoryContainer.clientMastRepository.fetchClientsByPhaseDetailStatus(phaseDetail);
         return clients.map((client) => this.modelFactory.ClientModel(client, { isNew: false })).sort((a, b) => Comparator_1.compareNumDesc(a.createdAt, b.createdAt));
     }

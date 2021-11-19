@@ -10,6 +10,6 @@ export declare class ClientUsecase {
     createNewClient(): ClientModel;
     deleteClient(clientID: string): Promise<ClientMast>;
     fetchClientByClientID(clientID: string): Promise<ClientModel | null>;
-    fetchClientsByPhaseNumber(phaseNumber: number): Promise<ClientModel[]>;
-    fetchClientsByPhaseDetail(phaseDetail: string): Promise<ClientModel[]>;
+    fetchClientsByPhaseNumberStatus(phaseNumber: number): Promise<ClientModel[]>;
+    fetchClientsByPhaseDetailStatus(phaseDetail: string): Promise<ClientModel[]>;
 }
