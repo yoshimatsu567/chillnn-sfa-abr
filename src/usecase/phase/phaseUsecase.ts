@@ -29,12 +29,12 @@ export class PhaseUsecase {
                 return (await phases).map((phase) => this.modelFactory.PhaseModel(phase, { isNew: false }));
         }
 
-        async fetchPhaseDataByClientIDAndPhaseDetail(clientID: string, phaseDetail: string): Promise<PhaseModel | null> {
+        async fetchPhaseDataByClientIDAndPhaseDetail(clientID: string, phaseDetail: string): Promise<PhaseModel> {
                 const phase = await this.repositoryContainer.phaseMastRepository.fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseDetail);
                 if (typeof phase !== null && phase) {
                         return this.modelFactory.PhaseModel(phase, { isNew: false });
                 } else {
-                        return null;
+                        return await this.createNewPhaseData(clientID);
                 }
         }
 

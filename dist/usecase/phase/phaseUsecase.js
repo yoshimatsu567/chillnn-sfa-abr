@@ -32,7 +32,7 @@ class PhaseUsecase {
             return this.modelFactory.PhaseModel(phase, { isNew: false });
         }
         else {
-            return null;
+            return await this.createNewPhaseData(clientID);
         }
     }
     async createNewPhaseTitle() {

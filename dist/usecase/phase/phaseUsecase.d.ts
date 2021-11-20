@@ -9,7 +9,7 @@ export declare class PhaseUsecase {
     fetchAllPhase(): Promise<PhaseModel[]>;
     fetchPhaseByPhaseID(phaseID: string): Promise<PhaseModel | null>;
     fetchPhaseDataByClientID(clientID: string): Promise<PhaseModel[]>;
-    fetchPhaseDataByClientIDAndPhaseDetail(clientID: string, phaseDetail: string): Promise<PhaseModel | null>;
+    fetchPhaseDataByClientIDAndPhaseDetail(clientID: string, phaseDetail: string): Promise<PhaseModel>;
     createNewPhaseTitle(): Promise<PhaseModel>;
     createNewPhaseData(clientID: Scalars['ID']): Promise<PhaseModel>;
     deletePhase(phaseID: string): Promise<PhaseMast>;
