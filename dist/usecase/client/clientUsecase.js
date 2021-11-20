@@ -20,7 +20,13 @@ class ClientUsecase {
         return this.modelFactory.ClientModel(clientModel_1.ClientModel.getBlanc(), { isNew: true });
     }
     async deleteClient(clientID) {
-        return await this.repositoryContainer.clientMastRepository.deleteClient(clientID);
+        const deleteClient = await this.repositoryContainer.clientMastRepository.deleteClient(clientID);
+        if (deleteClient) {
+            return deleteClient;
+        }
+        else {
+            return null;
+        }
     }
     async fetchClientByClientID(clientID) {
         const client = await this.repositoryContainer.clientMastRepository.fetchClientByClientID(clientID);
