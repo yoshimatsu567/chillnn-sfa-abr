@@ -22,6 +22,17 @@ class EventUsecase {
             return null;
         }
     }
+    async fetchEventsByClientID(clientID) {
+        const events = await this.repositoryContainer.eventMastRepository.fetchEventsByClientID(clientID);
+        if (!events)
+            return null;
+        if (events.length !== 0) {
+            return events.map((event) => this.modelFactory.EventModel(event, { isNew: false })).sort((a, b) => Comparator_1.compareNumAsc(a.eventNumberStatus, b.eventNumberStatus));
+        }
+        else {
+            return null;
+        }
+    }
     createNewEvent() {
         return this.modelFactory.EventModel(eventModel_1.EventModel.getEventBlanc(), { isNew: true });
     }

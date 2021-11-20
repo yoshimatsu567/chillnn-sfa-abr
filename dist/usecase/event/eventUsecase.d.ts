@@ -8,6 +8,7 @@ export declare class EventUsecase {
     modelFactory: ModelFactory);
     fetchAllEvent(): Promise<EventModel[]>;
     fetchEventByEventID(eventID: string): Promise<EventModel | null>;
+    fetchEventsByClientID(clientID: string): Promise<EventModel[] | null>;
     createNewEvent(): EventModel;
     deleteEvent(eventID: string): Promise<EventMast>;
 }
