@@ -28,7 +28,7 @@ class PhaseUsecase {
     }
     async fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseDetail) {
         const phase = await this.repositoryContainer.phaseMastRepository.fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseDetail);
-        if (typeof phase !== null && phase) {
+        if (phase !== null) {
             return this.modelFactory.PhaseModel(phase, { isNew: false });
         }
         else {
