@@ -62,15 +62,6 @@ class ClientMastRepositoryCacheAdaptor {
         this.updateCacheBulk(res);
         return res;
     }
-    async fetchClientsByPhaseNumberStatus(phaseNumber) {
-        const cache = this.fetchClientsByPhaseNumberStatus(phaseNumber);
-        if (cache)
-            return cache;
-        const res = await this.repository.fetchClientsByPhaseNumberStatus(phaseNumber);
-        // this.addCacheClientsByPhaseContentBulk(phaseNumber, res);
-        res.sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
-        return res.sort((a, b) => __1.compareNumDesc(a.phaseNumberStatus, b.phaseNumberStatus));
-    }
     async fetchClientsByPhaseDetailStatus(phaseDetailStatus) {
         const cache = this.fetchClientsByPhaseDetailStatus(phaseDetailStatus);
         if (cache)

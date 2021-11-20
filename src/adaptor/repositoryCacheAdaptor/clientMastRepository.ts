@@ -70,15 +70,6 @@ export class ClientMastRepositoryCacheAdaptor implements IClientMastRepository {
                 return res;
         }
 
-        async fetchClientsByPhaseNumberStatus(phaseNumber: number): Promise<ClientMast[]> {
-                const cache = this.fetchClientsByPhaseNumberStatus(phaseNumber);
-                if (cache) return cache;
-                const res = await this.repository.fetchClientsByPhaseNumberStatus(phaseNumber);
-                // this.addCacheClientsByPhaseContentBulk(phaseNumber, res);
-                res.sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
-                return res.sort((a, b) => compareNumDesc(a.phaseNumberStatus!, b.phaseNumberStatus!));
-        }
-
         async fetchClientsByPhaseDetailStatus(phaseDetailStatus: string): Promise<ClientMast[] | null> {
                 const cache = this.fetchClientsByPhaseDetailStatus(phaseDetailStatus);
                 if (cache) return cache;
