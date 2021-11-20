@@ -64,10 +64,10 @@ export class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository {
                 }
         }
 
-        async fetchPhaseDataByClientIDAndPhaseDetail(clientID: Scalars['ID'], phaseStatus: Scalars['String']): Promise<PhaseMast | null> {
-                const cache = this.fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseStatus);
+        async fetchPhaseDataByClientIDAndPhaseDetail(clientID: Scalars['ID'], phaseDetail: Scalars['String']): Promise<PhaseMast | null> {
+                const cache = this.fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseDetail);
                 if (cache) return cache;
-                const res = await this.repository.fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseStatus);
+                const res = await this.repository.fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseDetail);
                 return res;
         }
 

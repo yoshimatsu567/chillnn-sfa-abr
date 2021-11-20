@@ -51,11 +51,11 @@ class PhaseRepositoryCacheAdaptor {
             return res;
         }
     }
-    async fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseStatus) {
-        const cache = this.fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseStatus);
+    async fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseDetail) {
+        const cache = this.fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseDetail);
         if (cache)
             return cache;
-        const res = await this.repository.fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseStatus);
+        const res = await this.repository.fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseDetail);
         return res;
     }
     async fetchPhaseDataByEditedUserID(editedUserID) {
