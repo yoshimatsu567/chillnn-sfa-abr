@@ -6,6 +6,6 @@ export interface IPhaseMastRepository {
     fetchPhaseByPhaseID(phaseID: Scalars['ID']): Promise<PhaseMast | null>;
     fetchPhaseDataByClientID(clientID: Scalars['ID']): Promise<PhaseMast[]>;
     fetchPhaseDataByEditedUserID(editedUserID: Scalars['ID']): Promise<PhaseMast[]>;
-    fetchPhaseDataByClientIDAndPhaseDetail(clientID: Scalars['ID'], phaseStatus: Scalars['String']): Promise<PhaseMast>;
+    fetchPhaseDataByClientIDAndPhaseDetail(clientID: Scalars['ID'], phaseStatus: Scalars['String']): Promise<PhaseMast | null>;
     fetchAllPhase(): Promise<PhaseMast[]>;
 }
