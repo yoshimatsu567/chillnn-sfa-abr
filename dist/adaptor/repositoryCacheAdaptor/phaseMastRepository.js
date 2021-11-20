@@ -44,7 +44,12 @@ class PhaseRepositoryCacheAdaptor {
             return cache;
         const res = await this.repository.fetchPhaseDataByClientID(clientID);
         this.addCacheBulk(clientID, res);
-        return res.sort((a, b) => __1.compareNumAsc(a.createdAt, b.createdAt));
+        if (res) {
+            return res.sort((a, b) => __1.compareNumAsc(a.phaseNumber, b.phaseNumber));
+        }
+        else {
+            return res;
+        }
     }
     async fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseStatus) {
         const cache = this.fetchPhaseDataByClientIDAndPhaseDetail(clientID, phaseStatus);
@@ -59,7 +64,7 @@ class PhaseRepositoryCacheAdaptor {
             return cache;
         const res = await this.repository.fetchPhaseDataByEditedUserID(editedUserID);
         this.addCacheBulk(editedUserID, res);
-        return res.sort((a, b) => __1.compareNumAsc(a.createdAt, b.createdAt));
+        return res.sort((a, b) => __1.compareNumAsc(a.phaseNumber, b.phaseNumber));
     }
     async fetchAllPhase() {
         const cache = this.fetchCachePhaseAll();
@@ -121,7 +126,7 @@ class PhaseRepositoryCacheAdaptor {
             .map((key) => {
             return clientCache[key];
         })
-            .sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
+            .sort((a, b) => __1.compareNumDesc(a.phaseNumber, b.phaseNumber));
     }
     fetchPhasesByEditedUser(editedUserID) {
         const clientCache = this.clientCache[editedUserID];
@@ -131,7 +136,7 @@ class PhaseRepositoryCacheAdaptor {
             .map((key) => {
             return clientCache[key];
         })
-            .sort((a, b) => __1.compareNumDesc(a.createdAt, b.createdAt));
+            .sort((a, b) => __1.compareNumDesc(a.phaseNumber, b.phaseNumber));
     }
     fetchCachePhaseAll() {
         if (!this.phaseAllCache)

@@ -57,7 +57,11 @@ export class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository {
                 if (cache) return cache;
                 const res = await this.repository.fetchPhaseDataByClientID(clientID);
                 this.addCacheBulk(clientID, res);
-                return res.sort((a, b) => compareNumAsc(a.createdAt, b.createdAt));
+                if (res) {
+                        return res.sort((a, b) => compareNumAsc(a.phaseNumber, b.phaseNumber));
+                } else {
+                        return res;
+                }
         }
 
         async fetchPhaseDataByClientIDAndPhaseDetail(clientID: Scalars['ID'], phaseStatus: Scalars['String']): Promise<PhaseMast | null> {
@@ -72,7 +76,7 @@ export class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository {
                 if (cache) return cache;
                 const res = await this.repository.fetchPhaseDataByEditedUserID(editedUserID);
                 this.addCacheBulk(editedUserID, res);
-                return res.sort((a, b) => compareNumAsc(a.createdAt, b.createdAt));
+                return res.sort((a, b) => compareNumAsc(a.phaseNumber, b.phaseNumber));
         }
 
         async fetchAllPhase(): Promise<PhaseMast[]> {
@@ -140,7 +144,7 @@ export class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository {
                         .map((key) => {
                                 return clientCache[key]!;
                         })
-                        .sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+                        .sort((a, b) => compareNumDesc(a.phaseNumber, b.phaseNumber));
         }
 
         private fetchPhasesByEditedUser(editedUserID: Scalars['ID']) {
@@ -150,7 +154,7 @@ export class PhaseRepositoryCacheAdaptor implements IPhaseMastRepository {
                         .map((key) => {
                                 return clientCache[key]!;
                         })
-                        .sort((a, b) => compareNumDesc(a.createdAt, b.createdAt));
+                        .sort((a, b) => compareNumDesc(a.phaseNumber, b.phaseNumber));
         }
 
         private fetchCachePhaseAll() {

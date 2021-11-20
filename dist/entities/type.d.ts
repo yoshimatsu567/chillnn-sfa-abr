@@ -128,8 +128,8 @@ export declare type PhaseMast = {
     phaseStatus: PHASE_STATUS;
     phaseTerm?: Maybe<Scalars['String']>;
     phaseDate?: Maybe<Scalars['String']>;
-    createdAt: Scalars['AWSTimestamp'];
-    updatedAt: Scalars['AWSTimestamp'];
+    createdAt?: Maybe<Scalars['AWSTimestamp']>;
+    updatedAt?: Maybe<Scalars['AWSTimestamp']>;
     deletedAt?: Maybe<Scalars['AWSTimestamp']>;
 };
 export declare type PhaseMastInput = {
@@ -141,8 +141,8 @@ export declare type PhaseMastInput = {
     phaseStatus: PHASE_STATUS;
     phaseTerm?: Maybe<Scalars['String']>;
     phaseDate?: Maybe<Scalars['String']>;
-    createdAt: Scalars['AWSTimestamp'];
-    updatedAt: Scalars['AWSTimestamp'];
+    createdAt?: Maybe<Scalars['AWSTimestamp']>;
+    updatedAt?: Maybe<Scalars['AWSTimestamp']>;
     deletedAt?: Maybe<Scalars['AWSTimestamp']>;
 };
 export declare type UserMast = {

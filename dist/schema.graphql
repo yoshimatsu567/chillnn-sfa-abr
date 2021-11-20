@@ -125,8 +125,8 @@ type PhaseMast {
   phaseStatus: PHASE_STATUS!
   phaseTerm: String
   phaseDate: String
-  createdAt: AWSTimestamp!
-  updatedAt: AWSTimestamp!
+  createdAt: AWSTimestamp
+  updatedAt: AWSTimestamp
   deletedAt: AWSTimestamp
 }
 
@@ -139,8 +139,8 @@ input PhaseMastInput {
   phaseStatus: PHASE_STATUS!
   phaseTerm: String
   phaseDate: String
-  createdAt: AWSTimestamp!
-  updatedAt: AWSTimestamp!
+  createdAt: AWSTimestamp
+  updatedAt: AWSTimestamp
   deletedAt: AWSTimestamp
 }
 
