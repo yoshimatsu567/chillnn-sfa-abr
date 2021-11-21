@@ -22,7 +22,7 @@ class UserUsecase {
         this.myUserModel = this.modelFactory.UserModel(me, { isNew: false });
         return this.myUserModel;
     }
-    async fetchUserModelByUserID(userID) {
+    async fetchUserMastByUserID(userID) {
         const user = await this.repositoryContainer.userMastRepository.fetchUserMastByUserID(userID);
         if (!user) {
             throw new ChillnnSFAError_1.ChillnnSFAError(entities_1.ErrorCode.chillnnSFAError_404_resourceNotFound);

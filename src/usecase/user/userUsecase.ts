@@ -23,7 +23,7 @@ export class UserUsecase {
                 return this.myUserModel;
         }
 
-        async fetchUserModelByUserID(userID: Scalars['ID']): Promise<UserModel> {
+        async fetchUserMastByUserID(userID: Scalars['ID']): Promise<UserModel> {
                 const user = await this.repositoryContainer.userMastRepository.fetchUserMastByUserID(userID);
                 if (!user) {
                         throw new ChillnnSFAError(ErrorCode.chillnnSFAError_404_resourceNotFound);
