@@ -30,14 +30,9 @@ class ClientMastRepositoryCacheAdaptor {
     }
     async deleteClient(clientID) {
         const res = await this.repository.deleteClient(clientID);
-        if (res) {
-            res.deletedAt = new Date().getTime();
-            this.addCacheEach(clientID, res);
-            return res;
-        }
-        else {
-            return null;
-        }
+        res.deletedAt = new Date().getTime();
+        this.addCacheEach(clientID, res);
+        return res;
     }
     async fetchClientByClientID(clientID) {
         const cache = this.fetchCacheClientMast(clientID);

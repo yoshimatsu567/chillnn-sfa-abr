@@ -9,7 +9,7 @@ export declare class ClientMastRepositoryCacheAdaptor implements IClientMastRepo
     constructor(repository: IClientMastRepository);
     addClient(input: ClientMast): Promise<ClientMast>;
     updateClient(input: ClientMast): Promise<ClientMast>;
-    deleteClient(clientID: string): Promise<ClientMast | null>;
+    deleteClient(clientID: string): Promise<ClientMast>;
     fetchClientByClientID(clientID: string): Promise<ClientMast | null>;
     fetchClientsByChargeUserID(userID: string): Promise<ClientMast[]>;
     fetchAllClient(): Promise<ClientMast[]>;
