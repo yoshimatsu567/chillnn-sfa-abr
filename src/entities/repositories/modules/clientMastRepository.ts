@@ -1,5 +1,4 @@
-import { ClientModel } from '../../models/modules/clientModel';
-import { ClientMast, FetchClientsByPhaseInput, Scalars } from '../../type';
+import { ClientMast, Scalars } from '../../type';
 
 export interface IClientMastRepository {
         addClient(input: ClientMast): Promise<ClientMast>;

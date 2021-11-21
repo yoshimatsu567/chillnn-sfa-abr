@@ -7,6 +7,4 @@ export interface IUserMastRepository {
         fetchAllUser(): Promise<UserMast[]>;
         fetchMyUserMast(): Promise<UserMast | null>;
         fetchUserMastByUserID(userID: Scalars['ID']): Promise<UserMast | null>;
-        // fetchUsersMastByPhaseNumber(phaseNumber: number): Promise<UserMast[]>;
-        // fetchUsersMastByPhaseDetail(phaseDetail: string): Promise<UserMast[]>;
 }
