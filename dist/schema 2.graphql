@@ -1,0 +1,169 @@
+scalar AWSDate
+
+scalar AWSDateTime
+
+scalar AWSEmail
+
+scalar AWSIPAddress
+
+scalar AWSJSON
+
+scalar AWSPhone
+
+scalar AWSTime
+
+scalar AWSTimestamp
+
+scalar AWSURL
+
+type ClientMast {
+  clientID: ID!
+  chargeUserID: ID
+  companyName: String
+  accommodationName: String!
+  clientUserName: String
+  expectedSalesAmount: String
+  prefecture: String
+  homePagePotential: String
+  clientEmail: String!
+  clientPhoneNumber: String
+  requiredTime: String
+  phaseNumberStatus: Int
+  phaseDetailStatus: String
+  appointmentStatus: String
+  pastStatus: String
+  newStatus: String
+  createdAt: AWSTimestamp!
+  updatedAt: AWSTimestamp!
+  deletedAt: AWSTimestamp
+}
+
+input ClientMastInput {
+  clientID: ID!
+  chargeUserID: ID
+  companyName: String
+  accommodationName: String!
+  clientUserName: String
+  expectedSalesAmount: String
+  prefecture: String
+  homePagePotential: String
+  clientEmail: String!
+  clientPhoneNumber: String
+  requiredTime: String
+  phaseNumberStatus: Int
+  phaseDetailStatus: String
+  appointmentStatus: String
+  pastStatus: String
+  newStatus: String
+  createdAt: AWSTimestamp!
+  updatedAt: AWSTimestamp!
+  deletedAt: AWSTimestamp
+}
+
+enum EVENT_STATUS {
+  CONTACT
+  REACTION
+  DEAD
+}
+
+enum ErrorCode {
+  chillnnSFAError_401_notSignIn
+  chillnnSFAError_404_resourceNotFound
+  chillnnSFAError_500_systemError
+}
+
+type EventMast {
+  eventID: ID!
+  clientID: ID!
+  editedUserID: ID
+  eventDetail: String!
+  eventNumberStatus: Int!
+  eventStatus: EVENT_STATUS!
+  eventCountNumber: Int!
+  eventMemo: String
+  eventTerm: String
+  eventDate: String
+  createdAt: AWSTimestamp!
+  updatedAt: AWSTimestamp!
+  deletedAt: AWSTimestamp
+}
+
+input EventMastInput {
+  eventID: ID!
+  clientID: ID!
+  editedUserID: ID
+  eventDetail: String!
+  eventNumberStatus: Int!
+  eventStatus: EVENT_STATUS!
+  eventCountNumber: Int!
+  eventMemo: String
+  eventTerm: String
+  eventDate: String
+  createdAt: AWSTimestamp!
+  updatedAt: AWSTimestamp!
+  deletedAt: AWSTimestamp
+}
+
+input FetchClientsByPhaseInput {
+  phaseNumber: Int!
+  phaseDetail: String!
+  phaseStatus: String!
+}
+
+enum PHASE_STATUS {
+  TITLE
+  DATA
+  DEAD
+}
+
+type PhaseMast {
+  phaseID: ID!
+  clientID: ID
+  phaseNumber: Int!
+  editedUserID: ID
+  phaseDetail: String!
+  phaseStatus: PHASE_STATUS!
+  phaseTerm: String
+  phaseDate: String
+  createdAt: AWSTimestamp
+  updatedAt: AWSTimestamp
+  deletedAt: AWSTimestamp
+}
+
+input PhaseMastInput {
+  phaseID: ID!
+  clientID: ID
+  phaseNumber: Int!
+  editedUserID: ID
+  phaseDetail: String!
+  phaseStatus: PHASE_STATUS!
+  phaseTerm: String
+  phaseDate: String
+  createdAt: AWSTimestamp
+  updatedAt: AWSTimestamp
+  deletedAt: AWSTimestamp
+}
+
+type UserMast {
+  userID: ID!
+  name: String!
+  email: String!
+  phoneNumber: String
+  jobTitleName: String
+  userStatus: String!
+  createdAt: AWSTimestamp!
+  updatedAt: AWSTimestamp!
+  deletedAt: AWSTimestamp
+}
+
+input UserMastInput {
+  userID: ID!
+  name: String!
+  email: String!
+  phoneNumber: String
+  jobTitleName: String
+  userStatus: String!
+  createdAt: AWSTimestamp!
+  updatedAt: AWSTimestamp!
+  deletedAt: AWSTimestamp
+}
