@@ -22,6 +22,8 @@ class ClientUsecase {
     async deleteClient(clientID) {
         const deleteClient = await this.repositoryContainer.clientMastRepository.deleteClient(clientID);
         return deleteClient;
+        // const deleteClient = await this.repositoryContainer.clientMastRepository.deleteClient(clientID);
+        // return deleteClient;
     }
     async fetchClientByClientID(clientID) {
         const client = await this.repositoryContainer.clientMastRepository.fetchClientByClientID(clientID);

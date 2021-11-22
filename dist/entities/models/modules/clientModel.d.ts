@@ -7,6 +7,7 @@ export declare class ClientModel extends BaseModel<ClientMast> {
     get clientID(): string;
     get createdAt(): number;
     get updatedAt(): number;
+    get deletedAt(): import("../..").Maybe<number> | undefined;
     get chargeUserID(): string;
     set chargeUserID(input: string);
     get prefecture(): string;

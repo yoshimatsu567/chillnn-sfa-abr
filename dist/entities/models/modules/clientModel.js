@@ -27,6 +27,9 @@ class ClientModel extends _baseModel_1.BaseModel {
     get updatedAt() {
         return this.mast.updatedAt;
     }
+    get deletedAt() {
+        return this.mast.deletedAt;
+    }
     // ============================================
     // getter / setter
     // ============================================
