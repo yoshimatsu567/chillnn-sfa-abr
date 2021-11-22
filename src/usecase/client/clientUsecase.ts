@@ -22,7 +22,10 @@ export class ClientUsecase {
         }
 
         async deleteClient(clientID: string) {
-                const deleteClient = await this.repositoryContainer.clientMastRepository.deleteClient(clientID);
+                const deleteClient = await this.repositoryContainer.clientMastRepository.fetchClientByClientID(clientID);
+                if (deleteClient) {
+                        deleteClient.deletedAt = new Date().getTime();
+                }
                 return deleteClient;
                 // const deleteClient = await this.repositoryContainer.clientMastRepository.deleteClient(clientID);
                 // return deleteClient;
