@@ -49,7 +49,7 @@ export type ClientMast = {
   newStatus?: Maybe<Scalars['String']>;
   createdAt: Scalars['AWSTimestamp'];
   updatedAt: Scalars['AWSTimestamp'];
-  deletedAt?: Maybe<Scalars['AWSTimestamp']>;
+  deletedAt?: Maybe<Scalars['Int']>;
 };
 
 export type ClientMastInput = {
@@ -71,7 +71,7 @@ export type ClientMastInput = {
   newStatus?: Maybe<Scalars['String']>;
   createdAt: Scalars['AWSTimestamp'];
   updatedAt: Scalars['AWSTimestamp'];
-  deletedAt?: Maybe<Scalars['AWSTimestamp']>;
+  deletedAt?: Maybe<Scalars['Int']>;
 };
 
 export enum EVENT_STATUS {

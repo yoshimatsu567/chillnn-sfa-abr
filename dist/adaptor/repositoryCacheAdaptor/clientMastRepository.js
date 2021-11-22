@@ -29,16 +29,14 @@ class ClientMastRepositoryCacheAdaptor {
         return res;
     }
     async deleteClient(clientID) {
-        // const res = await this.repository.deleteClient(clientID);
-        const res = await this.repository.fetchClientByClientID(clientID);
+        const res = await this.repository.deleteClient(clientID);
+        // const res = await this.repository.fetchClientByClientID(clientID);
         if (res) {
             res.deletedAt = new Date().getTime();
             this.addCacheEach(clientID, res);
             return res;
         }
-        else {
-            return null;
-        }
+        return null;
     }
     async fetchClientByClientID(clientID) {
         const cache = this.fetchCacheClientMast(clientID);

@@ -27,9 +27,6 @@ export class ClientModel extends BaseModel<ClientMast> {
         get updatedAt() {
                 return this.mast.updatedAt;
         }
-        get deletedAt() {
-                return this.mast.deletedAt;
-        }
         // ============================================
         // getter / setter
         // ============================================
@@ -169,6 +166,17 @@ export class ClientModel extends BaseModel<ClientMast> {
                         this.mast.requiredTime = input;
                 } else {
                         this.mast.requiredTime = null;
+                }
+        }
+        get deletedAt() {
+                return this.mast.deletedAt || 0;
+        }
+
+        set deletedAt(input: number) {
+                if (input) {
+                        this.mast.deletedAt = input;
+                } else {
+                        this.mast.deletedAt = 0;
                 }
         }
         // ============================================

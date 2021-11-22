@@ -46,7 +46,7 @@ export declare type ClientMast = {
     newStatus?: Maybe<Scalars['String']>;
     createdAt: Scalars['AWSTimestamp'];
     updatedAt: Scalars['AWSTimestamp'];
-    deletedAt?: Maybe<Scalars['AWSTimestamp']>;
+    deletedAt?: Maybe<Scalars['Int']>;
 };
 export declare type ClientMastInput = {
     clientID: Scalars['ID'];
@@ -67,7 +67,7 @@ export declare type ClientMastInput = {
     newStatus?: Maybe<Scalars['String']>;
     createdAt: Scalars['AWSTimestamp'];
     updatedAt: Scalars['AWSTimestamp'];
-    deletedAt?: Maybe<Scalars['AWSTimestamp']>;
+    deletedAt?: Maybe<Scalars['Int']>;
 };
 export declare enum EVENT_STATUS {
     CONTACT = "CONTACT",

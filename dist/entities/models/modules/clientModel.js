@@ -27,9 +27,6 @@ class ClientModel extends _baseModel_1.BaseModel {
     get updatedAt() {
         return this.mast.updatedAt;
     }
-    get deletedAt() {
-        return this.mast.deletedAt;
-    }
     // ============================================
     // getter / setter
     // ============================================
@@ -181,6 +178,17 @@ class ClientModel extends _baseModel_1.BaseModel {
         }
         else {
             this.mast.requiredTime = null;
+        }
+    }
+    get deletedAt() {
+        return this.mast.deletedAt || 0;
+    }
+    set deletedAt(input) {
+        if (input) {
+            this.mast.deletedAt = input;
+        }
+        else {
+            this.mast.deletedAt = 0;
         }
     }
     // ============================================

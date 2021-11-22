@@ -7,7 +7,6 @@ export declare class ClientModel extends BaseModel<ClientMast> {
     get clientID(): string;
     get createdAt(): number;
     get updatedAt(): number;
-    get deletedAt(): import("../..").Maybe<number> | undefined;
     get chargeUserID(): string;
     set chargeUserID(input: string);
     get prefecture(): string;
@@ -38,6 +37,8 @@ export declare class ClientModel extends BaseModel<ClientMast> {
     set clientUserName(input: string);
     get requiredTime(): string;
     set requiredTime(input: string);
+    get deletedAt(): number;
+    set deletedAt(input: number);
     get isRegisterable(): boolean;
     register(): Promise<void>;
     createNewEvent(): EventModel;
