@@ -108,6 +108,17 @@ class PhaseModel extends _baseModel_1.BaseModel {
             this.mast.phaseNumber = 0;
         }
     }
+    get deletedAt() {
+        return this.mast.deletedAt || 0;
+    }
+    set deletedAt(input) {
+        if (input) {
+            this.mast.deletedAt = input;
+        }
+        else {
+            this.mast.deletedAt = 0;
+        }
+    }
     async register() {
         const now = new Date().getTime();
         if (this.isNew) {

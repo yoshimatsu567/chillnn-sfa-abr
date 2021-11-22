@@ -48,6 +48,17 @@ class UserModel extends _baseModel_1.BaseModel {
     set userStatus(input) {
         this.mast.userStatus = input;
     }
+    get deletedAt() {
+        return this.mast.deletedAt || 0;
+    }
+    set deletedAt(input) {
+        if (input) {
+            this.mast.deletedAt = input;
+        }
+        else {
+            this.mast.deletedAt = 0;
+        }
+    }
     // ============================================
     // validation
     // ============================================

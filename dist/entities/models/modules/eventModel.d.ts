@@ -32,6 +32,8 @@ export declare class EventModel extends BaseModel<EventMast> {
     set eventTerm(input: string);
     get eventDate(): string;
     set eventDate(input: string);
+    get deletedAt(): number;
+    set deletedAt(input: number);
     get isRegisterable(): boolean;
     register(): Promise<void>;
     fetchAllEvent(): Promise<EventModel[]>;

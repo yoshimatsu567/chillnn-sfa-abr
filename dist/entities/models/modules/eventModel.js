@@ -105,6 +105,17 @@ class EventModel extends _baseModel_1.BaseModel {
             this.mast.eventDate = null;
         }
     }
+    get deletedAt() {
+        return this.mast.deletedAt || 0;
+    }
+    set deletedAt(input) {
+        if (input) {
+            this.mast.deletedAt = input;
+        }
+        else {
+            this.mast.deletedAt = 0;
+        }
+    }
     get isRegisterable() {
         return this.isNew;
     }

@@ -36,5 +36,7 @@ export declare class PhaseModel extends BaseModel<PhaseMast> {
     set phaseDate(input: string);
     get phaseNumber(): number;
     set phaseNumber(input: number);
+    get deletedAt(): number;
+    set deletedAt(input: number);
     register(): Promise<void>;
 }
