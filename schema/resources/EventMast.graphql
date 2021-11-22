@@ -24,7 +24,8 @@ type EventMast {
         # status
         createdAt: AWSTimestamp!
         updatedAt: AWSTimestamp!
-        deletedAt: AWSTimestamp
+        #　マジックナンバー　0:有り   /    1:削除
+        deletedAt: Int
 }
 
 input EventMastInput {
@@ -41,5 +42,6 @@ input EventMastInput {
         # status
         createdAt: AWSTimestamp!
         updatedAt: AWSTimestamp!
-        deletedAt: AWSTimestamp
+        #　マジックナンバー　0:有り   /    1:削除
+        deletedAt: Int
 }

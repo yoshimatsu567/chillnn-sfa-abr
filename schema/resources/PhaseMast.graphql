@@ -24,7 +24,7 @@ type PhaseMast {
         # status
         createdAt: AWSTimestamp
         updatedAt: AWSTimestamp
-        deletedAt: AWSTimestamp
+        deletedAt: Int
 }
 
 input PhaseMastInput {
@@ -39,5 +39,5 @@ input PhaseMastInput {
         # status
         createdAt: AWSTimestamp
         updatedAt: AWSTimestamp
-        deletedAt: AWSTimestamp
+        deletedAt: Int
 }

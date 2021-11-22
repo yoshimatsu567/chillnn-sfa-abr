@@ -85,7 +85,7 @@ type EventMast {
   eventDate: String
   createdAt: AWSTimestamp!
   updatedAt: AWSTimestamp!
-  deletedAt: AWSTimestamp
+  deletedAt: Int
 }
 
 input EventMastInput {
@@ -101,7 +101,7 @@ input EventMastInput {
   eventDate: String
   createdAt: AWSTimestamp!
   updatedAt: AWSTimestamp!
-  deletedAt: AWSTimestamp
+  deletedAt: Int
 }
 
 input FetchClientsByPhaseInput {
@@ -127,7 +127,7 @@ type PhaseMast {
   phaseDate: String
   createdAt: AWSTimestamp
   updatedAt: AWSTimestamp
-  deletedAt: AWSTimestamp
+  deletedAt: Int
 }
 
 input PhaseMastInput {
@@ -141,7 +141,7 @@ input PhaseMastInput {
   phaseDate: String
   createdAt: AWSTimestamp
   updatedAt: AWSTimestamp
-  deletedAt: AWSTimestamp
+  deletedAt: Int
 }
 
 type UserMast {
@@ -153,7 +153,7 @@ type UserMast {
   userStatus: String!
   createdAt: AWSTimestamp!
   updatedAt: AWSTimestamp!
-  deletedAt: AWSTimestamp
+  deletedAt: Int
 }
 
 input UserMastInput {
@@ -165,5 +165,5 @@ input UserMastInput {
   userStatus: String!
   createdAt: AWSTimestamp!
   updatedAt: AWSTimestamp!
-  deletedAt: AWSTimestamp
+  deletedAt: Int
 }

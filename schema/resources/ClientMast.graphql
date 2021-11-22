@@ -32,6 +32,7 @@ type ClientMast {
         # status
         createdAt: AWSTimestamp!
         updatedAt: AWSTimestamp!
+        #　マジックナンバー　0:有り   /    1:削除
         deletedAt: Int
 }
 
@@ -55,5 +56,6 @@ input ClientMastInput {
         # status
         createdAt: AWSTimestamp!
         updatedAt: AWSTimestamp!
+        #　マジックナンバー　0:有り   /    1:削除
         deletedAt: Int
 }

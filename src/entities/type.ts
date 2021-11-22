@@ -99,7 +99,7 @@ export type EventMast = {
   eventDate?: Maybe<Scalars['String']>;
   createdAt: Scalars['AWSTimestamp'];
   updatedAt: Scalars['AWSTimestamp'];
-  deletedAt?: Maybe<Scalars['AWSTimestamp']>;
+  deletedAt?: Maybe<Scalars['Int']>;
 };
 
 export type EventMastInput = {
@@ -115,7 +115,7 @@ export type EventMastInput = {
   eventDate?: Maybe<Scalars['String']>;
   createdAt: Scalars['AWSTimestamp'];
   updatedAt: Scalars['AWSTimestamp'];
-  deletedAt?: Maybe<Scalars['AWSTimestamp']>;
+  deletedAt?: Maybe<Scalars['Int']>;
 };
 
 export type FetchClientsByPhaseInput = {
@@ -141,7 +141,7 @@ export type PhaseMast = {
   phaseDate?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['AWSTimestamp']>;
   updatedAt?: Maybe<Scalars['AWSTimestamp']>;
-  deletedAt?: Maybe<Scalars['AWSTimestamp']>;
+  deletedAt?: Maybe<Scalars['Int']>;
 };
 
 export type PhaseMastInput = {
@@ -155,7 +155,7 @@ export type PhaseMastInput = {
   phaseDate?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['AWSTimestamp']>;
   updatedAt?: Maybe<Scalars['AWSTimestamp']>;
-  deletedAt?: Maybe<Scalars['AWSTimestamp']>;
+  deletedAt?: Maybe<Scalars['Int']>;
 };
 
 export type UserMast = {
@@ -167,7 +167,7 @@ export type UserMast = {
   userStatus: Scalars['String'];
   createdAt: Scalars['AWSTimestamp'];
   updatedAt: Scalars['AWSTimestamp'];
-  deletedAt?: Maybe<Scalars['AWSTimestamp']>;
+  deletedAt?: Maybe<Scalars['Int']>;
 };
 
 export type UserMastInput = {
@@ -179,5 +179,5 @@ export type UserMastInput = {
   userStatus: Scalars['String'];
   createdAt: Scalars['AWSTimestamp'];
   updatedAt: Scalars['AWSTimestamp'];
-  deletedAt?: Maybe<Scalars['AWSTimestamp']>;
+  deletedAt?: Maybe<Scalars['Int']>;
 };

@@ -1,25 +1,27 @@
 type UserMast {
-    userID: ID!
-    name: String!
-    email: String!
-    phoneNumber: String
-    jobTitleName: String
-    userStatus: String!
-    # status
-    createdAt: AWSTimestamp!
-    updatedAt: AWSTimestamp!
-    deletedAt: AWSTimestamp
+        userID: ID!
+        name: String!
+        email: String!
+        phoneNumber: String
+        jobTitleName: String
+        userStatus: String!
+        # status
+        createdAt: AWSTimestamp!
+        updatedAt: AWSTimestamp!
+        #　マジックナンバー　0:有り   /    1:削除
+        deletedAt: Int
 }
 
 input UserMastInput {
-    userID: ID!
-    name: String!
-    email: String!
-    phoneNumber: String
-    jobTitleName: String
-    userStatus: String!
-    # status
-    createdAt: AWSTimestamp!
-    updatedAt: AWSTimestamp!
-    deletedAt: AWSTimestamp
+        userID: ID!
+        name: String!
+        email: String!
+        phoneNumber: String
+        jobTitleName: String
+        userStatus: String!
+        # status
+        createdAt: AWSTimestamp!
+        updatedAt: AWSTimestamp!
+        #　マジックナンバー　0:有り   /    1:削除
+        deletedAt: Int
 }
