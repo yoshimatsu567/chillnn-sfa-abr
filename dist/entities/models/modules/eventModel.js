@@ -117,7 +117,7 @@ class EventModel extends _baseModel_1.BaseModel {
         }
     }
     get isRegisterable() {
-        return this.isNew;
+        return true;
     }
     async register() {
         const now = new Date().getTime();

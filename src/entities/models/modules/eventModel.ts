@@ -113,7 +113,7 @@ export class EventModel extends BaseModel<EventMast> {
         }
 
         get isRegisterable() {
-                return this.isNew;
+                return true;
         }
         async register() {
                 const now = new Date().getTime();
