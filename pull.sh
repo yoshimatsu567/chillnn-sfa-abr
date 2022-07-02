@@ -1,24 +1,14 @@
 #!/bin/sh
+arg=$1
 branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
-if [ $branch != 'prd' -a $branch != 'stg' -a $branch != 'dev' ]; then
-    echo ""
-    echo ""
-    echo "\033[43;31m##############################################\033[0m"
-    echo "\033[43;31m## FetchするABRのbranch名を選んでください。 ##\033[0m"
-    echo "\033[43;31m##############################################\033[0m"
-    echo ""
-
-    select VAR in $branch 'dev' exit
-    do
-        branch=$VAR
-        break
-    done
+if [ -n "$arg" ]; then
+    branch=$arg
+elif [ $branch = 'stg' ]; then
+    branch='stg'
+elif [ $branch = 'prd' ]; then
+    branch='prd'
+else
+    branch='dev'
 fi
-
-if [ $branch != 'exit' ]; then
-    echo ""
-    echo ""
-    echo "\033[43;31m$branch SFA ABR をFetchします。\033[0m"
-    yarn add git+ssh://git@github.com:yoshimatsu567/chillnn-sfa-abr.git#${branch}
-fi
+yarn add git+ssh://git@github.com:yoshimatsu567/chillnn-sfa-abr.git#${branch}
